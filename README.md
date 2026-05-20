@@ -1,12 +1,64 @@
 # LiterAI — Ролевые истории с Ai
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![SvelteKit](https://img.shields.io/badge/SvelteKit-4.0.0-blue.svg)](https://kit.svelte.dev/)
+[![SvelteKit](https://img.shields.io/badge/SvelteKit-5.5-blue.svg)](https://kit.svelte.dev/)
 [![PWA](https://img.shields.io/badge/PWA-Enabled-brightgreen)](https://web.dev/progressive-web-apps/)
 
 **LiterAI** — веб-приложение для текстовых ролевых игр с генерацией сюжета через нейросети.  
 Выбирайте персонажей, роли и сцены, а ИИ будет вести историю, предлагать варианты действий и адаптироваться к вашим решениям.  
 Доступны **три режима игры**, каталог готовых историй, расширенные инструменты управления миром и персонажами, а также полная поддержка PWA для установки на устройство.
+
+**[Онлайн версия Literai.ru](https://literai.ru)**
+
+**[Блог проекта](https://blog.literai.ru/category/blog-proekta/)**
+
+**[Гайды и FAQ](https://blog.literai.ru/category/poleznye-uroki/)**
+
+<img width="920" alt="photo_2026-05-06_03-04-54" src="https://github.com/user-attachments/assets/0b99efdb-8a69-439f-8db3-ffb57df1830e" />
+
+
+---
+
+## 🚀 Быстрый старт
+
+### Требования
+- Node.js 18+  
+- pnpm (рекомендуется) или npm
+
+### Установка и запуск
+
+### Под Windows
+Зайдите в папку куда собираетесь установить приложение, запустите терминал (cmd)
+
+```bash
+# Клонировать репозиторий
+git clone https://github.com/proliterai/literai.git
+```
+На компьютере появится папка literai.
+Зайдите в папку и запустите файл install_and_run.bat - двойным кликом по файлу.
+Запустится приложение и откроется в браузере.
+В строке браузера вы можете увидеть иконку - установить приложение. Можно каждый раз запускать из папки через файл install_and_run.bat или кликнуть на иконку в браузере и установить PWA приложение, появится иконка на рабочем столе и можно будет запускать с рабочего стола.
+
+
+### Под Linux/MacOs
+Зайдите в папку куда собираетесь установить приложение, запустите терминал
+
+```bash
+# Клонировать репозиторий
+git clone https://github.com/proliterai/literai.git
+```
+```bash
+cd literai
+```
+```bash
+chmod +x install_and_run.sh
+```
+```bash
+bash install_and_run.sh
+```
+
+Запустится приложение и откроется в браузере.
+В строке браузера вы можете увидеть иконку - установить приложение. Можно каждый раз запускать из папки через файл install_and_run.bat или кликнуть на иконку в браузере и установить PWA приложение, появится иконка на рабочем столе и можно будет запускать с рабочего стола.
 
 ---
 
@@ -56,45 +108,13 @@
 ### PWA
 Установка на рабочий стол, кэширование статики, работа офлайн (чат требует соединения).
 
----
+### Скриншоты и дополнения
 
-## 🚀 Быстрый старт
+<img width="1202" height="925" alt="photo_2026-05-06_03-04-55 (2)" src="https://github.com/user-attachments/assets/a1ac45f8-857d-4d16-830f-908753938d9b" />
+<img width="1276" height="919" alt="photo_2026-05-06_03-04-55 (3)" src="https://github.com/user-attachments/assets/63bd09b5-c76e-41c0-bf41-9362963aea3c" />
+<img width="1051" height="893" alt="photo_2026-05-06_03-04-55 (4)" src="https://github.com/user-attachments/assets/c043f990-7d91-4257-8681-710d1d444b87" />
+<img width="988" height="774" alt="photo_2026-05-06_03-04-55 (5)" src="https://github.com/user-attachments/assets/8eadb956-2573-4f53-b59e-5df59475e7aa" />
+<img width="1212" height="920" alt="photo_2026-05-06_03-04-55" src="https://github.com/user-attachments/assets/ef866a77-8ca8-4819-a66c-e5b363f31dc3" />
+<img width="1042" height="846" alt="photo_2026-05-06_03-04-55 (6)" src="https://github.com/user-attachments/assets/ebd647db-2183-4e21-8c44-8f5b5576cb3e" />
+<img width="1207" height="921" alt="neiropoisk" src="https://github.com/user-attachments/assets/f4725aba-492e-4f8b-b2c4-d5d83ecd4f79" />
 
-### Требования
-- Node.js 18+  
-- pnpm (рекомендуется) или npm
-
-### Установка и запуск
-
-### Под Windows
-Зайдите в папку куда собираетесь установить приложение, запустите терминал (cmd)
-
-```bash
-# Клонировать репозиторий
-git clone https://github.com/proliterai/literai.git
-```
-На компьютере появится папка literai.
-Зайдите в папку и запустите файл install_and_run.bat - двойным кликом по файлу.
-Запустится приложение и откроется в браузере.
-В строке браузера вы можете увидеть иконку - установить приложение. Можно каждый раз запускать из папки через файл install_and_run.bat или кликнуть на иконку в браузере и установить PWA приложение, появится иконка на рабочем столе и можно будет запускать с рабочего стола.
-
-
-### Под Linux/MacOs
-Зайдите в папку куда собираетесь установить приложение, запустите терминал
-
-```bash
-# Клонировать репозиторий
-git clone https://github.com/proliterai/literai.git
-```
-```bash
-cd literai
-```
-```bash
-chmod +x install_and_run.sh
-```
-```bash
-bash install_and_run.sh
-```
-
-Запустится приложение и откроется в браузере.
-В строке браузера вы можете увидеть иконку - установить приложение. Можно каждый раз запускать из папки через файл install_and_run.bat или кликнуть на иконку в браузере и установить PWA приложение, появится иконка на рабочем столе и можно будет запускать с рабочего стола.
