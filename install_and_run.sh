@@ -2,9 +2,33 @@
 echo "========================================"
 echo "  LiterAI: Локальный запуск..."
 echo "========================================"
-npm install --silent
-npm run build --silent
-echo "Откройте браузер: http://localhost:4173"
+
+# 1. Проверяем библиотеки (устанавливаем только 1 раз)
+if [ ! -d "node_modules" ]; then
+    echo "Установка библиотек, пожалуйста подождите..."
+    npm install --silent
+fi
+
+# 2. Проверяем сборку (собираем только 1 раз)
+if [ ! -d ".svelte-kit" ] && [ ! -d "build" ] && [ ! -d "dist" ]; then
+    echo "Оптимизация и сборка проекта..."
+    npm run build --silent
+fi
+
+echo "----------------------------------------"
 echo "НЕ ЗАКРЫВАЙТЕ ЭТО ОКНО!"
-open http://localhost:4173 || xdg-open http://localhost:4173
+echo "----------------------------------------"
+
+# 3. Открываем браузер в фоновом режиме через 2 секунды, 
+# чтобы сервер успел запуститься
+(
+    sleep 2
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        open "http://localhost:4173" # Для macOS
+    else
+        xdg-open "http://localhost:4173" 2>/dev/null # Для Linux
+    fi
+) &
+
+# 4. Запускаем сервер
 npm run preview
