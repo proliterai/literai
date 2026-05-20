@@ -49,7 +49,7 @@ else
     echo "[1/3] Зависимости уже установлены."
 fi
 
-# 6. Сборка приложения (если не собрано или запрошена пересборка)
+# 6. Сборка приложения
 NEED_BUILD=0
 if [ ! -d ".svelte-kit" ] && [ ! -d "build" ] && [ ! -d "dist" ]; then
     NEED_BUILD=1
@@ -79,21 +79,18 @@ echo ""
 echo "----------------------------------------"
 echo "НЕ ЗАКРЫВАЙТЕ ЭТО ОКНО!"
 echo "----------------------------------------"
-
-# 7. Открываем браузер с задержкой, чтобы сервер успел запуститься
-(
-    sleep 2
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-        open "http://localhost:4173"   # macOS
-    else
-        xdg-open "http://localhost:4173" 2>/dev/null   # Linux
-    fi
-) &
-
 echo ""
 echo "[3/3] Запуск локального сервера..."
 echo ""
 echo "Приложение запущено!"
 echo "Откройте браузер: http://localhost:4173"
 echo ""
+
+# Открываем браузер в фоновом процессе (без подоболочки)
+if command -v xdg-open > /dev/null 2>&1; then
+    (sleep 2 && xdg-open "http://localhost:4173") &
+elif command -v open > /dev/null 2>&1; then
+    (sleep 2 && open "http://localhost:4173") &
+fi
+
 npm run preview
