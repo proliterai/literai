@@ -116,5 +116,6 @@ bash install_and_run.sh
 <img width="988" height="774" alt="photo_2026-05-06_03-04-55 (5)" src="https://github.com/user-attachments/assets/8eadb956-2573-4f53-b59e-5df59475e7aa" />
 <img width="1212" height="920" alt="photo_2026-05-06_03-04-55" src="https://github.com/user-attachments/assets/ef866a77-8ca8-4819-a66c-e5b363f31dc3" />
 <img width="1042" height="846" alt="photo_2026-05-06_03-04-55 (6)" src="https://github.com/user-attachments/assets/ebd647db-2183-4e21-8c44-8f5b5576cb3e" />
+<img width="774" height="920" alt="techx" src="https://github.com/user-attachments/assets/eb0378d4-0acd-4abf-80ab-27b2c0bee50b" />
 <img width="1207" height="921" alt="neiropoisk" src="https://github.com/user-attachments/assets/f4725aba-492e-4f8b-b2c4-d5d83ecd4f79" />
 
