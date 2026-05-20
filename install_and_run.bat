@@ -1,27 +1,34 @@
 @echo off
-chcp 65001 > nul
-echo ==========================================
-echo   Автоматический запуск LiterAI (Production)
-echo ==========================================
+chcp 65001 >nul
+title LiterAI - Local Server
+echo ========================================
+echo   LiterAI: Локальный запуск...
+echo ========================================
+echo.
 
-:: 1. Проверка библиотек
-if not exist "node_modules\" (
-    echo [1/3] Установка библиотек (npm install)...
-    call npm install
-    if %errorlevel% neq 0 ( echo Ошибка сборки! & pause & exit /b )
+:: Проверка Node.js
+where node >nul 2>nul
+if %ERRORLEVEL% NEQ 0 (
+    echo [ОШИБКА] Node.js не найден!
+    echo Скачайте и установите его с сайта: https://nodejs.org/
+    pause
+    exit /b
 )
 
-:: 2. Проверка сборки (ищем папку сборки SvelteKit или Vite)
-if not exist ".svelte-kit\" if not exist "build\" if not exist "dist\" (
-    echo [2/3] Оптимизация и сборка проекта (npm run build)...
-    call npm run build
-    if %errorlevel% neq 0 ( echo Ошибка компиляции! & pause & exit /b )
-)
+echo [1/3] Проверка зависимостей...
+call npm install --silent
 
-echo [3/3] Запуск оптимизированной версии приложения...
-echo ==========================================
+echo [2/3] Сборка приложения...
+call npm run build --silent
 
-:: 3. Запуск продакшн-превью вместо dev-режима
+echo [3/3] Запуск локального сервера...
+echo.
+echo ========================================
+echo   Приложение запущено!
+echo   Откройте браузер: http://localhost:4173
+echo   НЕ ЗАКРЫВАЙТЕ ЭТО ОКНО!
+echo ========================================
+echo.
+start http://localhost:4173
 call npm run preview
-
 pause
