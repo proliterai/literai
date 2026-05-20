@@ -1,16 +1,12 @@
 #!/bin/bash
-
 echo "========================================"
 echo " LiterAI: Локальный запуск..."
 echo "========================================"
-
-# 1. Проверка, что мы в корне проекта
 if [ ! -f "package.json" ]; then
     echo "[ОШИБКА] Не найден файл package.json."
     echo "Убедитесь, что скрипт запущен из корневой папки проекта."
     exit 1
 fi
-
 # 2. Проверка наличия Node.js
 if ! command -v node &> /dev/null; then
     echo "[ОШИБКА] Node.js не найден!"
@@ -18,7 +14,6 @@ if ! command -v node &> /dev/null; then
     echo "Минимальная требуемая версия: 18.x"
     exit 1
 fi
-
 # 3. Проверка версии Node.js (>= 18)
 NODE_VERSION=$(node -v | cut -d'v' -f2 | cut -d'.' -f1)
 if [ "$NODE_VERSION" -lt 18 ]; then
@@ -26,15 +21,12 @@ if [ "$NODE_VERSION" -lt 18 ]; then
     echo "Текущая версия: $(node -v)"
     exit 1
 fi
-
 echo "[OK] Node.js найден (версия $(node -v))."
-
 # 4. Обработка флага пересборки
 FORCE_REBUILD=0
 if [ "$1" = "--rebuild" ]; then
     FORCE_REBUILD=1
 fi
-
 # 5. Установка зависимостей (только если node_modules отсутствует)
 if [ ! -d "node_modules" ]; then
     echo ""
@@ -48,17 +40,14 @@ else
     echo ""
     echo "[1/3] Зависимости уже установлены."
 fi
-
 # 6. Сборка приложения
 NEED_BUILD=0
 if [ ! -d ".svelte-kit" ] && [ ! -d "build" ] && [ ! -d "dist" ]; then
     NEED_BUILD=1
 fi
-
 if [ $FORCE_REBUILD -eq 1 ]; then
     NEED_BUILD=1
 fi
-
 if [ $NEED_BUILD -eq 1 ]; then
     echo ""
     echo "[2/3] Сборка приложения..."
@@ -74,7 +63,6 @@ else
     echo ""
     echo "[2/3] Сборка уже выполнена. Используйте флаг --rebuild, чтобы пересобрать принудительно."
 fi
-
 echo ""
 echo "----------------------------------------"
 echo "НЕ ЗАКРЫВАЙТЕ ЭТО ОКНО!"
@@ -85,12 +73,10 @@ echo ""
 echo "Приложение запущено!"
 echo "Откройте браузер: http://localhost:4173"
 echo ""
-
 # Открываем браузер в фоновом процессе (без подоболочки)
 if command -v xdg-open > /dev/null 2>&1; then
     (sleep 2 && xdg-open "http://localhost:4173") &
 elif command -v open > /dev/null 2>&1; then
     (sleep 2 && open "http://localhost:4173") &
 fi
-
 npm run preview
