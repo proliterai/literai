@@ -43,7 +43,6 @@ git clone https://github.com/proliterai/literai.git
 Зайдите в папку куда собираетесь установить приложение, запустите терминал
 
 ```bash
-# Клонировать репозиторий
 git clone https://github.com/proliterai/literai.git
 ```
 ```bash
