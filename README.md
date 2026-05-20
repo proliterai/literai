@@ -114,6 +114,7 @@ bash install_and_run.sh
 <img width="1276" height="919" alt="photo_2026-05-06_03-04-55 (3)" src="https://github.com/user-attachments/assets/63bd09b5-c76e-41c0-bf41-9362963aea3c" />
 <img width="1051" height="893" alt="photo_2026-05-06_03-04-55 (4)" src="https://github.com/user-attachments/assets/c043f990-7d91-4257-8681-710d1d444b87" />
 <img width="988" height="774" alt="photo_2026-05-06_03-04-55 (5)" src="https://github.com/user-attachments/assets/8eadb956-2573-4f53-b59e-5df59475e7aa" />
+<img width="1332" height="910" alt="chitmode" src="https://github.com/user-attachments/assets/174c8347-2985-423d-a214-7eb5a3195b67" />
 <img width="1212" height="920" alt="photo_2026-05-06_03-04-55" src="https://github.com/user-attachments/assets/ef866a77-8ca8-4819-a66c-e5b363f31dc3" />
 <img width="1042" height="846" alt="photo_2026-05-06_03-04-55 (6)" src="https://github.com/user-attachments/assets/ebd647db-2183-4e21-8c44-8f5b5576cb3e" />
 <img width="774" height="920" alt="techx" src="https://github.com/user-attachments/assets/eb0378d4-0acd-4abf-80ab-27b2c0bee50b" />
