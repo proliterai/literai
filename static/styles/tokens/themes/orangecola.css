@@ -1,0 +1,531 @@
+/* ============================================
+   EMBER SILK — Cola Orange Theme
+   ─────────────────────────────────────────
+   Black silk unfurled. Burnt orange embers
+   glowing in its folds. The luxury of darkness
+   made warm by a single, perfect accent —
+   not neon, not traffic cone, but the colour
+   of aged cognac catching candlelight.
+
+   Design architecture:
+   • True rich black (#0C0A08) with warm undertone
+     — silk, not void. Leather, not plastic
+   • Muted copper-orange (#D4854A) — restrained,
+     sophisticated, never screaming
+   • Cream text (#E8DED2) — warm white ink on
+     dark fabric, effortless reading
+   • Brown-tinted shadows — coherent warm lighting
+   • Every interaction whispers luxury
+   ============================================ */
+
+[data-theme="orangecola"] {
+
+  /* ═══════════════════════════════════════════
+     BACKGROUNDS
+     Layers of black silk. Not flat — each
+     surface is a fold in the fabric, catching
+     light slightly differently. The warmth
+     comes from within: brown-black, not
+     blue-black. Charcoal, not graphite.
+     ═══════════════════════════════════════════ */
+  --bg-app: #0C0A08;
+  --bg-surface-1: #141210;
+  --bg-surface-2: #1C1916;
+  --bg-surface-3: #24201C;
+  --bg-surface-4: #2C2822;
+  --bg-surface-5: #343028;
+  --bg-input: #141210;
+  --bg-elevated: #1C1916;
+  --bg-sunken: #080604;
+  --bg-primary: var(--bg-surface-1);
+
+  /* ═══════════════════════════════════════════
+     GLASSMORPHISM
+     Smoked glass panels. Dark, warm, with the
+     barest suggestion of the ember glow
+     bleeding through the edges.
+     ═══════════════════════════════════════════ */
+  --glass-bg: rgba(20, 18, 16, 0.80);
+  --glass-bg-heavy: rgba(20, 18, 16, 0.95);
+  --glass-bg-light: rgba(20, 18, 16, 0.55);
+  --glass-border: rgba(212, 133, 74, 0.07);
+  --glass-border-hover: rgba(212, 133, 74, 0.16);
+  --glass-border-active: rgba(212, 133, 74, 0.32);
+
+  /* ═══════════════════════════════════════════
+     TEXT COLORS
+     Warm cream on rich black. The contrast of
+     ivory embossing on a leather-bound cover.
+     Not pure white (cold, harsh) — cream
+     with a whisper of sand.
+
+     Contrast ratios on #141210:
+     • primary   #E8DED2 → 13.2:1 (AAA)
+     • secondary #A09484 →  5.2:1 (AA)
+     • muted     #685C50 →  2.8:1 (decorative)
+
+     Contrast on accent gradient:
+     • gold-light #FFF5EB → 4.5–5.8:1 (AA)
+     ═══════════════════════════════════════════ */
+  --txt-primary: #E8DED2;
+  --txt-secondary: #A09484;
+  --txt-muted: #685C50;
+  --txt-disabled: rgba(104, 92, 80, 0.45);
+
+  /* Accent text ON dark surfaces — warm copper */
+  --txt-gold: #D4854A;
+
+  /* Text ON accent backgrounds — warm white silk */
+  --txt-gold-light: #FFF5EB;
+
+  /* Darker accent for subtle uses */
+  --txt-gold-dark: #A06030;
+
+  --txt-accent: #D4854A;
+  --txt-inverse: #FFF5EB;
+  --txt-on-accent: #FFF5EB;
+  --txt-link: #D4854A;
+  --txt-link-hover: #E09860;
+
+  /* ═══════════════════════════════════════════
+     BORDERS
+     Copper thread woven through black silk.
+     Barely visible at rest — glowing softly
+     when touched. The stitching on a bespoke
+     garment: precise, understated, there for
+     those who look closely.
+     ═══════════════════════════════════════════ */
+  --border-color: rgba(212, 133, 74, 0.08);
+  --border-subtle: rgba(212, 133, 74, 0.04);
+  --border-hover: rgba(212, 133, 74, 0.18);
+  --border-active: rgba(212, 133, 74, 0.36);
+  --border-accent: #B87040;
+  --border-focus: #D4854A;
+  --border-divider: rgba(212, 133, 74, 0.06);
+
+  /* ═══════════════════════════════════════════
+     ACCENTS
+     Burnt copper palette. The primary is not
+     traffic-cone orange — it's the colour of
+     aged copper, cognac, sun through amber
+     glass. Warm enough to glow, muted enough
+     to stay elegant on black.
+     ═══════════════════════════════════════════ */
+  --accent-primary: #D4854A;
+  --accent-secondary: #E09860;
+  --accent-tertiary: #A06030;
+  --accent-success: #6AAA6E;
+  --accent-error: #D45A50;
+  --accent-info: #6A9EC0;
+  --accent-warning: #E0A840;
+
+  /* ═══════════════════════════════════════════
+     STATES
+     Warm-spectrum diagnostics. Each semantic
+     colour runs through a warm filter — nothing
+     cold or clinical. Even info-blue has a
+     warm desaturated quality, like denim in
+     firelight.
+     ═══════════════════════════════════════════ */
+  --state-success: #6AAA6E;
+  --state-success-bg: rgba(106, 170, 110, 0.08);
+  --state-success-border: rgba(106, 170, 110, 0.20);
+  --state-error: #D45A50;
+  --state-error-bg: rgba(212, 90, 80, 0.08);
+  --state-error-border: rgba(212, 90, 80, 0.20);
+  --state-info: #6A9EC0;
+  --state-info-bg: rgba(106, 158, 192, 0.08);
+  --state-info-border: rgba(106, 158, 192, 0.20);
+  --state-warning: #E0A840;
+  --state-warning-bg: rgba(224, 168, 64, 0.08);
+  --state-warning-border: rgba(224, 168, 64, 0.20);
+  --state-disabled: rgba(104, 92, 80, 0.18);
+  --state-hover: rgba(212, 133, 74, 0.04);
+  --state-active: rgba(212, 133, 74, 0.10);
+  --state-selected: rgba(212, 133, 74, 0.065);
+
+  /* ═══════════════════════════════════════════
+     SHADOWS
+     Shadows cast by a single warm source —
+     an ember, a desk lamp with an amber shade.
+     Deep warm blacks, not cool grays.
+     Multi-layer for natural penumbra.
+     ═══════════════════════════════════════════ */
+  --shadow-xs:
+    0 1px 3px rgba(6, 4, 2, 0.45),
+    0 1px 2px rgba(6, 4, 2, 0.30);
+  --shadow-sm:
+    0 2px 6px rgba(6, 4, 2, 0.45),
+    0 4px 12px rgba(6, 4, 2, 0.30);
+  --shadow-md:
+    0 4px 10px rgba(6, 4, 2, 0.40),
+    0 8px 24px rgba(6, 4, 2, 0.30);
+  --shadow-lg:
+    0 8px 18px rgba(6, 4, 2, 0.40),
+    0 16px 40px rgba(6, 4, 2, 0.35);
+  --shadow-xl:
+    0 12px 24px rgba(6, 4, 2, 0.40),
+    0 24px 56px rgba(6, 4, 2, 0.40);
+  --shadow-inner: inset 0 2px 5px rgba(6, 4, 2, 0.30);
+  --shadow-outline: 0 0 0 3px rgba(212, 133, 74, 0.08);
+
+  /* ═══════════════════════════════════════════
+     EFFECTS
+     Ember glow. Copper light bleeding through
+     darkness — visible on hover and focus,
+     dormant at rest. The way a coal pulses
+     when you breathe on it.
+     ═══════════════════════════════════════════ */
+  --fx-glass-blur: 18px;
+  --fx-glass-blur-heavy: 26px;
+  --fx-glass-blur-light: 10px;
+  --fx-shadow-sm: var(--shadow-sm);
+  --fx-shadow-md: var(--shadow-md);
+  --fx-shadow-lg: var(--shadow-lg);
+  --fx-shadow-xl: var(--shadow-xl);
+  --fx-shadow-gold:
+    0 0 16px rgba(212, 133, 74, 0.08),
+    0 0 38px rgba(212, 133, 74, 0.025);
+  --fx-shadow-gold-strong:
+    0 0 20px rgba(212, 133, 74, 0.16),
+    0 0 48px rgba(212, 133, 74, 0.06);
+  --fx-glow-gold:
+    0 0 12px rgba(212, 133, 74, 0.12);
+  --fx-glow-gold-subtle:
+    0 0 8px rgba(212, 133, 74, 0.05);
+
+  /* ═══════════════════════════════════════════
+     FOCUS
+     Copper ring. Precise, warm, unmistakable
+     against the black silk — a signet ring
+     pressed into dark wax.
+     ═══════════════════════════════════════════ */
+  --focus-ring:
+    0 0 0 2px rgba(212, 133, 74, 0.30),
+    0 0 10px rgba(212, 133, 74, 0.06);
+  --focus-ring-error: 0 0 0 2px rgba(212, 90, 80, 0.32);
+  --focus-ring-success: 0 0 0 2px rgba(106, 170, 110, 0.32);
+  --focus-ring-offset:
+    0 0 0 3px var(--bg-app),
+    0 0 0 5px rgba(212, 133, 74, 0.30);
+  --input-focus-shadow:
+    0 0 0 2px rgba(212, 133, 74, 0.16),
+    0 0 14px rgba(212, 133, 74, 0.04);
+
+  /* ═══════════════════════════════════════════
+     INTERACTIVE STATES
+     ═══════════════════════════════════════════ */
+  --interactive-hover-opacity: 0.85;
+  --interactive-active-opacity: 0.75;
+  --interactive-disabled-opacity: 0.32;
+
+  /* ═══════════════════════════════════════════
+     CARDS
+     Obsidian tablets. Floating dark panels
+     with copper-thread borders. Selection
+     brings a faint amber warmth from within —
+     like an ember buried in ash, uncovered.
+     ═══════════════════════════════════════════ */
+  --card-bg: var(--glass-bg);
+  --card-hover-bg: var(--bg-surface-3);
+  --card-hover-glow: rgba(212, 133, 74, 0.025);
+  --card-selected-bg-from: rgba(212, 133, 74, 0.06);
+  --card-selected-bg-to: var(--bg-surface-2);
+  --card-selected-glow: rgba(212, 133, 74, 0.08);
+  --card-selected-inner: rgba(212, 133, 74, 0.02);
+  --card-check-bg: #D4854A;
+  --card-check-color: #0C0A08;
+  --card-avatar-glow: rgba(212, 133, 74, 0.14);
+  --card-tag-bg: var(--bg-input);
+  --card-tag-border: var(--border-color);
+  --card-info-bg: rgba(0, 0, 0, 0.50);
+  --card-info-blur: 10px;
+  --card-delete-bg: rgba(70, 14, 10, 0.50);
+  --card-delete-border: rgba(212, 90, 80, 0.14);
+  --card-delete-color: rgba(230, 130, 120, 0.60);
+  --card-delete-bg-hover: rgba(120, 20, 16, 0.65);
+  --card-delete-color-hover: #F0A8A0;
+  --create-card-hover-bg: var(--bg-surface-3);
+
+  /* ═══════════════════════════════════════════
+     BUTTONS
+     Polished copper hardware on black leather.
+     Primary: warm gradient — cognac to dark
+     toffee — with cream text. The definitive
+     action. Unmistakable but never vulgar.
+
+     Contrast: #FFF5EB on gradient → 4.5–5.8:1
+     ═══════════════════════════════════════════ */
+  --btn-primary-bg: var(--grad-burgundy);
+  --btn-primary-color: #FFF5EB;
+  --btn-secondary-bg: var(--bg-surface-3);
+  --btn-secondary-color: var(--txt-secondary);
+  --btn-ghost-bg: transparent;
+  --btn-ghost-color: var(--txt-secondary);
+
+  --info-btn-hover-border: var(--glass-border-hover);
+
+  /* ═══════════════════════════════════════════
+     TAGS
+     Labels on silk. Active tags catch the
+     copper light. «New» = warm gold on dark
+     amber. «Custom» = muted teal — a cool
+     accent that makes the warmth sing by
+     contrast.
+     ═══════════════════════════════════════════ */
+  --tag-bg: var(--bg-surface-3);
+  --tag-color: var(--txt-secondary);
+  --tag-active-bg: var(--grad-burgundy);
+  --tag-active-color: #FFF5EB;
+  --tag-active-glow: rgba(212, 133, 74, 0.14);
+
+  /* New — dark amber glow */
+  --tag-new-border: rgba(224, 168, 64, 0.18);
+  --tag-new-bg-from: #1E1608;
+  --tag-new-bg-to: #2A1E0E;
+  --tag-new-text: #F0C878;
+  --tag-new-border-active: rgba(224, 168, 64, 0.32);
+
+  /* Custom — cool teal counterpoint */
+  --tag-custom-border: rgba(80, 160, 160, 0.18);
+  --tag-custom-bg-from: rgba(80, 160, 160, 0.06);
+  --tag-custom-bg-to: rgba(80, 160, 160, 0.12);
+  --tag-custom-text: rgba(120, 200, 196, 0.85);
+  --tag-custom-border-active: rgba(80, 160, 160, 0.32);
+
+  /* ═══════════════════════════════════════════
+     PROGRESS / STEPS
+     Milestones in copper. Active step glows.
+     Completed steps marked with a warm border —
+     confirmed, locked in, done.
+     ═══════════════════════════════════════════ */
+  --step-bg: var(--bg-surface-3);
+  --step-color: var(--txt-muted);
+  --step-active-bg: var(--grad-burgundy);
+  --step-active-color: #FFF5EB;
+  --step-active-border: #D4854A;
+  --step-active-glow: rgba(212, 133, 74, 0.25);
+  --step-completed-bg: var(--bg-surface-3);
+  --step-completed-border: #A06030;
+  --step-completed-line: #A06030;
+
+  /* ═══════════════════════════════════════════
+     INFO PANELS
+     ═══════════════════════════════════════════ */
+  --info-tag-bg: var(--bg-input);
+  --info-tag-border: var(--border-color);
+  --info-desc-bg: rgba(0, 0, 0, 0.25);
+
+  /* ═══════════════════════════════════════════
+     DANGER ZONE
+     Smouldering warning. Deep charcoal-red —
+     the colour of dying coals. Serious, warm,
+     controlled intensity.
+     ═══════════════════════════════════════════ */
+  --danger-bg-from: #2E0E0A;
+  --danger-bg-to: #4A1812;
+  --danger-bg-hover-from: #4A1812;
+  --danger-bg-hover-to: #68241C;
+  --danger-text: #F0A8A0;
+  --danger-border: rgba(212, 90, 80, 0.20);
+  --danger-glow: rgba(212, 90, 80, 0.10);
+
+  /* ═══════════════════════════════════════════
+     SEARCH
+     Dark silk field with copper thread border.
+     Focus brings the glow — ember igniting.
+     ═══════════════════════════════════════════ */
+  --search-bg: var(--glass-bg);
+  --search-border: var(--glass-border);
+  --search-focus-border: #D4854A;
+  --search-focus-shadow: rgba(212, 133, 74, 0.08);
+
+  /* ═══════════════════════════════════════════
+     MISC
+     ═══════════════════════════════════════════ */
+  --alpha-active-glow: rgba(212, 133, 74, 0.12);
+
+  --scrollbar-track: transparent;
+  --scrollbar-thumb: #24201C;
+  --scrollbar-thumb-hover: #A06030;
+
+  --overlay-bg: rgba(6, 4, 2, 0.90);
+  --overlay-blur: 12px;
+
+  /* ═══════════════════════════════════════════
+     BACKGROUND RADIALS
+     Ember light. Two faint copper glows buried
+     deep in the black silk — like coals
+     beneath ash. Felt as warmth, never seen
+     as shapes. A third radial adds pure
+     depth in the corners.
+     ═══════════════════════════════════════════ */
+  --bg-radial-1: rgba(212, 133, 74, 0.016);
+  --bg-radial-2: rgba(180, 100, 50, 0.012);
+  --bg-radial-3: rgba(6, 4, 2, 0.55);
+
+  /* ═══════════════════════════════════════════
+     GRADIENTS
+     Cognac to dark toffee. The gradient of
+     copper in firelight — bright face catching
+     the flame, dark edge fading to silk.
+     ═══════════════════════════════════════════ */
+  --grad-burgundy: linear-gradient(135deg, #C07838, #8A5428);
+  --grad-rich: linear-gradient(135deg, var(--bg-surface-3), var(--bg-surface-2));
+  --grad-gold-subtle: linear-gradient(
+    135deg,
+    rgba(212, 133, 74, 0.03),
+    rgba(212, 133, 74, 0.006)
+  );
+  --grad-surface: linear-gradient(180deg, var(--bg-surface-2), var(--bg-surface-1));
+  --grad-overlay: linear-gradient(180deg, transparent, var(--bg-app));
+}
+
+
+/* ╔════════════════════════════════════════════╗
+   ║  EMBER SILK — Visual Enhancements          ║
+   ║  The luxe details. Copper dust. Dark silk.  ║
+   ║  Warmth in the folds.                       ║
+   ╚════════════════════════════════════════════╝ */
+
+
+/* ─── Warm copper text selection ─── */
+[data-theme="orangecola"] ::selection {
+  background: rgba(212, 133, 74, 0.24);
+  color: #FFF5EB;
+}
+
+[data-theme="orangecola"] ::-moz-selection {
+  background: rgba(212, 133, 74, 0.24);
+  color: #FFF5EB;
+}
+
+
+/* ─── Ember ambient + silk vignette ───
+   Buried warmth. Two copper glows asymmetrically
+   placed — like embers in a hearth. Edge vignette
+   deepens the black silk at the periphery,
+   drawing focus to centre content. */
+
+[data-theme="orangecola"] body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(
+      ellipse 65% 50% at 22% 18%,
+      rgba(212, 133, 74, 0.018),
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 55% 45% at 82% 78%,
+      rgba(180, 100, 50, 0.014),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at center,
+      transparent 45%,
+      rgba(0, 0, 0, 0.16) 100%
+    );
+}
+
+
+/* ─── Silk texture ───
+   The faintest directional grain — like the
+   weave of fine silk visible only at certain
+   angles. Extremely subtle diagonal noise
+   that gives the dark surfaces tactile depth. */
+
+[data-theme="orangecola"] body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2147483646;
+  opacity: 0.008;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23s)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+
+
+/* ─── Refined scrollbar ─── */
+
+[data-theme="orangecola"] ::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+[data-theme="orangecola"] ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+[data-theme="orangecola"] ::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 100px;
+  transition: background 0.2s ease;
+}
+
+[data-theme="orangecola"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+  box-shadow: 0 0 6px rgba(212, 133, 74, 0.18);
+}
+
+
+/* ─── Utility animations ───
+   Slow ember rhythms. The pace of firelight —
+   nothing rushed, nothing mechanical. */
+
+@keyframes ember-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 4px rgba(212, 133, 74, 0.08),
+      0 0 14px rgba(212, 133, 74, 0.03);
+  }
+  50% {
+    box-shadow:
+      0 0 8px rgba(212, 133, 74, 0.18),
+      0 0 28px rgba(212, 133, 74, 0.06);
+  }
+}
+
+@keyframes ember-text-glow {
+  0%, 100% {
+    text-shadow: 0 0 4px rgba(212, 133, 74, 0.12);
+  }
+  50% {
+    text-shadow:
+      0 0 8px rgba(212, 133, 74, 0.24),
+      0 0 18px rgba(212, 133, 74, 0.08);
+  }
+}
+
+@keyframes ember-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ember-breathe {
+  0%, 100% {
+    border-color: rgba(212, 133, 74, 0.06);
+  }
+  50% {
+    border-color: rgba(212, 133, 74, 0.14);
+  }
+}
+
+@keyframes ember-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}

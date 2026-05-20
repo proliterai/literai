@@ -1,0 +1,453 @@
+/* ============================================
+   THEME: VISUAL NOVEL (Визуальная новелла)
+   Вайб: Аниме, Романтика, Уют, Dating Sim
+   Тип: Светлая (Light), Полное переопределение
+   ============================================ */
+
+[data-theme="visualnovel"] {
+
+  /* ------------------------------------------
+     1. БАЗОВЫЕ ФОНЫ И ПОВЕРХНОСТИ (Surfaces)
+     ------------------------------------------ */
+  --bg-app: #fdf1f6;
+  --bg-surface-1: rgba(255, 255, 255, 0.85);
+  --bg-surface-2: #fff5f8;
+  --bg-surface-3: #ffffff;
+  --bg-surface-4: #fce8ef;
+  --bg-surface-5: #f5d5e0;
+  --bg-input: #ffffff;
+  --bg-elevated: #ffffff;
+  --bg-sunken: #f9e4ed;
+  --bg-primary: var(--bg-surface-1);
+
+  /* ------------------------------------------
+     2. СТЕКЛО (Glassmorphism)
+     ------------------------------------------ */
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-bg-heavy: rgba(255, 255, 255, 0.90);
+  --glass-bg-light: rgba(255, 255, 255, 0.50);
+  --glass-border: rgba(255, 182, 193, 0.4);
+  --glass-border-hover: rgba(255, 182, 193, 0.6);
+  --glass-border-active: rgba(255, 126, 179, 0.5);
+
+  /* ------------------------------------------
+     3. ТЕКСТЫ И ТИПОГРАФИКА
+     ------------------------------------------ */
+  --txt-primary: #5c404c;
+  --txt-secondary: #8c6b79;
+  --txt-muted: #bda3af;
+  --txt-disabled: rgba(189, 163, 175, 0.50);
+  --txt-inverted: #ffffff;
+  --txt-inverse: #ffffff;
+  --txt-gold: #ff66a3;
+  --txt-gold-light: #ffd1e3;
+  --txt-gold-dark: #d14d82;
+  --txt-accent: #ff66a3;
+  --txt-on-accent: #ffffff;
+  --txt-link: #e85d8a;
+  --txt-link-hover: #d14d82;
+
+  --font-family-base: 'Nunito', 'Quicksand', 'Chalkboard SE', 'Comic Sans MS', 'Trebuchet MS', sans-serif;
+  --line-height: 1.6;
+
+  /* ------------------------------------------
+     4. АКЦЕНТНЫЕ ЦВЕТА (Бренд)
+     ------------------------------------------ */
+  --accent-primary: #ff7eb3;
+  --accent-primary-hover: #ff5c9d;
+  --accent-secondary: #ffb199;
+  --accent-tertiary: #e85d8a;
+  --accent-success: #16A34A;
+  --accent-error: #DC2626;
+  --accent-info: #6cc3ff;
+  --accent-warning: #D97706;
+
+  /* ------------------------------------------
+     5. ГРАДИЕНТЫ
+     ------------------------------------------ */
+  --grad-primary: linear-gradient(135deg, #ff7eb3, #ffb199);
+  --grad-burgundy: linear-gradient(135deg, #ff7eb3, #ff9eaf);
+  --grad-rich: linear-gradient(135deg, rgba(255, 255, 255, 0.85), #fff5f8);
+  --grad-gold-subtle: linear-gradient(135deg, rgba(255, 126, 179, 0.08), rgba(255, 126, 179, 0.01));
+  --grad-surface: linear-gradient(180deg, rgba(255, 255, 255, 0.85), #fff5f8);
+  --grad-overlay: linear-gradient(180deg, transparent, #fdf1f6);
+
+  /* ------------------------------------------
+     6. РАМКИ И РАЗДЕЛИТЕЛИ (Borders)
+     ------------------------------------------ */
+  --border-light: rgba(255, 182, 193, 0.3);
+  --border-base: rgba(255, 182, 193, 0.6);
+  --border-heavy: #ffb6c1;
+  --border-color: rgba(255, 182, 193, 0.4);
+  --border-subtle: rgba(255, 182, 193, 0.15);
+  --border-hover: rgba(255, 182, 193, 0.7);
+  --border-active: rgba(255, 126, 179, 0.5);
+  --border-accent: #ffb6c1;
+  --border-focus: #ff7eb3;
+  --border-divider: rgba(255, 182, 193, 0.25);
+
+  /* ------------------------------------------
+     7. СТАТУСНЫЕ ЦВЕТА
+     ------------------------------------------ */
+  --color-success: #7ae582;
+  --color-error: #ff7a7a;
+  --color-warning: #ffcc5c;
+  --color-info: #6cc3ff;
+
+  --state-success: #16A34A;
+  --state-success-bg: rgba(22, 163, 74, 0.07);
+  --state-success-border: rgba(22, 163, 74, 0.20);
+  --state-error: #DC2626;
+  --state-error-bg: rgba(220, 38, 38, 0.06);
+  --state-error-border: rgba(220, 38, 38, 0.18);
+  --state-info: #2563EB;
+  --state-info-bg: rgba(37, 99, 235, 0.06);
+  --state-info-border: rgba(37, 99, 235, 0.18);
+  --state-warning: #D97706;
+  --state-warning-bg: rgba(217, 119, 6, 0.06);
+  --state-warning-border: rgba(217, 119, 6, 0.18);
+  --state-disabled: rgba(189, 163, 175, 0.20);
+  --state-hover: rgba(255, 126, 179, 0.06);
+  --state-active: rgba(255, 126, 179, 0.12);
+  --state-selected: rgba(255, 126, 179, 0.08);
+
+  /* ------------------------------------------
+     8. СКРУГЛЕНИЯ
+     ------------------------------------------ */
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 30px;
+  --radius-xl: 40px;
+  --radius-2xl: 50px;
+  --radius-full: 999px;
+
+  /* ------------------------------------------
+     9. ТЕНИ
+     ------------------------------------------ */
+  --shadow-xs: 0 1px 2px rgba(140, 107, 121, 0.04), 0 1px 3px rgba(140, 107, 121, 0.02);
+  --shadow-sm: 0 2px 8px rgba(140, 107, 121, 0.08);
+  --shadow-md: 0 4px 16px rgba(140, 107, 121, 0.12);
+  --shadow-lg: 0 8px 24px rgba(140, 107, 121, 0.15);
+  --shadow-xl: 0 12px 36px rgba(140, 107, 121, 0.2);
+  --shadow-glow: 0 0 15px rgba(255, 126, 179, 0.4);
+  --shadow-inset: inset 0 2px 4px rgba(140, 107, 121, 0.05);
+  --shadow-inner: inset 0 2px 4px rgba(140, 107, 121, 0.05);
+  --shadow-outline: 0 0 0 3px rgba(255, 126, 179, 0.15);
+
+  /* ------------------------------------------
+     10. ЭФФЕКТЫ (Blur / Glow)
+     ------------------------------------------ */
+  --fx-glass-blur: blur(12px);
+  --fx-glass-blur-heavy: blur(24px);
+  --fx-glass-blur-light: blur(8px);
+  --fx-shadow-sm: var(--shadow-sm);
+  --fx-shadow-md: var(--shadow-md);
+  --fx-shadow-lg: var(--shadow-lg);
+  --fx-shadow-xl: var(--shadow-xl);
+  --fx-shadow-gold: 0 0 20px rgba(255, 126, 179, 0.10);
+  --fx-shadow-gold-strong: 0 0 30px rgba(255, 126, 179, 0.20);
+  --fx-glow-gold: 0 0 15px rgba(255, 126, 179, 0.10);
+  --fx-glow-gold-subtle: 0 0 10px rgba(255, 126, 179, 0.05);
+
+  /* ------------------------------------------
+     11. ФОКУС
+     ------------------------------------------ */
+  --focus-ring: 0 0 0 2px rgba(255, 126, 179, 0.40);
+  --focus-ring-error: 0 0 0 2px rgba(220, 38, 38, 0.28);
+  --focus-ring-success: 0 0 0 2px rgba(22, 163, 74, 0.28);
+  --focus-ring-offset: 0 0 0 3px var(--bg-app), 0 0 0 5px rgba(255, 126, 179, 0.40);
+  --input-focus-shadow: 0 0 0 2px rgba(255, 126, 179, 0.20), 0 0 14px rgba(255, 126, 179, 0.06);
+
+  /* ------------------------------------------
+     12. ИНТЕРАКТИВНЫЕ СОСТОЯНИЯ
+     ------------------------------------------ */
+  --interactive-hover-opacity: 0.88;
+  --interactive-active-opacity: 0.78;
+  --interactive-disabled-opacity: 0.40;
+
+  /* ------------------------------------------
+     13. КАРТОЧКИ
+     ------------------------------------------ */
+  --card-bg: var(--glass-bg);
+  --card-hover-bg: var(--bg-surface-2);
+  --card-hover-glow: rgba(255, 126, 179, 0.04);
+  --card-selected-bg-from: rgba(255, 126, 179, 0.08);
+  --card-selected-bg-to: rgba(255, 255, 255, 0.85);
+  --card-selected-glow: rgba(255, 126, 179, 0.10);
+  --card-selected-inner: rgba(255, 126, 179, 0.04);
+  --card-check-bg: #ff7eb3;
+  --card-check-color: #ffffff;
+  --card-avatar-glow: rgba(255, 126, 179, 0.12);
+  --card-tag-bg: var(--bg-surface-2);
+  --card-tag-border: var(--border-color);
+  --card-info-bg: rgba(255, 255, 255, 0.85);
+  --card-info-blur: 8px;
+  --card-delete-bg: rgba(254, 226, 226, 0.60);
+  --card-delete-border: rgba(220, 38, 38, 0.12);
+  --card-delete-color: rgba(185, 28, 28, 0.60);
+  --card-delete-bg-hover: rgba(254, 202, 202, 0.80);
+  --card-delete-color-hover: #991B1B;
+  --create-card-hover-bg: var(--bg-surface-2);
+
+  /* ------------------------------------------
+     14. КНОПКИ
+     ------------------------------------------ */
+  --btn-primary-bg: var(--grad-primary);
+  --btn-primary-color: #ffffff;
+  --btn-secondary-bg: var(--bg-surface-2);
+  --btn-secondary-color: var(--txt-primary);
+  --btn-ghost-bg: transparent;
+  --btn-ghost-color: var(--txt-secondary);
+  --info-btn-hover-border: var(--glass-border-hover);
+
+  /* ------------------------------------------
+     15. ТЕГИ
+     ------------------------------------------ */
+  --tag-bg: var(--bg-surface-2);
+  --tag-color: var(--txt-secondary);
+  --tag-active-bg: var(--grad-burgundy);
+  --tag-active-color: #ffffff;
+  --tag-active-glow: rgba(255, 126, 179, 0.15);
+
+  --tag-new-border: rgba(122, 229, 130, 0.25);
+  --tag-new-bg-from: #f0fff0;
+  --tag-new-bg-to: #d4ffd4;
+  --tag-new-text: #065F46;
+  --tag-new-border-active: rgba(122, 229, 130, 0.45);
+
+  --tag-custom-border: rgba(255, 204, 92, 0.25);
+  --tag-custom-bg-from: rgba(255, 237, 213, 0.75);
+  --tag-custom-bg-to: rgba(254, 215, 170, 0.75);
+  --tag-custom-text: #92400E;
+  --tag-custom-border-active: rgba(255, 204, 92, 0.45);
+
+  /* ------------------------------------------
+     16. ПРОГРЕСС / ШАГИ
+     ------------------------------------------ */
+  --step-bg: var(--bg-surface-2);
+  --step-color: var(--txt-muted);
+  --step-active-bg: var(--grad-primary);
+  --step-active-color: #ffffff;
+  --step-active-border: #ff7eb3;
+  --step-active-glow: rgba(255, 126, 179, 0.15);
+  --step-completed-bg: var(--bg-surface-2);
+  --step-completed-border: #ff7eb3;
+  --step-completed-line: #ff7eb3;
+
+  /* ------------------------------------------
+     17. ИНФО-ПАНЕЛИ
+     ------------------------------------------ */
+  --info-tag-bg: var(--bg-surface-2);
+  --info-tag-border: var(--border-color);
+  --info-desc-bg: rgba(255, 126, 179, 0.03);
+
+  /* ------------------------------------------
+     18. ЗОНА УДАЛЕНИЯ (Danger)
+     ------------------------------------------ */
+  --danger-bg-from: #FEE2E2;
+  --danger-bg-to: #FECACA;
+  --danger-bg-hover-from: #FECACA;
+  --danger-bg-hover-to: #FCA5A5;
+  --danger-text: #991B1B;
+  --danger-border: rgba(220, 38, 38, 0.18);
+  --danger-glow: rgba(220, 38, 38, 0.08);
+
+  /* ------------------------------------------
+     19. ПОИСК
+     ------------------------------------------ */
+  --search-bg: #ffffff;
+  --search-border: var(--border-color);
+  --search-focus-border: #ff7eb3;
+  --search-focus-shadow: rgba(255, 126, 179, 0.12);
+
+  /* ------------------------------------------
+     20. РАЗНОЕ (Misc)
+     ------------------------------------------ */
+  --alpha-active-glow: rgba(255, 126, 179, 0.15);
+  --scrollbar-track: transparent;
+  --scrollbar-thumb: #f0c4d4;
+  --scrollbar-thumb-hover: #e8a0b8;
+  --overlay-bg: rgba(92, 64, 76, 0.35);
+  --overlay-blur: 10px;
+
+  /* ------------------------------------------
+     21. ФОНОВЫЕ РАДИАЛЫ
+     ------------------------------------------ */
+  --bg-radial-1: rgba(255, 126, 179, 0.04);
+  --bg-radial-2: rgba(255, 177, 153, 0.03);
+  --bg-radial-3: rgba(140, 107, 121, 0.01);
+}
+
+
+/* ============================================
+   КАСТОМНЫЕ ПЕРЕОПРЕДЕЛЕНИЯ КОМПОНЕНТОВ
+   ============================================ */
+
+/* 1. ФОН: Паттерн «горошек» (Polka Dot) */
+[data-theme="visualnovel"] body {
+  background-color: var(--bg-app);
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.8) 2px, transparent 2px),
+    radial-gradient(rgba(255, 255, 255, 0.8) 2px, transparent 2px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+  background-attachment: fixed;
+}
+
+/* Мягкое розовое свечение на фоне */
+[data-theme="visualnovel"] body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(
+      ellipse 80% 60% at 18% 14%,
+      rgba(255, 126, 179, 0.04),
+      transparent
+    ),
+    radial-gradient(
+      ellipse 70% 50% at 85% 80%,
+      rgba(255, 177, 153, 0.03),
+      transparent
+    );
+}
+
+/* 2. КНОПКИ: «Желейные» */
+[data-theme="visualnovel"] .btn-primary,
+[data-theme="visualnovel"] .btn-secondary {
+  border-radius: var(--radius-full);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow: var(--shadow-sm), inset 0 2px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+[data-theme="visualnovel"] .btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--shadow-glow), var(--shadow-md), inset 0 2px 0 rgba(255, 255, 255, 0.4);
+}
+
+[data-theme="visualnovel"] .btn-primary:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: var(--shadow-sm);
+}
+
+/* 3. КАРТОЧКИ (Стекло + обводка) */
+[data-theme="visualnovel"] .catalog-card,
+[data-theme="visualnovel"] .settings-panel,
+[data-theme="visualnovel"] .app-drawer {
+  background: var(--bg-surface-1);
+  backdrop-filter: var(--fx-glass-blur);
+  -webkit-backdrop-filter: var(--fx-glass-blur);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+/* 4. ЧАТ: Асимметричные бабблы (Стиль манги) */
+[data-theme="visualnovel"] .message-bubble {
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow: var(--shadow-sm);
+  padding: 16px 20px;
+}
+
+[data-theme="visualnovel"] .ai-message .message-bubble {
+  background: var(--bg-surface-3);
+  border-radius: 4px 24px 24px 24px;
+}
+
+[data-theme="visualnovel"] .user-message .message-bubble {
+  background: var(--grad-primary);
+  color: var(--txt-inverted);
+  border-color: rgba(255, 255, 255, 0.4);
+  border-radius: 24px 24px 4px 24px;
+}
+
+/* 5. ИНПУТЫ: Круглые, с розовым свечением */
+[data-theme="visualnovel"] .chat-input,
+[data-theme="visualnovel"] .search-input,
+[data-theme="visualnovel"] .panel-textarea {
+  background: var(--bg-surface-3);
+  border: 2px solid var(--border-base);
+  border-radius: var(--radius-full);
+  color: var(--txt-primary);
+  box-shadow: var(--shadow-inset);
+  transition: all 0.3s ease;
+}
+
+[data-theme="visualnovel"] .panel-textarea {
+  border-radius: var(--radius-md);
+}
+
+[data-theme="visualnovel"] .chat-input:focus,
+[data-theme="visualnovel"] .search-input:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 4px rgba(255, 126, 179, 0.2), var(--shadow-inset);
+  outline: none;
+}
+
+/* 6. АВАТАРКИ: Толстая белая рамка (наклейки) */
+[data-theme="visualnovel"] .avatar {
+  border: 3px solid #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+
+/* 7. СКРОЛЛБАРЫ */
+[data-theme="visualnovel"] ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+[data-theme="visualnovel"] ::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 10px;
+}
+
+[data-theme="visualnovel"] ::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 10px;
+  border: 3px solid #fdf1f6;
+}
+
+[data-theme="visualnovel"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* 8. ВЫДЕЛЕНИЕ ТЕКСТА */
+[data-theme="visualnovel"] ::selection {
+  background: rgba(255, 126, 179, 0.25);
+  color: var(--txt-primary);
+}
+
+[data-theme="visualnovel"] ::-moz-selection {
+  background: rgba(255, 126, 179, 0.25);
+  color: var(--txt-primary);
+}
+
+
+/* ============================================
+   АНИМАЦИИ
+   ============================================ */
+@keyframes vn-lift {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes vn-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 126, 179, 0); }
+  50%      { box-shadow: 0 0 0 4px rgba(255, 126, 179, 0.10); }
+}
+
+@keyframes vn-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes vn-scale-in {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: scale(1); }
+}

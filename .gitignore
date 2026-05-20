@@ -1,0 +1,22 @@
+# Зависимости
+node_modules/
+
+# Сборка SvelteKit
+.svelte-kit/
+build/
+
+# Окружение (если есть)
+.env
+.env.*
+!.env.example
+
+# IDE и ОС
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Логи и прочее
+*.log
+npm-debug.log*
+pnpm-debug.log*

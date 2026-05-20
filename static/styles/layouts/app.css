@@ -1,0 +1,90 @@
+/* ============================================
+   APP LAYOUT — Глобальная структура приложения
+   ============================================ */
+
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
+}
+
+/* Main content area */
+.app-main {
+  flex: 1 1 auto;
+  max-width: var(--content-max-width, 1200px);
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-4);
+  overflow: visible;
+  /* padding-bottom устанавливается в footer.css */
+}
+
+/* Когда открыт чат, убираем лишние паддинги у main */
+.app-main:has(.chat-container) {
+  padding-top: var(--space-2);
+}
+
+/* Overlay */
+.app-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay-bg);
+  backdrop-filter: blur(var(--overlay-blur));
+  -webkit-backdrop-filter: blur(var(--overlay-blur));
+  z-index: var(--z-overlay);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+}
+
+.app-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Modal container */
+.app-modal-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  z-index: var(--z-modal);
+  width: 90%;
+  max-width: var(--modal-max-width-large, 700px);
+  /* Убираем max-height отсюда, он в modal-box */
+  opacity: 0;
+  pointer-events: none;
+  transition: all var(--transition-base);
+  /* Центрирование flex */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-modal-container.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+@media (max-width: 768px) {
+  .app-main {
+    padding: var(--space-3) var(--space-2);
+  }
+
+  .app-main:has(.chat-container) {
+    padding-top: var(--space-1);
+  }
+
+  .app-modal-container {
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-modal-container {
+    width: calc(100% - var(--space-4));
+  }
+}

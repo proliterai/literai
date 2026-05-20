@@ -1,0 +1,203 @@
+/* ============================================
+   RANGE — Слайдеры (input[type="range"])
+   ============================================ */
+
+.panel-range,
+.form-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: var(--bg-surface-3);
+  border-radius: var(--radius-full);
+  outline: none;
+  cursor: pointer;
+  margin: var(--space-3) 0;
+  border: none;
+  padding: 0;
+  vertical-align: middle;
+}
+
+/* Webkit (Chrome, Safari, Edge) */
+.panel-range::-webkit-slider-runnable-track,
+.form-range::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface-3);
+  border: none;
+}
+
+.panel-range::-webkit-slider-thumb,
+.form-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  background: var(--grad-burgundy);
+  border: 2px solid var(--p-gold-300);
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+  margin-top: -7px;
+  position: relative;
+}
+
+.panel-range::-webkit-slider-thumb:hover,
+.form-range::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: var(--fx-shadow-gold);
+}
+
+.panel-range::-webkit-slider-thumb:active,
+.form-range::-webkit-slider-thumb:active {
+  transform: scale(1.1);
+}
+
+/* Firefox */
+.panel-range::-moz-range-track,
+.form-range::-moz-range-track {
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface-3);
+  border: none;
+}
+
+.panel-range::-moz-range-thumb,
+.form-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-full);
+  background: var(--grad-burgundy);
+  border: 2px solid var(--p-gold-300);
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.panel-range::-moz-range-thumb:hover,
+.form-range::-moz-range-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: var(--fx-shadow-gold);
+}
+
+.panel-range::-moz-range-progress,
+.form-range::-moz-range-progress {
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--p-gold-700);
+}
+
+/* Disabled state */
+.panel-range:disabled,
+.form-range:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.panel-range:disabled::-webkit-slider-thumb,
+.form-range:disabled::-webkit-slider-thumb {
+  background: var(--bg-surface-4);
+  border-color: var(--glass-border);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.panel-range:disabled::-moz-range-thumb,
+.form-range:disabled::-moz-range-thumb {
+  background: var(--bg-surface-4);
+  border-color: var(--glass-border);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Range with value label */
+.range-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+  color: var(--txt-muted);
+}
+
+.range-value {
+  font-size: var(--font-size-sm);
+  color: var(--txt-gold);
+  font-weight: var(--font-semibold);
+  min-width: var(--size-10);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.range-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-1);
+}
+
+.range-header label {
+  font-size: var(--font-size-sm);
+  color: var(--txt-secondary);
+  font-weight: var(--font-medium);
+}
+
+/* Focus states */
+.panel-range:focus-visible::-webkit-slider-thumb,
+.form-range:focus-visible::-webkit-slider-thumb {
+  box-shadow: var(--focus-ring);
+}
+
+.panel-range:focus-visible::-moz-range-thumb,
+.form-range:focus-visible::-moz-range-thumb {
+  box-shadow: var(--focus-ring);
+}
+
+/* Cheatmode specific range styling */
+.cheatmode-trait-control {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+.cheatmode-trait-control .panel-range {
+  flex: 1;
+  margin: 0;
+  min-width: 0;
+}
+
+.cheatmode-trait-value {
+  font-size: var(--font-size-sm);
+  color: var(--txt-gold);
+  font-weight: var(--font-semibold);
+  min-width: 36px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+/* Mobile: larger thumb for touch */
+@media (max-width: 768px) {
+  .panel-range::-webkit-slider-thumb,
+  .form-range::-webkit-slider-thumb {
+    width: 24px;
+    height: 24px;
+    margin-top: -9px;
+  }
+
+  .panel-range::-moz-range-thumb,
+  .form-range::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+  }
+
+  .cheatmode-trait-control {
+    gap: var(--space-2);
+  }
+}

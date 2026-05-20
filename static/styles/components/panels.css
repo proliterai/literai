@@ -1,0 +1,246 @@
+/* ============================================
+   PANELS — Панели в drawer (Providers, Design, AI Settings, My Chats)
+   ============================================ */
+
+/* Panel section base */
+.panel-section {
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.panel-section:first-child {
+  padding-top: 0;
+}
+
+.panel-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.panel-title {
+  font-size: var(--font-size-md);
+  color: var(--txt-gold);
+  font-weight: var(--font-semibold);
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.panel-title i {
+  color: var(--txt-gold);
+  font-size: 0.9em;
+}
+
+/* Setting group */
+.setting-group {
+  margin-bottom: var(--space-5);
+}
+
+.setting-group:last-child {
+  margin-bottom: 0;
+}
+
+.setting-label {
+  display: block;
+  font-size: var(--font-size-sm);
+  color: var(--txt-secondary);
+  margin-bottom: var(--space-2);
+  font-weight: var(--font-medium);
+}
+
+/* Range controls in panels */
+.setting-group .range-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-1);
+}
+
+.setting-group .panel-range {
+  width: 100%;
+  display: block;
+}
+
+/* Theme grid */
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2);
+}
+
+.theme-btn {
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-surface-3);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  color: var(--txt-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: center;
+}
+
+.theme-btn:hover {
+  background: var(--bg-surface-4);
+  border-color: var(--glass-border-hover);
+  color: var(--txt-primary);
+}
+
+.theme-btn.active {
+  background: var(--grad-burgundy);
+  color: var(--txt-gold-light);
+  border-color: transparent;
+  box-shadow: var(--fx-shadow-gold);
+}
+
+.theme-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-offset);
+}
+
+/* Panel placeholder */
+.panel-placeholder {
+  text-align: center;
+  padding: var(--space-12) var(--space-5);
+  color: var(--txt-muted);
+  font-size: var(--font-size-sm);
+}
+
+.panel-placeholder i {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-4);
+  display: block;
+  opacity: 0.35;
+}
+
+/* Chats list */
+.chats-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.chat-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  gap: var(--space-3);
+}
+
+.chat-item:hover {
+  background: var(--bg-surface-3);
+  border-color: var(--glass-border-hover);
+  transform: translateX(2px);
+}
+
+.chat-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex: 1;
+  min-width: 0;
+}
+
+.chat-item-title {
+font-size: var(--font-size-sm);
+color: var(--txt-primary);
+font-weight: var(--font-semibold);
+white-space: normal;        /* ← Разрешаем перенос */
+word-break: break-word;     /* ← Перенос длинных слов */
+line-height: var(--leading-snug);
+display: -webkit-box;
+-webkit-line-clamp: 3;      /* ← Максимум 3 строки */
+-webkit-box-orient: vertical;
+overflow: hidden;
+}
+
+.chat-item-date {
+  font-size: var(--font-size-xs);
+  color: var(--txt-muted);
+}
+
+.chat-item-actions {
+  display: flex;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+/* Preset buttons (used in ScriptModal) */
+.preset-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.preset-btn {
+  padding: var(--space-2) var(--space-4);
+  background: var(--bg-surface-3);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  color: var(--txt-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.preset-btn:hover {
+  background: var(--bg-surface-4);
+  border-color: var(--glass-border-hover);
+  color: var(--txt-primary);
+}
+
+.preset-btn.active,
+.preset-btn.selected {
+  background: var(--grad-burgundy);
+  color: var(--txt-gold-light);
+  border-color: transparent;
+  box-shadow: var(--fx-shadow-gold);
+}
+
+.preset-description {
+  font-size: var(--font-size-sm);
+  color: var(--txt-muted);
+  margin-bottom: var(--space-4);
+  font-style: italic;
+  line-height: var(--leading-relaxed);
+}
+
+/* Prompt actions */
+.prompt-actions {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: flex-end;
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--glass-border);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .theme-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .preset-buttons {
+    flex-direction: column;
+  }
+
+  .preset-btn {
+    justify-content: center;
+  }
+.chat-item-title {
+-webkit-line-clamp: 3;  /* На мобильных максимум 3 строки */
+}
+}

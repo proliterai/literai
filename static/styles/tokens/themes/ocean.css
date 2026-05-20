@@ -1,0 +1,543 @@
+/* ============================================
+   ABYSS — Cosmic Theme
+   ─────────────────────────────────────────
+   Deep space. Silent void. A bridge console
+   floating in the infinite dark between stars.
+   
+   Design architecture:
+   • Pure deep navy void — no artificial warmth
+   • Ice-blue accent (#38BDF8) — holographic
+     instrument glow against the darkness
+   • Cyan secondary — nav systems, data streams
+   • All text-on-accent is white (#FFF) — AAA
+   • Multi-layer shadows simulate zero-gravity
+     light diffusion (no single source)
+   • Purple accents for «anomaly» classifications
+   ============================================ */
+
+[data-theme="ocean"] {
+
+  /* ═══════════════════════════════════════════
+     BACKGROUNDS
+     The void gradient. Pure darkness with the
+     barest blue radiation — like the cockpit
+     of a vessel drifting through a nebula.
+     Each surface is a transparent hull panel
+     floating above the abyss.
+     ═══════════════════════════════════════════ */
+  --bg-app: #050810;
+  --bg-surface-1: #0A101E;
+  --bg-surface-2: #0F1728;
+  --bg-surface-3: #141E34;
+  --bg-surface-4: #1A2640;
+  --bg-surface-5: #202E4C;
+  --bg-input: #0A101E;
+  --bg-elevated: #141E34;
+  --bg-sunken: #030508;
+  --bg-primary: var(--bg-surface-1);
+
+  /* ═══════════════════════════════════════════
+     GLASSMORPHISM
+     Hull viewports. Frosted transparent panels
+     with the cold blue tint of reinforced glass
+     looking out into deep space.
+     ═══════════════════════════════════════════ */
+  --glass-bg: rgba(10, 16, 30, 0.78);
+  --glass-bg-heavy: rgba(10, 16, 30, 0.94);
+  --glass-bg-light: rgba(10, 16, 30, 0.52);
+  --glass-border: rgba(56, 189, 248, 0.06);
+  --glass-border-hover: rgba(56, 189, 248, 0.16);
+  --glass-border-active: rgba(56, 189, 248, 0.34);
+
+  /* ═══════════════════════════════════════════
+     TEXT COLORS
+     Cool blue-white — instrument readout glow.
+     Designed for zero eye-strain during long
+     watch shifts in the void.
+
+     Contrast ratios on #0A101E:
+     • primary   #C8DAF0 → 10.5:1 (AAA)
+     • secondary #6B8BB5 →  4.6:1 (AA)
+     • muted     #3A5478 →  2.5:1 (decorative)
+
+     Contrast ratios on accent gradient:
+     • gold-light #FFFFFF →  4.5–6.5:1 (AA–AAA)
+     ═══════════════════════════════════════════ */
+  --txt-primary: #C8DAF0;
+  --txt-secondary: #6B8BB5;
+  --txt-muted: #3A5478;
+  --txt-disabled: rgba(58, 84, 120, 0.45);
+
+  /* Accent text ON dark surfaces — bright ice blue */
+  --txt-gold: #38BDF8;
+
+  /* Text ON accent backgrounds — pure white */
+  --txt-gold-light: #FFFFFF;
+
+  /* Darker accent for hover states on dark surfaces */
+  --txt-gold-dark: #0369A1;
+
+  --txt-accent: #38BDF8;
+  --txt-inverse: #FFFFFF;
+  --txt-on-accent: #FFFFFF;
+  --txt-link: #38BDF8;
+  --txt-link-hover: #7DD3FC;
+
+  /* ═══════════════════════════════════════════
+     BORDERS
+     Hull seams. Faint blue luminescence where
+     panels meet — structural, not decorative.
+     Active borders glow like energized conduits.
+     ═══════════════════════════════════════════ */
+  --border-color: rgba(56, 189, 248, 0.07);
+  --border-subtle: rgba(56, 189, 248, 0.03);
+  --border-hover: rgba(56, 189, 248, 0.18);
+  --border-active: rgba(56, 189, 248, 0.38);
+  --border-accent: #0284C7;
+  --border-focus: #38BDF8;
+  --border-divider: rgba(56, 189, 248, 0.05);
+
+  /* ═══════════════════════════════════════════
+     ACCENTS
+     Ship systems palette. Ice blue primary —
+     the colour of holographic displays.
+     Cyan for navigation. Deep blue for
+     structural anchoring.
+     ═══════════════════════════════════════════ */
+  --accent-primary: #38BDF8;
+  --accent-secondary: #22D3EE;
+  --accent-tertiary: #0284C7;
+  --accent-success: #34D399;
+  --accent-error: #F87171;
+  --accent-info: #60A5FA;
+  --accent-warning: #FBBF24;
+
+  /* ═══════════════════════════════════════════
+     STATES
+     System diagnostics console. Each state has
+     a distinct spectral signature — identifiable
+     at a glance from across the bridge.
+     ═══════════════════════════════════════════ */
+  --state-success: #34D399;
+  --state-success-bg: rgba(52, 211, 153, 0.08);
+  --state-success-border: rgba(52, 211, 153, 0.20);
+  --state-error: #F87171;
+  --state-error-bg: rgba(248, 113, 113, 0.08);
+  --state-error-border: rgba(248, 113, 113, 0.20);
+  --state-info: #60A5FA;
+  --state-info-bg: rgba(96, 165, 250, 0.08);
+  --state-info-border: rgba(96, 165, 250, 0.20);
+  --state-warning: #FBBF24;
+  --state-warning-bg: rgba(251, 191, 36, 0.07);
+  --state-warning-border: rgba(251, 191, 36, 0.18);
+  --state-disabled: rgba(58, 84, 120, 0.18);
+  --state-hover: rgba(56, 189, 248, 0.04);
+  --state-active: rgba(56, 189, 248, 0.10);
+  --state-selected: rgba(56, 189, 248, 0.065);
+
+  /* ═══════════════════════════════════════════
+     SHADOWS
+     In space, light diffuses from instrument
+     panels — not from above. Shadows are deep,
+     omnidirectional, with a faint blue tint
+     from ambient hull illumination.
+     ═══════════════════════════════════════════ */
+  --shadow-xs:
+    0 1px 3px rgba(0, 0, 0, 0.5),
+    0 1px 2px rgba(3, 8, 20, 0.4);
+  --shadow-sm:
+    0 2px 6px rgba(0, 0, 0, 0.5),
+    0 4px 12px rgba(3, 8, 20, 0.35);
+  --shadow-md:
+    0 4px 12px rgba(0, 0, 0, 0.5),
+    0 8px 24px rgba(3, 8, 20, 0.35);
+  --shadow-lg:
+    0 8px 20px rgba(0, 0, 0, 0.5),
+    0 16px 40px rgba(3, 8, 20, 0.4);
+  --shadow-xl:
+    0 12px 28px rgba(0, 0, 0, 0.5),
+    0 24px 56px rgba(3, 8, 20, 0.5);
+  --shadow-inner: inset 0 2px 6px rgba(0, 0, 0, 0.35);
+  --shadow-outline: 0 0 0 3px rgba(56, 189, 248, 0.08);
+
+  /* ═══════════════════════════════════════════
+     EFFECTS
+     Holographic bleed. Instruments casting
+     soft ice-blue halos in the darkened bridge.
+     Visible on interaction — dormant at rest.
+     ═══════════════════════════════════════════ */
+  --fx-glass-blur: 18px;
+  --fx-glass-blur-heavy: 26px;
+  --fx-glass-blur-light: 10px;
+  --fx-shadow-sm: var(--shadow-sm);
+  --fx-shadow-md: var(--shadow-md);
+  --fx-shadow-lg: var(--shadow-lg);
+  --fx-shadow-xl: var(--shadow-xl);
+  --fx-shadow-gold:
+    0 0 16px rgba(56, 189, 248, 0.07),
+    0 0 40px rgba(56, 189, 248, 0.025);
+  --fx-shadow-gold-strong:
+    0 0 20px rgba(56, 189, 248, 0.16),
+    0 0 50px rgba(56, 189, 248, 0.06);
+  --fx-glow-gold:
+    0 0 12px rgba(56, 189, 248, 0.12);
+  --fx-glow-gold-subtle:
+    0 0 8px rgba(56, 189, 248, 0.06);
+
+  /* ═══════════════════════════════════════════
+     FOCUS
+     Targeting lock. Blue ring — cold, precise.
+     You know exactly what's selected.
+     ═══════════════════════════════════════════ */
+  --focus-ring:
+    0 0 0 2px rgba(56, 189, 248, 0.30),
+    0 0 12px rgba(56, 189, 248, 0.06);
+  --focus-ring-error: 0 0 0 2px rgba(248, 113, 113, 0.32);
+  --focus-ring-success: 0 0 0 2px rgba(52, 211, 153, 0.32);
+  --focus-ring-offset:
+    0 0 0 3px var(--bg-app),
+    0 0 0 5px rgba(56, 189, 248, 0.30);
+  --input-focus-shadow:
+    0 0 0 2px rgba(56, 189, 248, 0.16),
+    0 0 16px rgba(56, 189, 248, 0.04);
+
+  /* ═══════════════════════════════════════════
+     INTERACTIVE STATES
+     ═══════════════════════════════════════════ */
+  --interactive-hover-opacity: 0.85;
+  --interactive-active-opacity: 0.75;
+  --interactive-disabled-opacity: 0.32;
+
+  /* ═══════════════════════════════════════════
+     CARDS
+     Data terminals. Floating instrument panels.
+     Selection highlights with a soft holographic
+     edge glow — the system acknowledging input.
+     ═══════════════════════════════════════════ */
+  --card-bg: var(--glass-bg);
+  --card-hover-bg: var(--bg-surface-3);
+  --card-hover-glow: rgba(56, 189, 248, 0.025);
+  --card-selected-bg-from: rgba(56, 189, 248, 0.055);
+  --card-selected-bg-to: var(--bg-surface-2);
+  --card-selected-glow: rgba(56, 189, 248, 0.07);
+  --card-selected-inner: rgba(56, 189, 248, 0.02);
+  --card-check-bg: #38BDF8;
+  --card-check-color: #000000;
+  --card-avatar-glow: rgba(56, 189, 248, 0.14);
+  --card-tag-bg: var(--bg-input);
+  --card-tag-border: var(--border-color);
+  --card-info-bg: rgba(0, 0, 0, 0.55);
+  --card-info-blur: 10px;
+  --card-delete-bg: rgba(70, 10, 15, 0.50);
+  --card-delete-border: rgba(248, 113, 113, 0.14);
+  --card-delete-color: rgba(248, 150, 150, 0.60);
+  --card-delete-bg-hover: rgba(120, 15, 25, 0.65);
+  --card-delete-color-hover: #FCA5A5;
+  --create-card-hover-bg: var(--bg-surface-3);
+
+  /* ═══════════════════════════════════════════
+     BUTTONS
+     Bridge controls. Primary actions glow with
+     the steady blue of an engaged drive system.
+     White text on deep blue gradient — 
+     unmistakable, authoritative.
+     
+     Contrast: #FFFFFF on gradient → 4.5–6.5:1
+     ═══════════════════════════════════════════ */
+  --btn-primary-bg: var(--grad-burgundy);
+  --btn-primary-color: #FFFFFF;
+  --btn-secondary-bg: var(--bg-surface-3);
+  --btn-secondary-color: var(--txt-secondary);
+  --btn-ghost-bg: transparent;
+  --btn-ghost-color: var(--txt-secondary);
+
+  --info-btn-hover-border: var(--glass-border-hover);
+
+  /* ═══════════════════════════════════════════
+     TAGS
+     System classification markers.
+     Active = illuminated console button.
+     New = cyan incoming transmission.
+     Custom = violet — unknown signal origin.
+     ═══════════════════════════════════════════ */
+  --tag-bg: var(--bg-surface-3);
+  --tag-color: var(--txt-secondary);
+  --tag-active-bg: var(--grad-burgundy);
+  --tag-active-color: #FFFFFF;
+  --tag-active-glow: rgba(56, 189, 248, 0.12);
+
+  /* New — incoming transmission (cyan) */
+  --tag-new-border: rgba(34, 211, 238, 0.18);
+  --tag-new-bg-from: #041820;
+  --tag-new-bg-to: #062430;
+  --tag-new-text: #67E8F9;
+  --tag-new-border-active: rgba(34, 211, 238, 0.32);
+
+  /* Custom — unknown origin (violet) */
+  --tag-custom-border: rgba(167, 139, 250, 0.18);
+  --tag-custom-bg-from: rgba(139, 92, 246, 0.08);
+  --tag-custom-bg-to: rgba(139, 92, 246, 0.14);
+  --tag-custom-text: rgba(196, 181, 253, 0.85);
+  --tag-custom-border-active: rgba(167, 139, 250, 0.32);
+
+  /* ═══════════════════════════════════════════
+     PROGRESS / STEPS
+     Mission phase tracker. Active phase glows
+     with drive-blue. Completed phases marked
+     with confirmed-signal border.
+     ═══════════════════════════════════════════ */
+  --step-bg: var(--bg-surface-3);
+  --step-color: var(--txt-muted);
+  --step-active-bg: var(--grad-burgundy);
+  --step-active-color: #FFFFFF;
+  --step-active-border: #38BDF8;
+  --step-active-glow: rgba(56, 189, 248, 0.25);
+  --step-completed-bg: var(--bg-surface-3);
+  --step-completed-border: #0284C7;
+  --step-completed-line: #0284C7;
+
+  /* ═══════════════════════════════════════════
+     INFO PANELS
+     ═══════════════════════════════════════════ */
+  --info-tag-bg: var(--bg-input);
+  --info-tag-border: var(--border-color);
+  --info-desc-bg: rgba(0, 0, 0, 0.25);
+
+  /* ═══════════════════════════════════════════
+     DANGER ZONE
+     Hull breach warning. Deep red emergency
+     lighting — urgent, impossible to ignore,
+     but controlled. No panic on the bridge.
+     ═══════════════════════════════════════════ */
+  --danger-bg-from: #2A0608;
+  --danger-bg-to: #4A0C12;
+  --danger-bg-hover-from: #4A0C12;
+  --danger-bg-hover-to: #6A141C;
+  --danger-text: #FCA5A5;
+  --danger-border: rgba(248, 113, 113, 0.20);
+  --danger-glow: rgba(248, 113, 113, 0.10);
+
+  /* ═══════════════════════════════════════════
+     SEARCH
+     Sensor sweep. The search field is a scan
+     aperture — quiet when idle, glowing blue
+     when actively sweeping for targets.
+     ═══════════════════════════════════════════ */
+  --search-bg: var(--glass-bg);
+  --search-border: var(--glass-border);
+  --search-focus-border: #38BDF8;
+  --search-focus-shadow: rgba(56, 189, 248, 0.08);
+
+  /* ═══════════════════════════════════════════
+     MISC
+     ═══════════════════════════════════════════ */
+  --alpha-active-glow: rgba(56, 189, 248, 0.12);
+
+  --scrollbar-track: transparent;
+  --scrollbar-thumb: #141E34;
+  --scrollbar-thumb-hover: #0284C7;
+
+  --overlay-bg: rgba(3, 5, 10, 0.90);
+  --overlay-blur: 12px;
+
+  /* ═══════════════════════════════════════════
+     BACKGROUND RADIALS
+     Distant nebulae. Not shapes — just the
+     faintest wash of colour radiation bleeding
+     through the hull. Blue and violet, barely
+     there, giving the void subtle depth.
+     ═══════════════════════════════════════════ */
+  --bg-radial-1: rgba(56, 189, 248, 0.018);
+  --bg-radial-2: rgba(139, 92, 246, 0.014);
+  --bg-radial-3: rgba(3, 5, 12, 0.6);
+
+  /* ═══════════════════════════════════════════
+     GRADIENTS
+     Drive-blue to deep-space-blue. The primary
+     gradient feels like looking at a warp core
+     through reinforced glass — energy contained,
+     purposeful, controlled.
+     ═══════════════════════════════════════════ */
+  --grad-burgundy: linear-gradient(135deg, #1478C7, #0B5C92);
+  --grad-rich: linear-gradient(135deg, var(--bg-surface-3), var(--bg-surface-2));
+  --grad-gold-subtle: linear-gradient(
+    135deg,
+    rgba(56, 189, 248, 0.03),
+    rgba(56, 189, 248, 0.006)
+  );
+  --grad-surface: linear-gradient(180deg, var(--bg-surface-2), var(--bg-surface-1));
+  --grad-overlay: linear-gradient(180deg, transparent, var(--bg-app));
+}
+
+
+/* ╔════════════════════════════════════════════╗
+   ║  ABYSS — Visual Enhancements               ║
+   ║  Holographic artifacts. Hull illumination.  ║
+   ║  The quiet details of a living ship.        ║
+   ╚════════════════════════════════════════════╝ */
+
+
+/* ─── Holographic text selection ─── */
+[data-theme="ocean"] ::selection {
+  background: rgba(56, 189, 248, 0.22);
+  color: #E0F2FE;
+}
+
+[data-theme="ocean"] ::-moz-selection {
+  background: rgba(56, 189, 248, 0.22);
+  color: #E0F2FE;
+}
+
+
+/* ─── Deep space ambient + hull vignette ───
+   Three layers:
+   1. Distant blue nebula glow (top-left)
+   2. Faint violet radiation (bottom-right)
+   3. Hull vignette — darkness at the edges
+      where instrument light doesn't reach */
+
+[data-theme="ocean"] body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(
+      ellipse 70% 50% at 15% 20%,
+      rgba(56, 189, 248, 0.016),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 60% 45% at 85% 75%,
+      rgba(139, 92, 246, 0.012),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse at center,
+      transparent 50%,
+      rgba(0, 0, 0, 0.15) 100%
+    );
+}
+
+
+/* ─── HUD grid overlay ───
+   Extremely subtle instrument grid etched into
+   the viewport. Barely visible — felt as
+   precision engineering, not seen as lines.
+   Disappears entirely at small viewports. */
+
+[data-theme="ocean"] body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2147483646;
+  opacity: 0.018;
+  background-image:
+    linear-gradient(
+      rgba(56, 189, 248, 0.4) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(56, 189, 248, 0.4) 1px,
+      transparent 1px
+    );
+  background-size: 60px 60px;
+  mask-image: radial-gradient(
+    ellipse 70% 70% at 50% 50%,
+    black 20%,
+    transparent 80%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 70% 70% at 50% 50%,
+    black 20%,
+    transparent 80%
+  );
+}
+
+@media (max-width: 768px) {
+  [data-theme="ocean"] body::before {
+    display: none;
+  }
+}
+
+
+/* ─── Refined scrollbar ─── */
+
+[data-theme="ocean"] ::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+[data-theme="ocean"] ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+[data-theme="ocean"] ::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 100px;
+  transition: background 0.2s ease;
+}
+
+[data-theme="ocean"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+  box-shadow: 0 0 6px rgba(56, 189, 248, 0.20);
+}
+
+
+/* ─── Utility animations ───
+   Ship systems: breathing instruments,
+   holographic flicker, drive pulse. */
+
+@keyframes ocean-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 4px rgba(56, 189, 248, 0.10),
+      0 0 14px rgba(56, 189, 248, 0.03);
+  }
+  50% {
+    box-shadow:
+      0 0 8px rgba(56, 189, 248, 0.22),
+      0 0 28px rgba(56, 189, 248, 0.06);
+  }
+}
+
+@keyframes ocean-text-glow {
+  0%, 100% {
+    text-shadow: 0 0 4px rgba(56, 189, 248, 0.18);
+  }
+  50% {
+    text-shadow:
+      0 0 8px rgba(56, 189, 248, 0.35),
+      0 0 20px rgba(56, 189, 248, 0.10);
+  }
+}
+
+@keyframes ocean-scanner {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+@keyframes ocean-drift {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes ocean-border-breathe {
+  0%, 100% {
+    border-color: rgba(56, 189, 248, 0.06);
+  }
+  50% {
+    border-color: rgba(56, 189, 248, 0.16);
+  }
+}

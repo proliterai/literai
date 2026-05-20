@@ -1,0 +1,131 @@
+/* ============================================
+   TYPOGRAPHY — Типографика и текстовые стили
+   ============================================ */
+
+:root {
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 0.9375rem;
+  --font-size-md: 1.0625rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 1.875rem;
+  --font-size-3xl: 2.25rem;
+  --line-height: 1.6;
+}
+
+/* Адаптивная типографика */
+@media (max-width: 768px) {
+  :root {
+    --font-size-base: 1rem;
+    --font-size-md: 1.0625rem;
+    --font-size-lg: 1.1875rem;
+    --font-size-xl: 1.375rem;
+    --font-size-2xl: 1.75rem;
+    --font-size-3xl: 2rem;
+    --line-height: 1.55;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --font-size-base: 1rem;
+    --font-size-sm: 0.875rem;
+    --font-size-xs: 0.8125rem;
+    --line-height: 1.5;
+  }
+}
+
+/* Заголовки */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-tight);
+  color: var(--txt-primary);
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-bold);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-bold);
+  letter-spacing: -0.015em;
+}
+
+h3 {
+  font-size: var(--font-size-xl);
+}
+
+h4 {
+  font-size: var(--font-size-lg);
+}
+
+h5 {
+  font-size: var(--font-size-md);
+}
+
+h6 {
+  font-size: var(--font-size-base);
+}
+
+/* Параграфы */
+p {
+  margin-bottom: var(--space-4);
+  line-height: var(--line-height);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* Моноширинный текст */
+code, pre {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+}
+
+code {
+  padding: var(--space-0-5) var(--space-1-5);
+  background: var(--bg-surface-3);
+  border-radius: var(--radius-xs);
+  font-size: 0.9em;
+}
+
+pre {
+  padding: var(--space-4);
+  background: var(--bg-surface-3);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  border: 1px solid var(--glass-border);
+}
+
+pre code {
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  font-size: inherit;
+}
+
+/* Мелкий текст */
+small {
+  font-size: var(--font-size-xs);
+  color: var(--txt-muted);
+}
+
+/* Strong/Em */
+strong, b {
+  font-weight: var(--font-semibold);
+}
+
+/* Lists */
+ul, ol {
+  padding-left: var(--space-6);
+}
+
+li {
+  margin-bottom: var(--space-1);
+}

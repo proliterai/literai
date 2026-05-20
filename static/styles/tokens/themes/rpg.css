@@ -1,0 +1,914 @@
+/* ============================================
+   RPG — Old Console Fantasy Theme
+   ─────────────────────────────────────────
+   Вайб старых консольных JRPG:
+   16-bit приключения, меню инвентаря,
+   тёплые золотые рамки, сапфировые панели,
+   лесная магия, старые диалоговые окна и
+   уютная олдовая атмосфера без перегруза.
+
+   Что исправлено:
+   • переработана палитра — меньше мрачной
+     синевы, больше ламповой fantasy-console
+   • уменьшен риск вылета кнопок и элементов
+     за экран
+   • модальные окна, карточки и панели лучше
+     ведут себя на мобильных и десктопах
+   • пиксельный характер сохранён, но UI стал
+     аккуратнее и практичнее
+   • размеры, padding, шрифты и тени
+     сбалансированы под реальные экраны
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+[data-theme="rpg"] {
+
+  /* ═══════════════════════════════════════════
+     BACKGROUNDS
+     База в стиле старых RPG-меню:
+     глубокий navy, тёмный сапфир, немного
+     forest-shadow и старого CRT тепла.
+     ═══════════════════════════════════════════ */
+  --bg-app: #111827;
+  --bg-surface-1: #182235;
+  --bg-surface-2: #101827;
+  --bg-surface-3: #22304A;
+  --bg-surface-4: #2A3956;
+  --bg-surface-5: #324266;
+  --bg-input: #0D1420;
+  --bg-elevated: #1D2A42;
+  --bg-sunken: #091019;
+  --bg-primary: var(--bg-surface-1);
+
+  /* ═══════════════════════════════════════════
+     GLASS
+     Для RPG — плотные панели, почти без glass.
+     ═══════════════════════════════════════════ */
+  --glass-bg: rgba(24, 34, 53, 0.96);
+  --glass-bg-heavy: rgba(24, 34, 53, 0.985);
+  --glass-bg-light: rgba(24, 34, 53, 0.90);
+  --glass-border: rgba(219, 182, 98, 0.18);
+  --glass-border-hover: rgba(219, 182, 98, 0.34);
+  --glass-border-active: rgba(219, 182, 98, 0.52);
+
+  /* ═══════════════════════════════════════════
+     TEXT
+     Тёплый parchment text + золотой accent.
+     Старые RPG лучше ощущаются не через
+     белый текст, а через «пергаментный».
+     ═══════════════════════════════════════════ */
+  --txt-primary: #E8DEC8;
+  --txt-secondary: #B7A98F;
+  --txt-muted: #7E745F;
+  --txt-disabled: rgba(126, 116, 95, 0.42);
+
+  --txt-inverse: #0B1018;
+  --txt-gold: #DBB662;
+  --txt-gold-light: #F6E2A5;
+  --txt-gold-dark: #A9832A;
+
+  --txt-accent: #DBB662;
+  --txt-on-accent: #0B1018;
+  --txt-link: #7CC7D9;
+  --txt-link-hover: #A8E0ED;
+
+  --font-family-base: 'Press Start 2P', monospace;
+
+  /* ═══════════════════════════════════════════
+     ACCENTS
+     Палитра старых JRPG:
+     • antique gold — основа
+     • mana cyan — магический secondary
+     • bronze amber — tertiary
+     • emerald, ruby, sapphire — статусы
+     ═══════════════════════════════════════════ */
+  --accent-primary: #DBB662;
+  --accent-secondary: #7CC7D9;
+  --accent-tertiary: #B68535;
+  --accent-success: #63BA77;
+  --accent-error: #D8645A;
+  --accent-info: #6D92D8;
+  --accent-warning: #D89A3C;
+
+  /* ═══════════════════════════════════════════
+     GRADIENTS
+     Более мягкие и олдовые, без кислотности.
+     ═══════════════════════════════════════════ */
+  --grad-primary: linear-gradient(180deg, #E3C878, #B88933);
+  --grad-burgundy: linear-gradient(180deg, #E3C878, #B88933);
+  --grad-rich: linear-gradient(180deg, #23314A, #182235);
+  --grad-gold-subtle: linear-gradient(
+    180deg,
+    rgba(219, 182, 98, 0.08),
+    rgba(219, 182, 98, 0.015)
+  );
+  --grad-surface: linear-gradient(180deg, var(--bg-surface-1), var(--bg-surface-2));
+  --grad-overlay: linear-gradient(180deg, transparent, #111827);
+
+  /* ═══════════════════════════════════════════
+     BORDERS
+     Золотая рамка, но мягче и чище, чтобы
+     интерфейс не выглядел перегруженным.
+     ═══════════════════════════════════════════ */
+  --border-light: rgba(219, 182, 98, 0.12);
+  --border-base: rgba(219, 182, 98, 0.24);
+  --border-heavy: #DBB662;
+  --border-color: rgba(219, 182, 98, 0.20);
+  --border-subtle: rgba(219, 182, 98, 0.08);
+  --border-hover: rgba(219, 182, 98, 0.38);
+  --border-active: rgba(219, 182, 98, 0.56);
+  --border-accent: #DBB662;
+  --border-focus: #DBB662;
+  --border-divider: rgba(219, 182, 98, 0.12);
+
+  /* ═══════════════════════════════════════════
+     STATES
+     ═══════════════════════════════════════════ */
+  --color-success: #63BA77;
+  --color-error: #D8645A;
+  --color-warning: #D89A3C;
+  --color-info: #6D92D8;
+
+  --state-success: #63BA77;
+  --state-success-bg: rgba(99, 186, 119, 0.12);
+  --state-success-border: rgba(99, 186, 119, 0.28);
+
+  --state-error: #D8645A;
+  --state-error-bg: rgba(216, 100, 90, 0.12);
+  --state-error-border: rgba(216, 100, 90, 0.28);
+
+  --state-info: #6D92D8;
+  --state-info-bg: rgba(109, 146, 216, 0.12);
+  --state-info-border: rgba(109, 146, 216, 0.28);
+
+  --state-warning: #D89A3C;
+  --state-warning-bg: rgba(216, 154, 60, 0.12);
+  --state-warning-border: rgba(216, 154, 60, 0.28);
+
+  --state-disabled: rgba(126, 116, 95, 0.20);
+  --state-hover: rgba(219, 182, 98, 0.08);
+  --state-active: rgba(219, 182, 98, 0.15);
+  --state-selected: rgba(219, 182, 98, 0.10);
+
+  /* ═══════════════════════════════════════════
+     RADII
+     Полный квадрат был слишком жёстким.
+     Оставляем почти пиксельный характер,
+     но даём чуть-чуть комфорта для адаптива.
+     ═══════════════════════════════════════════ */
+  --radius-xs: 2px;
+  --radius-sm: 3px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+  --radius-2xl: 10px;
+  --radius-full: 999px;
+
+  /* ═══════════════════════════════════════════
+     SHADOWS
+     Пиксельные, но не слишком огромные,
+     чтобы не ломать layout на мобильных.
+     ═══════════════════════════════════════════ */
+  --shadow-xs: 1px 1px 0px #081019;
+  --shadow-sm: 2px 2px 0px #081019;
+  --shadow-md: 3px 3px 0px #081019;
+  --shadow-lg: 4px 4px 0px #081019;
+  --shadow-xl: 5px 5px 0px #081019;
+  --shadow-glow: 0 0 10px rgba(219, 182, 98, 0.28);
+  --shadow-inset: inset 0 0 0 transparent;
+  --shadow-inner: inset 1px 1px 0px rgba(0, 0, 0, 0.30);
+  --shadow-outline: 0 0 0 3px rgba(219, 182, 98, 0.18);
+
+  /* ═══════════════════════════════════════════
+     EFFECTS
+     Почти без blur, это old-console vibe.
+     ═══════════════════════════════════════════ */
+  --fx-glass-blur: 0px;
+  --fx-glass-blur-heavy: 0px;
+  --fx-glass-blur-light: 0px;
+  --fx-shadow-sm: var(--shadow-sm);
+  --fx-shadow-md: var(--shadow-md);
+  --fx-shadow-lg: var(--shadow-lg);
+  --fx-shadow-xl: var(--shadow-xl);
+  --fx-shadow-gold: 0 0 12px rgba(219, 182, 98, 0.14);
+  --fx-shadow-gold-strong: 0 0 20px rgba(219, 182, 98, 0.26);
+  --fx-glow-gold: 0 0 10px rgba(219, 182, 98, 0.14);
+  --fx-glow-gold-subtle: 0 0 6px rgba(219, 182, 98, 0.08);
+
+  /* ═══════════════════════════════════════════
+     FOCUS
+     ═══════════════════════════════════════════ */
+  --focus-ring: 0 0 0 2px #DBB662;
+  --focus-ring-error: 0 0 0 2px #D8645A;
+  --focus-ring-success: 0 0 0 2px #63BA77;
+  --focus-ring-offset: 0 0 0 3px var(--bg-app), 0 0 0 5px #DBB662;
+  --input-focus-shadow:
+    0 0 0 2px rgba(219, 182, 98, 0.28),
+    0 0 8px rgba(219, 182, 98, 0.08);
+
+  /* ═══════════════════════════════════════════
+     INTERACTIVE STATES
+     ═══════════════════════════════════════════ */
+  --interactive-hover-opacity: 0.92;
+  --interactive-active-opacity: 0.84;
+  --interactive-disabled-opacity: 0.38;
+
+  /* ═══════════════════════════════════════════
+     CARDS
+     ═══════════════════════════════════════════ */
+  --card-bg: var(--bg-surface-1);
+  --card-hover-bg: var(--bg-surface-3);
+  --card-hover-glow: rgba(219, 182, 98, 0.04);
+  --card-selected-bg-from: rgba(219, 182, 98, 0.10);
+  --card-selected-bg-to: var(--bg-surface-1);
+  --card-selected-glow: rgba(219, 182, 98, 0.10);
+  --card-selected-inner: rgba(219, 182, 98, 0.04);
+  --card-check-bg: #DBB662;
+  --card-check-color: #0B1018;
+  --card-avatar-glow: rgba(219, 182, 98, 0.15);
+  --card-tag-bg: var(--bg-surface-3);
+  --card-tag-border: var(--border-color);
+  --card-info-bg: rgba(24, 34, 53, 0.92);
+  --card-info-blur: 0px;
+  --card-delete-bg: rgba(216, 100, 90, 0.14);
+  --card-delete-border: rgba(216, 100, 90, 0.28);
+  --card-delete-color: rgba(216, 100, 90, 0.78);
+  --card-delete-bg-hover: rgba(216, 100, 90, 0.22);
+  --card-delete-color-hover: #F08E86;
+  --create-card-hover-bg: var(--bg-surface-3);
+
+  /* ═══════════════════════════════════════════
+     BUTTONS
+     Основная проблема старой темы —
+     oversized padding и тяжёлые тени.
+     Тут размеры выровнены.
+     ═══════════════════════════════════════════ */
+  --btn-primary-bg: var(--grad-primary);
+  --btn-primary-color: #0B1018;
+  --btn-secondary-bg: var(--bg-surface-3);
+  --btn-secondary-color: var(--txt-primary);
+  --btn-ghost-bg: transparent;
+  --btn-ghost-color: var(--txt-secondary);
+  --info-btn-hover-border: var(--glass-border-hover);
+
+  /* ═══════════════════════════════════════════
+     TAGS
+     ═══════════════════════════════════════════ */
+  --tag-bg: var(--bg-surface-3);
+  --tag-color: var(--txt-secondary);
+  --tag-active-bg: var(--grad-burgundy);
+  --tag-active-color: #0B1018;
+  --tag-active-glow: rgba(219, 182, 98, 0.14);
+
+  --tag-new-border: rgba(99, 186, 119, 0.28);
+  --tag-new-bg-from: rgba(99, 186, 119, 0.13);
+  --tag-new-bg-to: rgba(99, 186, 119, 0.07);
+  --tag-new-text: #72D189;
+  --tag-new-border-active: rgba(99, 186, 119, 0.46);
+
+  --tag-custom-border: rgba(216, 154, 60, 0.28);
+  --tag-custom-bg-from: rgba(216, 154, 60, 0.13);
+  --tag-custom-bg-to: rgba(216, 154, 60, 0.07);
+  --tag-custom-text: #E1A856;
+  --tag-custom-border-active: rgba(216, 154, 60, 0.46);
+
+  /* ═══════════════════════════════════════════
+     PROGRESS / STEPS
+     ═══════════════════════════════════════════ */
+  --step-bg: var(--bg-surface-3);
+  --step-color: var(--txt-muted);
+  --step-active-bg: var(--grad-primary);
+  --step-active-color: #0B1018;
+  --step-active-border: #DBB662;
+  --step-active-glow: rgba(219, 182, 98, 0.15);
+  --step-completed-bg: var(--bg-surface-3);
+  --step-completed-border: #DBB662;
+  --step-completed-line: #DBB662;
+
+  /* ═══════════════════════════════════════════
+     INFO
+     ═══════════════════════════════════════════ */
+  --info-tag-bg: var(--bg-surface-3);
+  --info-tag-border: var(--border-color);
+  --info-desc-bg: rgba(219, 182, 98, 0.04);
+
+  /* ═══════════════════════════════════════════
+     DANGER
+     ═══════════════════════════════════════════ */
+  --danger-bg-from: rgba(216, 100, 90, 0.18);
+  --danger-bg-to: rgba(216, 100, 90, 0.10);
+  --danger-bg-hover-from: rgba(216, 100, 90, 0.28);
+  --danger-bg-hover-to: rgba(216, 100, 90, 0.18);
+  --danger-text: #F08E86;
+  --danger-border: rgba(216, 100, 90, 0.34);
+  --danger-glow: rgba(216, 100, 90, 0.10);
+
+  /* ═══════════════════════════════════════════
+     SEARCH
+     ═══════════════════════════════════════════ */
+  --search-bg: #0D1420;
+  --search-border: var(--border-color);
+  --search-focus-border: #DBB662;
+  --search-focus-shadow: rgba(219, 182, 98, 0.15);
+
+  /* ═══════════════════════════════════════════
+     MISC
+     ═══════════════════════════════════════════ */
+  --alpha-active-glow: rgba(219, 182, 98, 0.15);
+  --scrollbar-track: transparent;
+  --scrollbar-thumb: #31405F;
+  --scrollbar-thumb-hover: #DBB662;
+  --overlay-bg: rgba(9, 16, 25, 0.84);
+  --overlay-blur: 0px;
+
+  /* ═══════════════════════════════════════════
+     BACKGROUND RADIALS
+     Очень лёгкие — магия, лунный лес,
+     old screen aura.
+     ═══════════════════════════════════════════ */
+  --bg-radial-1: rgba(219, 182, 98, 0.025);
+  --bg-radial-2: rgba(124, 199, 217, 0.018);
+  --bg-radial-3: rgba(0, 0, 0, 0.14);
+
+  /* ═══════════════════════════════════════════
+     RPG SIZE TOKENS
+     Ключевой блок для исправления проблем
+     с вылетающими кнопками, панелями, модалками.
+     ═══════════════════════════════════════════ */
+  --rpg-font-size-xs: 10px;
+  --rpg-font-size-sm: 11px;
+  --rpg-font-size-md: 12px;
+  --rpg-font-size-lg: 14px;
+
+  --rpg-line-height: 1.7;
+
+  --rpg-space-2xs: 4px;
+  --rpg-space-xs: 6px;
+  --rpg-space-sm: 8px;
+  --rpg-space-md: 12px;
+  --rpg-space-lg: 16px;
+  --rpg-space-xl: 20px;
+
+  --rpg-btn-height-sm: 34px;
+  --rpg-btn-height-md: 40px;
+  --rpg-btn-height-lg: 46px;
+
+  --rpg-input-height-sm: 34px;
+  --rpg-input-height-md: 40px;
+  --rpg-input-height-lg: 46px;
+
+  --rpg-card-padding: 14px;
+  --rpg-panel-padding: 16px;
+  --rpg-modal-padding: 16px;
+
+  --rpg-modal-max-width: min(680px, calc(100vw - 24px));
+  --rpg-drawer-max-width: min(460px, 100vw);
+  --rpg-content-max-width: min(1180px, calc(100vw - 24px));
+}
+
+
+/* ============================================
+   RPG ATMOSPHERE
+   ============================================ */
+
+/* Фон: тонкая adventure-grid как карта подземелья */
+[data-theme="rpg"] body {
+  background-color: var(--bg-app);
+  background-image:
+    linear-gradient(rgba(219, 182, 98, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(219, 182, 98, 0.035) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-attachment: fixed;
+  color: var(--txt-primary);
+  image-rendering: pixelated;
+}
+
+/* Виньетка старого экрана */
+[data-theme="rpg"] body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 56%,
+      rgba(0, 0, 0, 0.30) 100%
+    );
+}
+
+/* Лёгкий scanline/CRT hint */
+[data-theme="rpg"] body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.045;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.02) 0px,
+      rgba(255,255,255,0.02) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+}
+
+
+/* ============================================
+   GLOBAL TYPOGRAPHY TUNING
+   ============================================ */
+
+[data-theme="rpg"],
+[data-theme="rpg"] button,
+[data-theme="rpg"] input,
+[data-theme="rpg"] textarea,
+[data-theme="rpg"] select {
+  font-family: var(--font-family-base);
+  font-size: var(--rpg-font-size-sm);
+  line-height: var(--rpg-line-height);
+}
+
+[data-theme="rpg"] h1,
+[data-theme="rpg"] h2,
+[data-theme="rpg"] h3,
+[data-theme="rpg"] h4,
+[data-theme="rpg"] h5,
+[data-theme="rpg"] h6 {
+  font-family: var(--font-family-base);
+  color: var(--txt-primary);
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+[data-theme="rpg"] p,
+[data-theme="rpg"] span,
+[data-theme="rpg"] label,
+[data-theme="rpg"] li {
+  word-break: break-word;
+}
+
+
+/* ============================================
+   UNIVERSAL LAYOUT SAFETY
+   Чтобы ничего не уезжало за экран
+   ============================================ */
+
+[data-theme="rpg"] *,
+[data-theme="rpg"] *::before,
+[data-theme="rpg"] *::after {
+  box-sizing: border-box;
+}
+
+[data-theme="rpg"] img,
+[data-theme="rpg"] video,
+[data-theme="rpg"] canvas,
+[data-theme="rpg"] svg {
+  max-width: 100%;
+  height: auto;
+}
+
+[data-theme="rpg"] .modal,
+[data-theme="rpg"] .modal-content,
+[data-theme="rpg"] .dialog,
+[data-theme="rpg"] .drawer,
+[data-theme="rpg"] .panel,
+[data-theme="rpg"] .settings-panel,
+[data-theme="rpg"] .app-drawer,
+[data-theme="rpg"] .catalog-card,
+[data-theme="rpg"] .card,
+[data-theme="rpg"] .surface {
+  max-width: 100%;
+  min-width: 0;
+}
+
+[data-theme="rpg"] .modal,
+[data-theme="rpg"] .modal-content,
+[data-theme="rpg"] .dialog {
+  width: min(100%, var(--rpg-modal-max-width));
+  max-width: var(--rpg-modal-max-width);
+  max-height: min(88vh, 900px);
+  overflow: auto;
+}
+
+[data-theme="rpg"] .drawer,
+[data-theme="rpg"] .app-drawer {
+  width: min(100vw, var(--rpg-drawer-max-width));
+  max-width: 100vw;
+}
+
+[data-theme="rpg"] .panel,
+[data-theme="rpg"] .settings-panel,
+[data-theme="rpg"] .catalog-card,
+[data-theme="rpg"] .card,
+[data-theme="rpg"] .surface {
+  overflow-wrap: anywhere;
+}
+
+
+/* ============================================
+   BUTTONS
+   Исправленные размеры и адаптивность
+   ============================================ */
+
+[data-theme="rpg"] button,
+[data-theme="rpg"] .btn,
+[data-theme="rpg"] .btn-primary,
+[data-theme="rpg"] .btn-secondary,
+[data-theme="rpg"] .btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: var(--rpg-btn-height-md);
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-size: var(--rpg-font-size-sm);
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-align: center;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  image-rendering: pixelated;
+  transition:
+    transform 0.08s step-end,
+    box-shadow 0.08s step-end,
+    background 0.12s step-end,
+    border-color 0.12s step-end,
+    color 0.12s step-end;
+}
+
+/* Безопасно для длинных текстов внутри кнопок */
+[data-theme="rpg"] button > *,
+[data-theme="rpg"] .btn > * {
+  min-width: 0;
+}
+
+/* Primary / Secondary */
+[data-theme="rpg"] .btn-primary,
+[data-theme="rpg"] button.primary {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-color);
+  border: 2px solid #E8DEC8;
+  box-shadow: 3px 3px 0px #081019 !important;
+  font-weight: 400;
+}
+
+[data-theme="rpg"] .btn-secondary,
+[data-theme="rpg"] button.secondary {
+  background: var(--btn-secondary-bg);
+  color: var(--btn-secondary-color);
+  border: 2px solid #E8DEC8;
+  box-shadow: 3px 3px 0px #081019 !important;
+  font-weight: 400;
+}
+
+[data-theme="rpg"] .btn-ghost,
+[data-theme="rpg"] button.ghost {
+  background: var(--btn-ghost-bg);
+  color: var(--btn-ghost-color);
+  border: 2px solid rgba(219, 182, 98, 0.22);
+  box-shadow: 2px 2px 0px #081019 !important;
+}
+
+/* Hover / active */
+[data-theme="rpg"] .btn-primary:hover,
+[data-theme="rpg"] .btn-secondary:hover,
+[data-theme="rpg"] .btn-ghost:hover,
+[data-theme="rpg"] button.primary:hover,
+[data-theme="rpg"] button.secondary:hover,
+[data-theme="rpg"] button.ghost:hover {
+  transform: translate(1px, 1px) !important;
+  box-shadow: 2px 2px 0px #081019 !important;
+}
+
+[data-theme="rpg"] .btn-primary:active,
+[data-theme="rpg"] .btn-secondary:active,
+[data-theme="rpg"] .btn-ghost:active,
+[data-theme="rpg"] button.primary:active,
+[data-theme="rpg"] button.secondary:active,
+[data-theme="rpg"] button.ghost:active {
+  transform: translate(2px, 2px) !important;
+  box-shadow: 1px 1px 0px #081019 !important;
+}
+
+/* Full width buttons should not overflow */
+[data-theme="rpg"] .btn-block,
+[data-theme="rpg"] .w-full,
+[data-theme="rpg"] button.w-full {
+  width: 100%;
+}
+
+
+/* ============================================
+   PANELS / CARDS / MODALS
+   ============================================ */
+
+[data-theme="rpg"] .catalog-card,
+[data-theme="rpg"] .settings-panel,
+[data-theme="rpg"] .app-drawer,
+[data-theme="rpg"] .card,
+[data-theme="rpg"] .panel,
+[data-theme="rpg"] .surface,
+[data-theme="rpg"] .modal-content,
+[data-theme="rpg"] .dialog {
+  background: var(--bg-surface-1);
+  border: 2px solid #E8DEC8;
+  box-shadow: 3px 3px 0px #081019;
+  border-radius: var(--radius-sm);
+  padding: var(--rpg-panel-padding);
+}
+
+/* Классическая RPG рамка */
+[data-theme="rpg"] .catalog-card,
+[data-theme="rpg"] .card,
+[data-theme="rpg"] .panel,
+[data-theme="rpg"] .surface {
+  outline: 1px solid rgba(219, 182, 98, 0.18);
+  outline-offset: 2px;
+}
+
+/* Модалки и панели не должны уезжать */
+[data-theme="rpg"] .modal-content,
+[data-theme="rpg"] .dialog,
+[data-theme="rpg"] .settings-panel,
+[data-theme="rpg"] .app-drawer {
+  overflow-x: hidden;
+}
+
+
+/* ============================================
+   MESSAGE BUBBLES
+   ============================================ */
+
+[data-theme="rpg"] .message-bubble {
+  border: 2px solid #E8DEC8;
+  box-shadow: 3px 3px 0px #081019;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  max-width: min(100%, 100%);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+[data-theme="rpg"] .ai-message .message-bubble {
+  background: var(--bg-surface-1);
+  border-color: #7CC7D9;
+}
+
+[data-theme="rpg"] .user-message .message-bubble {
+  background: var(--bg-surface-3);
+  border-color: #DBB662;
+  color: var(--txt-primary);
+}
+
+
+/* ============================================
+   INPUTS
+   Терминал-магию оставляем, но удобнее
+   ============================================ */
+
+[data-theme="rpg"] input,
+[data-theme="rpg"] textarea,
+[data-theme="rpg"] select,
+[data-theme="rpg"] .chat-input,
+[data-theme="rpg"] .search-input,
+[data-theme="rpg"] .panel-textarea {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: var(--rpg-input-height-md);
+  padding: 10px 12px;
+  background: #0B1018;
+  border: 2px solid #63BA77;
+  border-radius: var(--radius-sm);
+  color: #72D189;
+  box-shadow: inset 1px 1px 0px rgba(0, 0, 0, 0.36);
+  caret-color: #72D189;
+  transition:
+    border-color 0.1s step-end,
+    color 0.1s step-end,
+    box-shadow 0.1s step-end;
+}
+
+[data-theme="rpg"] textarea,
+[data-theme="rpg"] .panel-textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+[data-theme="rpg"] input::placeholder,
+[data-theme="rpg"] textarea::placeholder,
+[data-theme="rpg"] .chat-input::placeholder,
+[data-theme="rpg"] .search-input::placeholder {
+  color: rgba(114, 209, 137, 0.40);
+}
+
+[data-theme="rpg"] input:focus,
+[data-theme="rpg"] textarea:focus,
+[data-theme="rpg"] select:focus,
+[data-theme="rpg"] .chat-input:focus,
+[data-theme="rpg"] .search-input:focus,
+[data-theme="rpg"] .panel-textarea:focus {
+  border-color: #DBB662;
+  color: #F6E2A5;
+  box-shadow:
+    inset 1px 1px 0px rgba(0, 0, 0, 0.36),
+    0 0 8px rgba(219, 182, 98, 0.18);
+  outline: none;
+  caret-color: #F6E2A5;
+}
+
+
+/* ============================================
+   AVATARS / MEDIA
+   ============================================ */
+
+[data-theme="rpg"] .avatar {
+  border: 2px solid #DBB662;
+  border-radius: var(--radius-sm) !important;
+  box-shadow: 2px 2px 0px #081019;
+  image-rendering: pixelated;
+}
+
+
+/* ============================================
+   TAGS / CHIPS
+   ============================================ */
+
+[data-theme="rpg"] .tag,
+[data-theme="rpg"] .chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  max-width: 100%;
+  padding: 4px 10px;
+  border: 2px solid rgba(219, 182, 98, 0.22);
+  background: var(--tag-bg);
+  color: var(--tag-color);
+  border-radius: var(--radius-sm);
+  font-size: var(--rpg-font-size-xs);
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+
+/* ============================================
+   SCROLLBARS
+   ============================================ */
+
+[data-theme="rpg"] ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+[data-theme="rpg"] ::-webkit-scrollbar-track {
+  background: var(--bg-surface-2);
+  border-left: 1px solid rgba(219, 182, 98, 0.12);
+}
+
+[data-theme="rpg"] ::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border: 2px solid #E8DEC8;
+  border-radius: var(--radius-sm);
+}
+
+[data-theme="rpg"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+
+/* ============================================
+   SELECTION
+   ============================================ */
+
+[data-theme="rpg"] ::selection {
+  background: #DBB662;
+  color: #0B1018;
+}
+
+[data-theme="rpg"] ::-moz-selection {
+  background: #DBB662;
+  color: #0B1018;
+}
+
+
+/* ============================================
+   RESPONSIVE FIXES
+   Главный блок от проблем с мобильным UI
+   ============================================ */
+
+@media (max-width: 767px) {
+  [data-theme="rpg"] {
+    --rpg-font-size-xs: 9px;
+    --rpg-font-size-sm: 10px;
+    --rpg-font-size-md: 11px;
+    --rpg-font-size-lg: 12px;
+
+    --rpg-btn-height-sm: 32px;
+    --rpg-btn-height-md: 36px;
+    --rpg-btn-height-lg: 42px;
+
+    --rpg-input-height-sm: 32px;
+    --rpg-input-height-md: 38px;
+    --rpg-input-height-lg: 44px;
+
+    --rpg-card-padding: 10px;
+    --rpg-panel-padding: 12px;
+    --rpg-modal-padding: 12px;
+
+    --rpg-modal-max-width: calc(100vw - 16px);
+    --rpg-drawer-max-width: 100vw;
+    --rpg-content-max-width: calc(100vw - 16px);
+  }
+
+  [data-theme="rpg"] button,
+  [data-theme="rpg"] .btn,
+  [data-theme="rpg"] .btn-primary,
+  [data-theme="rpg"] .btn-secondary,
+  [data-theme="rpg"] .btn-ghost {
+    min-height: var(--rpg-btn-height-md);
+    padding: 8px 10px;
+    font-size: var(--rpg-font-size-xs);
+    gap: 6px;
+  }
+
+  [data-theme="rpg"] .catalog-card,
+  [data-theme="rpg"] .settings-panel,
+  [data-theme="rpg"] .app-drawer,
+  [data-theme="rpg"] .card,
+  [data-theme="rpg"] .panel,
+  [data-theme="rpg"] .surface,
+  [data-theme="rpg"] .modal-content,
+  [data-theme="rpg"] .dialog {
+    padding: var(--rpg-panel-padding);
+    box-shadow: 2px 2px 0px #081019;
+    outline-offset: 1px;
+  }
+
+  [data-theme="rpg"] .message-bubble {
+    padding: 10px 12px;
+    box-shadow: 2px 2px 0px #081019;
+  }
+
+  [data-theme="rpg"] input,
+  [data-theme="rpg"] textarea,
+  [data-theme="rpg"] select,
+  [data-theme="rpg"] .chat-input,
+  [data-theme="rpg"] .search-input,
+  [data-theme="rpg"] .panel-textarea {
+    min-height: var(--rpg-input-height-md);
+    padding: 9px 10px;
+    font-size: var(--rpg-font-size-xs);
+  }
+
+  [data-theme="rpg"] .tag,
+  [data-theme="rpg"] .chip {
+    min-height: 24px;
+    padding: 4px 8px;
+    font-size: 9px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  [data-theme="rpg"] {
+    --rpg-modal-max-width: min(720px, calc(100vw - 32px));
+    --rpg-content-max-width: calc(100vw - 32px);
+  }
+}
+
+
+/* ============================================
+   ANIMATIONS
+   Дискретные, консольные
+   ============================================ */
+
+@keyframes rpg-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes rpg-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+@keyframes rpg-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes rpg-slide-up {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

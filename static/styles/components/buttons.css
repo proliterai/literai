@@ -1,0 +1,254 @@
+/* ============================================
+   BUTTONS — Кнопки всех видов
+   ============================================ */
+
+/* Base button reset (shared) */
+.btn-primary,
+.btn-secondary,
+.btn-danger,
+.btn-icon,
+.step-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  white-space: nowrap;
+  position: relative;
+}
+
+/* Focus-visible for all buttons */
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible,
+.btn-danger:focus-visible,
+.btn-icon:focus-visible,
+.step-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-offset);
+}
+
+/* Primary button */
+.btn-primary {
+  padding: var(--space-2-5) var(--space-5);
+  border-radius: var(--radius-md);
+  background: var(--grad-burgundy);
+  color: var(--txt-gold-light);
+  font-weight: var(--font-semibold);
+  font-size: var(--font-size-sm);
+  box-shadow: var(--shadow-sm);
+  letter-spacing: 0.01em;
+}
+
+.btn-primary:hover:not(:disabled) {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md), var(--fx-shadow-gold);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: var(--shadow-xs);
+  opacity: 0.85;
+}
+
+.btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Secondary button */
+.btn-secondary {
+  padding: var(--space-2-5) var(--space-5);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface-3);
+  color: var(--txt-secondary);
+  border: 1px solid var(--glass-border);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-medium);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  color: var(--txt-primary);
+  border-color: var(--glass-border-hover);
+  background: var(--bg-surface-4);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-xs);
+}
+
+.btn-secondary:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn-secondary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Icon button */
+.btn-icon {
+  background: none;
+  border: none;
+  color: var(--txt-muted);
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  line-height: 1;
+  min-width: var(--size-8);
+  min-height: var(--size-8);
+}
+
+.btn-icon:hover {
+  color: var(--txt-primary);
+  background: var(--bg-surface-3);
+}
+
+.btn-icon:active {
+  background: var(--bg-surface-4);
+}
+
+/* Sizes */
+.btn-xs {
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--font-size-xs);
+  border-radius: var(--radius-sm);
+}
+
+.btn-sm {
+  padding: var(--space-1-5) var(--space-3);
+  font-size: var(--font-size-xs);
+  border-radius: var(--radius-sm);
+}
+
+.btn-lg {
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--font-size-base);
+  border-radius: var(--radius-md);
+}
+
+/* Danger button */
+.btn-danger {
+  padding: var(--space-2-5) var(--space-5);
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--danger-bg-from), var(--danger-bg-to));
+  color: var(--danger-text);
+  border: 1px solid var(--danger-border);
+  font-weight: var(--font-semibold);
+  font-size: var(--font-size-sm);
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--danger-bg-hover-from), var(--danger-bg-hover-to));
+  box-shadow: 0 0 16px var(--danger-glow);
+  transform: translateY(-1px);
+}
+
+.btn-danger:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 0 8px var(--danger-glow);
+}
+
+.btn-danger:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Ghost button */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--txt-secondary);
+  border: none;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-ghost:hover {
+  color: var(--txt-primary);
+  background: var(--bg-surface-3);
+}
+
+.btn-ghost:active {
+  background: var(--bg-surface-4);
+}
+
+/* Step buttons */
+.step-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  padding: var(--space-4) 0 0;
+  border-top: 1px solid var(--glass-border);
+  margin-top: var(--space-4);
+}
+
+.step-btn {
+  padding: var(--space-2-5) var(--space-6);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-semibold);
+  border: none;
+  letter-spacing: 0.01em;
+}
+
+.step-btn-back {
+  background: var(--bg-surface-3);
+  color: var(--txt-secondary);
+  border: 1px solid var(--glass-border);
+}
+
+.step-btn-back:hover {
+  background: var(--bg-surface-4);
+  color: var(--txt-primary);
+  border-color: var(--glass-border-hover);
+}
+
+.step-btn-next {
+  background: var(--grad-burgundy);
+  color: var(--txt-gold-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.step-btn-next:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md), var(--fx-shadow-gold);
+}
+
+.step-btn-next:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.step-btn-start {
+  background: var(--state-success);
+  color: var(--txt-on-accent);
+  box-shadow: var(--shadow-sm);
+}
+
+.step-btn-start:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  filter: brightness(1.1);
+}
+
+.step-btn-start:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}

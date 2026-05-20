@@ -1,0 +1,286 @@
+/* ============================================
+   SEMANTIC TOKENS — Смысловые абстракции
+   Все компоненты используют ТОЛЬКО эти переменные
+   ─────────────────────────────────────────
+   v2.0 — Исправлен контраст на акцентных
+   поверхностях. Добавлены недостающие токены.
+   Тени переведены на двуслойную модель.
+   ============================================ */
+
+:root {
+
+  /* === BACKGROUNDS === */
+  --bg-app: var(--p-velvet-900);
+  --bg-surface-1: var(--p-velvet-800);
+  --bg-surface-2: var(--p-velvet-700);
+  --bg-surface-3: var(--p-velvet-600);
+  --bg-surface-4: var(--p-velvet-500);
+  --bg-surface-5: var(--p-velvet-400);
+  --bg-input: var(--p-velvet-500);
+  --bg-elevated: var(--p-velvet-600);
+  --bg-sunken: var(--p-velvet-950);
+  --bg-primary: var(--bg-surface-1);
+
+  /* === GLASSMORPHISM === */
+  --glass-bg: color-mix(in srgb, var(--bg-surface-1), transparent 25%);
+  --glass-bg-heavy: color-mix(in srgb, var(--bg-surface-1), transparent 12%);
+  --glass-bg-light: color-mix(in srgb, var(--bg-surface-1), transparent 40%);
+  --glass-border: rgba(196, 163, 90, 0.2);
+  --glass-border-hover: rgba(196, 163, 90, 0.4);
+  --glass-border-active: rgba(196, 163, 90, 0.6);
+
+  /* === TEXT COLORS ===
+     Разделение ролей:
+     • txt-gold / txt-gold-light — акцентный текст НА ТЁМНЫХ поверхностях
+     • txt-on-accent / txt-inverse — текст НА АКЦЕНТНЫХ (золотых) поверхностях
+     Это разные контексты — разные требования к контрасту.
+
+     Контраст на тёмном фоне (#12101a):
+     • primary  #e8d8c4 → 12.8:1 (AAA) ✓
+     • secondary #a09080 →  5.4:1 (AA)  ✓
+     • muted    #706050 →  3.0:1 (декор) ✓
+     • gold     #c4a35a →  6.6:1 (AA)  ✓
+
+     Контраст на золотом фоне (#c4a35a):
+     • inverse  #0a0a0f →  8.5:1 (AAA) ✓
+     ═══════════════════════════════════════════ */
+  --txt-primary: var(--p-txt-beige);
+  --txt-secondary: var(--p-txt-sand);
+  --txt-muted: var(--p-txt-brown);
+  --txt-disabled: color-mix(in srgb, var(--p-txt-brown), transparent 50%);
+
+  /* Акцентный текст на ТЁМНЫХ поверхностях — золотой */
+  --txt-gold: var(--p-gold-500);
+  --txt-gold-light: var(--p-gold-400);
+  --txt-gold-dark: var(--p-gold-700);
+  --txt-accent: var(--p-gold-500);
+  --txt-inverse: var(--p-velvet-900); 
+--txt-on-accent: var(--p-gold-400);
+
+  --txt-link: var(--p-gold-400);
+  --txt-link-hover: var(--p-gold-300);
+
+  /* === BORDERS === */
+  --border-color: rgba(196, 163, 90, 0.2);
+  --border-subtle: rgba(196, 163, 90, 0.1);
+  --border-hover: rgba(196, 163, 90, 0.4);
+  --border-active: rgba(196, 163, 90, 0.6);
+  --border-accent: var(--p-gold-700);
+  --border-focus: var(--p-gold-500);
+  --border-divider: rgba(196, 163, 90, 0.12);
+
+  /* === ACCENTS === */
+  --accent-primary: var(--p-gold-500);
+  --accent-secondary: var(--p-gold-400);
+  --accent-tertiary: var(--p-gold-700);
+  --accent-success: var(--p-green-500);
+  --accent-error: var(--p-red-500);
+  --accent-info: var(--p-blue-500);
+  --accent-warning: var(--p-orange);
+
+  /* === STATES === */
+  --state-success: var(--p-green-500);
+  --state-success-bg: rgba(74, 158, 110, 0.15);
+  --state-success-border: rgba(74, 158, 110, 0.3);
+  --state-error: var(--p-red-500);
+  --state-error-bg: rgba(196, 90, 90, 0.15);
+  --state-error-border: rgba(196, 90, 90, 0.3);
+  --state-info: var(--p-blue-500);
+  --state-info-bg: rgba(90, 142, 196, 0.15);
+  --state-info-border: rgba(90, 142, 196, 0.3);
+  --state-warning: var(--p-orange);
+  --state-warning-bg: rgba(224, 160, 64, 0.15);
+  --state-warning-border: rgba(224, 160, 64, 0.3);
+  --state-disabled: rgba(160, 144, 128, 0.3);
+  --state-hover: rgba(196, 163, 90, 0.08);
+  --state-active: rgba(196, 163, 90, 0.15);
+  --state-selected: rgba(196, 163, 90, 0.12);
+
+  /* === SHADOWS ===
+     FIX: двуслойная модель — penumbra + umbra.
+     Имитация естественного рассеивания света.
+     ═══════════════════════════════════════════ */
+  --shadow-xs:
+    0 1px 2px rgba(0, 0, 0, 0.18),
+    0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-sm:
+    0 1px 3px rgba(0, 0, 0, 0.20),
+    0 2px 8px rgba(0, 0, 0, 0.18);
+  --shadow-md:
+    0 2px 4px rgba(0, 0, 0, 0.18),
+    0 4px 16px rgba(0, 0, 0, 0.25);
+  --shadow-lg:
+    0 4px 8px rgba(0, 0, 0, 0.18),
+    0 8px 32px rgba(0, 0, 0, 0.30);
+  --shadow-xl:
+    0 8px 16px rgba(0, 0, 0, 0.20),
+    0 16px 48px rgba(0, 0, 0, 0.35);
+  --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-outline: 0 0 0 3px rgba(196, 163, 90, 0.2);
+
+  /* === EFFECTS === */
+  --fx-glass-blur: 16px;
+  --fx-glass-blur-heavy: 24px;
+  --fx-glass-blur-light: 8px;
+  --fx-shadow-sm: var(--shadow-sm);
+  --fx-shadow-md: var(--shadow-md);
+  --fx-shadow-lg: var(--shadow-lg);
+  --fx-shadow-xl: var(--shadow-xl);
+  --fx-shadow-gold:
+    0 0 16px rgba(196, 163, 90, 0.15),
+    0 0 36px rgba(196, 163, 90, 0.05);
+  --fx-shadow-gold-strong:
+    0 0 22px rgba(196, 163, 90, 0.28),
+    0 0 48px rgba(196, 163, 90, 0.10);
+  --fx-glow-gold: 0 0 15px rgba(196, 163, 90, 0.2);
+  --fx-glow-gold-subtle: 0 0 10px rgba(196, 163, 90, 0.1);
+
+  /* === FOCUS ===
+     FIX: добавлен subtle glow ко второму слою
+     для лучшей видимости фокуса.
+     ═══════════════════════════════════════════ */
+  --focus-ring:
+    0 0 0 2px rgba(196, 163, 90, 0.35),
+    0 0 10px rgba(196, 163, 90, 0.08);
+  --focus-ring-error: 0 0 0 2px rgba(196, 90, 90, 0.35);
+  --focus-ring-success: 0 0 0 2px rgba(74, 158, 110, 0.35);
+  --focus-ring-offset:
+    0 0 0 3px var(--bg-app),
+    0 0 0 5px rgba(196, 163, 90, 0.35);
+  --input-focus-shadow:
+    0 0 0 2px rgba(196, 163, 90, 0.2),
+    0 0 14px rgba(196, 163, 90, 0.05);
+
+  /* === INTERACTIVE STATES === */
+  --interactive-hover-opacity: 0.85;
+  --interactive-active-opacity: 0.75;
+  --interactive-disabled-opacity: 0.4;
+
+  /* === COMPONENT: CARDS === */
+  --card-bg: var(--glass-bg);
+  --card-hover-bg: var(--bg-surface-3);
+  --card-hover-glow: rgba(196, 163, 90, 0.06);
+  --card-selected-bg-from: rgba(196, 163, 90, 0.1);
+  --card-selected-bg-to: var(--bg-surface-2);
+  --card-selected-glow: rgba(196, 163, 90, 0.1);
+  --card-selected-inner: rgba(196, 163, 90, 0.04);
+
+  /* FIX: чекбокс — тёмная галочка на золотом фоне
+     Было: --p-white (#fff) → контраст 2.2:1 FAIL
+     Стало: velvet-900 (#0a0a0f) → контраст 8.5:1 AAA */
+  --card-check-bg: var(--p-gold-500);
+  --card-check-color: var(--p-velvet-900);
+
+  --card-avatar-glow: rgba(196, 163, 90, 0.15);
+  --card-tag-bg: var(--bg-input);
+  --card-tag-border: var(--border-color);
+  --card-info-bg: rgba(0, 0, 0, 0.4);
+  --card-info-blur: 8px;
+  --card-delete-bg: rgba(120, 30, 30, 0.5);
+  --card-delete-border: rgba(196, 90, 90, 0.2);
+  --card-delete-color: rgba(240, 160, 160, 0.7);
+  --card-delete-bg-hover: rgba(180, 40, 40, 0.7);
+  --card-delete-color-hover: #f0c0c0;
+  --create-card-hover-bg: var(--bg-surface-3);
+
+  /* === COMPONENT: BUTTONS ===
+     FIX: текст кнопок — тёмный на золотом градиенте.
+     Было: --txt-gold-light (#d4b96a) → контраст 1.3:1 FAIL
+     Стало: velvet-900 (#0a0a0f) → контраст 6.2–8.5:1 AAA
+     Эстетика: тёмная гравировка на золоте = роскошь.
+     ═══════════════════════════════════════════ */
+  --btn-primary-bg: var(--grad-burgundy);
+  --btn-primary-color: var(--p-gold-400);
+  --btn-secondary-bg: var(--bg-surface-3);
+  --btn-secondary-color: var(--txt-secondary);
+  --btn-ghost-bg: transparent;
+  --btn-ghost-color: var(--txt-secondary);
+
+  --info-btn-hover-border: var(--glass-border-hover);
+
+  /* === COMPONENT: TAGS ===
+     FIX: активные теги — тёмный текст на золоте.
+     ═══════════════════════════════════════════ */
+  --tag-bg: var(--bg-surface-3);
+  --tag-color: var(--txt-secondary);
+  --tag-active-bg: var(--grad-burgundy);
+  --tag-active-color: var(--p-gold-400);
+  --tag-active-glow: rgba(196, 163, 90, 0.15);
+  --tag-new-border: rgba(232, 140, 60, 0.25);
+  --tag-new-bg-from: #3a2510;
+  --tag-new-bg-to: #4a3018;
+  --tag-new-text: #f0c080;
+  --tag-new-border-active: rgba(232, 180, 100, 0.3);
+  --tag-custom-border: rgba(90, 142, 196, 0.25);
+  --tag-custom-bg-from: rgba(90, 142, 196, 0.2);
+  --tag-custom-bg-to: rgba(90, 142, 196, 0.3);
+  --tag-custom-text: rgba(90, 142, 196, 0.8);
+  --tag-custom-border-active: rgba(90, 142, 196, 0.3);
+
+  /* === COMPONENT: PROGRESS ===
+     FIX: активный степ — тёмный текст на золоте.
+     ═══════════════════════════════════════════ */
+  --step-bg: var(--bg-surface-3);
+  --step-color: var(--txt-muted);
+  --step-active-bg: var(--grad-burgundy);
+  --step-active-color: var(--p-gold-400);
+  --step-active-border: var(--p-gold-500);
+  --step-active-glow: rgba(196, 163, 90, 0.3);
+  --step-completed-bg: var(--bg-surface-3);
+  --step-completed-border: var(--p-gold-500);
+  --step-completed-line: var(--p-gold-500);
+
+  /* === COMPONENT: INFO === */
+  --info-tag-bg: var(--bg-input);
+  --info-tag-border: var(--border-color);
+  --info-desc-bg: rgba(0, 0, 0, 0.2);
+
+  /* === COMPONENT: DANGER === */
+  --danger-bg-from: #5a2020;
+  --danger-bg-to: #7a2a2a;
+  --danger-bg-hover-from: #7a2a2a;
+  --danger-bg-hover-to: #9a3a3a;
+  --danger-text: #f0c0c0;
+  --danger-border: rgba(196, 90, 90, 0.3);
+  --danger-glow: rgba(196, 90, 90, 0.2);
+
+  /* === COMPONENT: SEARCH === */
+  --search-bg: var(--glass-bg);
+  --search-border: var(--glass-border);
+  --search-focus-border: var(--txt-gold);
+  --search-focus-shadow: rgba(196, 163, 90, 0.1);
+
+  /* === COMPONENT: ALPHA === */
+  --alpha-active-glow: rgba(196, 163, 90, 0.15);
+
+  /* === SCROLLBAR === */
+  --scrollbar-track: transparent;
+  --scrollbar-thumb: var(--bg-surface-3);
+  --scrollbar-thumb-hover: var(--p-gold-500);
+
+  /* === OVERLAY === */
+  --overlay-bg: rgba(10, 10, 15, 0.85);
+  --overlay-blur: 8px;
+
+  /* === BODY RADIALS === */
+  --bg-radial-1: rgba(196, 163, 90, 0.1);
+  --bg-radial-2: rgba(212, 185, 106, 0.08);
+  --bg-radial-3: rgba(26, 21, 37, 0.5);
+
+  /* === GRADIENTS === */
+  --grad-burgundy: linear-gradient(135deg, #4a2040, #3a1530);
+  --grad-rich: linear-gradient(135deg, var(--bg-surface-3), var(--bg-surface-2));
+  --grad-gold-subtle: linear-gradient(135deg, rgba(196, 163, 90, 0.08), rgba(196, 163, 90, 0.02));
+  --grad-surface: linear-gradient(180deg, var(--bg-surface-2), var(--bg-surface-1));
+  --grad-overlay: linear-gradient(180deg, transparent, var(--bg-app));
+
+  /* === LAYOUT === */
+  --header-height: 60px;
+  --footer-height: 64px;
+  --footer-height-mobile: 56px;
+  --drawer-width: 480px;
+  --drawer-width-mobile: 100%;
+  --modal-max-width: 520px;
+  --modal-max-width-large: 700px;
+  --content-max-width: 1200px;
+}

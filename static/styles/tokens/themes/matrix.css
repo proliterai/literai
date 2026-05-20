@@ -1,0 +1,236 @@
+/* ============================================
+   MATRIX / TERMINAL THEME
+   Стиль: Глубокий темный, фосфорный зеленый, свечение ЭЛТ-мониторов, 
+   эстетика командной строки и киберпанка.
+   ============================================ */
+
+[data-theme="matrix"] {
+  /* === BACKGROUNDS (Глубокие "пустые" цвета терминала) === */
+  --bg-app: #030604;         /* Самый глубокий черный с зеленоватым оттенком */
+  --bg-surface-1: #060b08;   /* Чуть светлее, базовые панели */
+  --bg-surface-2: #0a130e;
+  --bg-surface-3: #0f1c15;
+  --bg-surface-4: #15261d;
+  --bg-surface-5: #1c3125;
+  --bg-input: #0a150e;       /* Темный фон для ввода (как консоль) */
+  --bg-elevated: #0f1c15;
+  --bg-sunken: #010302;
+  --bg-primary: var(--bg-surface-1);
+
+  /* === GLASSMORPHISM (Тонированное стекло монитора) === */
+  --glass-bg: rgba(6, 11, 8, 0.85);
+  --glass-bg-heavy: rgba(6, 11, 8, 0.95);
+  --glass-bg-light: rgba(10, 19, 14, 0.6);
+  --glass-border: rgba(0, 255, 65, 0.15);
+  --glass-border-hover: rgba(0, 255, 65, 0.4);
+  --glass-border-active: rgba(0, 255, 65, 0.7);
+
+  /* === TEXT COLORS (Эргономичный фосфор) === */
+  --txt-primary: #d1fad7;    /* Бледно-зеленый для чтения без боли в глазах */
+  --txt-secondary: #74c78a;  /* Приглушенный зеленый */
+  --txt-muted: #2f6b40;      /* Темно-зеленый для неактивного текста */
+  --txt-disabled: rgba(47, 107, 64, 0.5);
+  /* Перезаписываем "золото" на неоновый хакерский акцент */
+  --txt-gold: #00ff41;       /* Классический цвет Матрицы */
+  --txt-gold-light: #5eff8a;
+  --txt-gold-dark: #008f11;
+  --txt-accent: #00ff41;
+  --txt-inverse: #000000;    /* Черный текст на зеленом фоне (блок-курсор) */
+  --txt-on-accent: #000000;
+  --txt-link: #32ff6a;
+  --txt-link-hover: #ffffff; /* Белая вспышка при наведении на ссылку */
+
+  /* === BORDERS (Жесткие линии и контуры) === */
+  --border-color: rgba(0, 255, 65, 0.15);
+  --border-subtle: rgba(0, 255, 65, 0.08);
+  --border-hover: rgba(0, 255, 65, 0.4);
+  --border-active: #00ff41;
+  --border-accent: #008f11;
+  --border-focus: #00ff41;
+  --border-divider: rgba(0, 255, 65, 0.1);
+
+  /* === ACCENTS === */
+  --accent-primary: #00ff41;
+  --accent-secondary: #00cc33;
+  --accent-tertiary: #008f11;
+  --accent-success: #00ff41;
+  --accent-error: #ff003c;   /* Жесткий системный сбой (cyberpunk red) */
+  --accent-info: #00f0ff;    /* Терминальный Cyan */
+  --accent-warning: #ffb000; /* Цвет старых янтарных мониторов */
+
+  /* === STATES === */
+  --state-success: #00ff41;
+  --state-success-bg: rgba(0, 255, 65, 0.1);
+  --state-success-border: rgba(0, 255, 65, 0.3);
+  
+  --state-error: #ff003c;
+  --state-error-bg: rgba(255, 0, 60, 0.1);
+  --state-error-border: rgba(255, 0, 60, 0.4);
+  
+  --state-info: #00f0ff;
+  --state-info-bg: rgba(0, 240, 255, 0.1);
+  --state-info-border: rgba(0, 240, 255, 0.3);
+  
+  --state-warning: #ffb000;
+  --state-warning-bg: rgba(255, 176, 0, 0.1);
+  --state-warning-border: rgba(255, 176, 0, 0.3);
+  
+  --state-disabled: rgba(0, 255, 65, 0.1);
+  --state-hover: rgba(0, 255, 65, 0.1);
+  --state-active: rgba(0, 255, 65, 0.2);
+  --state-selected: rgba(0, 255, 65, 0.15);
+
+  /* === SHADOWS (Не тени, а неоновое свечение) === */
+  --shadow-xs: 0 0 4px rgba(0, 255, 65, 0.1);
+  --shadow-sm: 0 0 8px rgba(0, 255, 65, 0.15);
+  --shadow-md: 0 0 15px rgba(0, 255, 65, 0.2);
+  --shadow-lg: 0 0 25px rgba(0, 255, 65, 0.3);
+  --shadow-xl: 0 0 40px rgba(0, 255, 65, 0.4);
+  --shadow-inner: inset 0 0 10px rgba(0, 255, 65, 0.1);
+  --shadow-outline: 0 0 0 1px #00ff41, 0 0 8px rgba(0, 255, 65, 0.4);
+
+  /* === EFFECTS === */
+  --fx-glass-blur: 8px;      /* Меньше блюра, больше цифровой резкости */
+  --fx-glass-blur-heavy: 12px;
+  --fx-glass-blur-light: 4px;
+  --fx-shadow-sm: var(--shadow-sm);
+  --fx-shadow-md: var(--shadow-md);
+  --fx-shadow-lg: var(--shadow-lg);
+  --fx-shadow-xl: var(--shadow-xl);
+  --fx-shadow-gold: 0 0 20px rgba(0, 255, 65, 0.4);
+  --fx-shadow-gold-strong: 0 0 35px rgba(0, 255, 65, 0.6);
+  --fx-glow-gold: 0 0 15px rgba(0, 255, 65, 0.5);
+  --fx-glow-gold-subtle: 0 0 8px rgba(0, 255, 65, 0.2);
+
+  /* === FOCUS (Как выбор цели в терминале) === */
+  --focus-ring: 0 0 0 1px #000, 0 0 0 3px #00ff41, 0 0 15px rgba(0, 255, 65, 0.5);
+  --focus-ring-error: 0 0 0 1px #000, 0 0 0 3px #ff003c, 0 0 15px rgba(255, 0, 60, 0.5);
+  --focus-ring-success: var(--focus-ring);
+  --focus-ring-offset: 0 0 0 2px var(--bg-app), 0 0 0 4px #00ff41;
+  --input-focus-shadow: 0 0 10px rgba(0, 255, 65, 0.3), inset 0 0 5px rgba(0, 255, 65, 0.1);
+
+  /* === INTERACTIVE STATES === */
+  --interactive-hover-opacity: 1; /* В терминалах всё четко */
+  --interactive-active-opacity: 0.8;
+  --interactive-disabled-opacity: 0.3;
+
+  /* === COMPONENT SPECIFIC === */
+  /* Cards */
+  --card-bg: var(--glass-bg);
+  --card-hover-bg: var(--bg-surface-2);
+  --card-hover-glow: rgba(0, 255, 65, 0.15);
+  --card-selected-bg-from: rgba(0, 255, 65, 0.15);
+  --card-selected-bg-to: var(--bg-surface-3);
+  --card-selected-glow: rgba(0, 255, 65, 0.25);
+  --card-selected-inner: rgba(0, 255, 65, 0.1);
+  --card-check-bg: #00ff41;
+  --card-check-color: #000000;
+  --card-avatar-glow: rgba(0, 255, 65, 0.3);
+  --card-tag-bg: rgba(0, 255, 65, 0.05);
+  --card-tag-border: var(--border-color);
+  --card-info-bg: rgba(0, 20, 5, 0.6);
+  --card-info-blur: 4px;
+  
+  /* System Delete / Danger */
+  --card-delete-bg: rgba(40, 0, 5, 0.8);
+  --card-delete-border: rgba(255, 0, 60, 0.4);
+  --card-delete-color: #ff3366;
+  --card-delete-bg-hover: rgba(80, 0, 15, 0.9);
+  --card-delete-color-hover: #ffffff;
+  --create-card-hover-bg: rgba(0, 255, 65, 0.05);
+
+  /* Buttons */
+  --btn-primary-bg: linear-gradient(135deg, #008f11, #004d09);
+  --btn-primary-color: #00ff41;
+  --btn-secondary-bg: var(--bg-surface-3);
+  --btn-secondary-color: var(--txt-primary);
+  --btn-ghost-bg: transparent;
+  --btn-ghost-color: #00ff41;
+
+  --info-btn-hover-border: #00ff41;
+
+  /* Tags */
+  --tag-bg: var(--bg-surface-4);
+  --tag-color: var(--txt-secondary);
+  --tag-active-bg: var(--btn-primary-bg);
+  --tag-active-color: #ffffff;
+  --tag-active-glow: rgba(0, 255, 65, 0.3);
+  
+  /* New File / Custom tags (Cyberpunk accents) */
+  --tag-new-border: rgba(255, 176, 0, 0.4);
+  --tag-new-bg-from: rgba(40, 25, 0, 0.8);
+  --tag-new-bg-to: rgba(20, 12, 0, 0.8);
+  --tag-new-text: #ffb000;
+  --tag-new-border-active: #ffb000;
+  
+  --tag-custom-border: rgba(0, 240, 255, 0.4);
+  --tag-custom-bg-from: rgba(0, 40, 45, 0.8);
+  --tag-custom-bg-to: rgba(0, 20, 25, 0.8);
+  --tag-custom-text: #00f0ff;
+  --tag-custom-border-active: #00f0ff;
+
+  /* Progress (Downloading... System processing) */
+  --step-bg: var(--bg-surface-3);
+  --step-color: var(--txt-muted);
+  --step-active-bg: linear-gradient(90deg, #008f11, #00ff41);
+  --step-active-color: #000000;
+  --step-active-border: #00ff41;
+  --step-active-glow: rgba(0, 255, 65, 0.5);
+  --step-completed-bg: rgba(0, 255, 65, 0.1);
+  --step-completed-border: #00cc33;
+  --step-completed-line: #008f11;
+
+  /* Info */
+  --info-tag-bg: var(--bg-surface-2);
+  --info-tag-border: var(--border-color);
+  --info-desc-bg: rgba(0, 255, 65, 0.03);
+
+  /* Danger overrides */
+  --danger-bg-from: rgba(40, 0, 10, 0.8);
+  --danger-bg-to: rgba(20, 0, 5, 0.8);
+  --danger-bg-hover-from: rgba(70, 0, 15, 0.9);
+  --danger-bg-hover-to: rgba(40, 0, 10, 0.9);
+  --danger-text: #ff003c;
+  --danger-border: rgba(255, 0, 60, 0.5);
+  --danger-glow: rgba(255, 0, 60, 0.3);
+
+  /* Search (Command Input) */
+  --search-bg: rgba(0, 0, 0, 0.6);
+  --search-border: rgba(0, 255, 65, 0.3);
+  --search-focus-border: #00ff41;
+  --search-focus-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+
+  /* Alpha */
+  --alpha-active-glow: rgba(0, 255, 65, 0.2);
+
+  /* Scrollbar (Светящийся ползунок) */
+  --scrollbar-track: rgba(0, 0, 0, 0.3);
+  --scrollbar-thumb: var(--bg-surface-5);
+  --scrollbar-thumb-hover: #00ff41;
+
+  /* Overlay (Взлом системы / модалки) */
+  --overlay-bg: rgba(1, 3, 2, 0.9);
+  --overlay-blur: 6px;
+
+  /* Body Radials (Подсветка матрицы на фоне) */
+  --bg-radial-1: rgba(0, 255, 65, 0.05);
+  --bg-radial-2: rgba(0, 143, 17, 0.03);
+  --bg-radial-3: rgba(0, 0, 0, 0.8);
+
+  /* Gradients (Неоновые переходы) */
+  --grad-burgundy: linear-gradient(135deg, #008f11, #00ff41); /* Перезаписано на зеленый неон */
+  --grad-rich: linear-gradient(135deg, var(--bg-surface-3), var(--bg-surface-1));
+  --grad-gold-subtle: linear-gradient(135deg, rgba(0, 255, 65, 0.1), transparent);
+  --grad-surface: linear-gradient(180deg, var(--bg-surface-2), var(--bg-surface-1));
+  --grad-overlay: linear-gradient(180deg, transparent, var(--bg-app));
+
+  /* === LAYOUT (оставляем без изменений) === */
+  --header-height: 60px;
+  --footer-height: 64px;
+  --footer-height-mobile: 56px;
+  --drawer-width: 480px;
+  --drawer-width-mobile: 100%;
+  --modal-max-width: 520px;
+  --modal-max-width-large: 700px;
+  --content-max-width: 1200px;
+}

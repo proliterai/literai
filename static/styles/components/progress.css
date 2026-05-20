@@ -1,0 +1,91 @@
+/* ============================================
+   PROGRESS — Индикатор прогресса (шаги)
+   ============================================ */
+
+.progress-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  margin-bottom: var(--space-8);
+  position: relative;
+}
+
+.progress-step {
+  width: var(--size-10);
+  height: var(--size-10);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-bold);
+  font-size: var(--font-size-sm);
+  background: var(--bg-surface-3);
+  color: var(--txt-muted);
+  border: 2px solid var(--glass-border);
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.progress-step:not(:first-child)::before {
+  content: '';
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 2px;
+  background: var(--glass-border);
+  z-index: 1;
+  transition: background var(--transition-base);
+}
+
+.progress-step.active {
+  background: var(--grad-burgundy);
+  color: var(--txt-gold-light);
+  border-color: var(--step-active-border);
+  box-shadow: 0 0 18px var(--step-active-glow), var(--shadow-sm);
+  transform: scale(1.12);
+}
+
+.progress-step.completed {
+  background: var(--step-completed-bg);
+  color: var(--txt-gold);
+  border-color: var(--step-completed-border);
+}
+
+.progress-step.completed::before {
+  background: var(--step-completed-line);
+}
+
+.progress-step:hover:not(.active) {
+  border-color: var(--glass-border-hover);
+  color: var(--txt-secondary);
+  background: var(--bg-surface-4);
+  transform: scale(1.05);
+}
+
+.progress-step:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-offset);
+}
+
+@media (max-width: 480px) {
+  .progress-step {
+    width: var(--size-9);
+    height: var(--size-9);
+    font-size: var(--font-size-xs);
+  }
+
+  .progress-step:not(:first-child)::before {
+    width: 20px;
+  }
+
+  .progress-bar {
+    margin-bottom: var(--space-6);
+  }
+}

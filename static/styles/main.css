@@ -1,0 +1,63 @@
+/* ============================================
+   MAIN.CSS — Единая точка входа
+   ============================================ */
+
+/* 1. TOKENS — Ядро системы */
+@import url('./tokens/core.css');
+@import url('./tokens/semantic.css');
+@import url('./tokens/motion.css');
+@import url('./tokens/z-index.css');
+
+/* 2. THEMES — Переопределения */
+@import url('./tokens/themes/default.css');
+@import url('./tokens/themes/ocean.css');
+@import url('./tokens/themes/matrix.css');
+@import url('./tokens/themes/sunset.css');
+@import url('./tokens/themes/monochrome.css');
+@import url('./tokens/themes/light.css');
+@import url('./tokens/themes/orangecola.css');
+@import url('./tokens/themes/rpg.css');
+@import url('./tokens/themes/visualnovel.css');
+@import url('./tokens/themes/darkfantasy.css');
+@import url('./tokens/themes/cream.css');
+@import url('./tokens/themes/cyberpunk.css');
+@import url('./tokens/themes/monochromelight.css');
+@import url('./tokens/themes/forest.css');
+@import url('./tokens/themes/aurora.css');
+
+/* 3. BASE — Сброс и типографика */
+@import url('./base/reset.css');
+@import url('./base/typography.css');
+
+/* 4. LAYOUTS — Глобальная структура */
+@import url('./layouts/app.css');
+@import url('./layouts/header.css');
+@import url('./layouts/footer.css');
+@import url('./layouts/drawer.css');
+
+/* 5. COMPONENTS — UI элементы */
+@import url('./components/buttons.css');
+@import url('./components/cards.css');
+@import url('./components/modals.css');
+@import url('./components/forms.css');
+@import url('./components/search.css');
+@import url('./components/tags.css');
+@import url('./components/progress.css');
+@import url('./components/alphabet.css');
+@import url('./components/notifications.css');
+@import url('./components/range.css');
+@import url('./components/panels.css');
+@import url('./components/preset-selector.css');
+
+/* 6. PAGES — Специфика страниц */
+@import url('./pages/catalog.css');
+@import url('./pages/chat.css');
+@import url('./pages/landpage.css');
+@import url('./pages/search.css');
+
+/* 7. MODULES — Бизнес-логика */
+@import url('./modules/providers.css');
+@import url('./modules/cheatmode.css');
+@import url('./modules/analytics.css');
+@import url('./modules/lorebook.css');
+@import url('./modules/memorybook.css');

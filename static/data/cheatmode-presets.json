@@ -1,0 +1,54 @@
+[
+  {
+    "id": "fantasy",
+    "name": "Фэнтези",
+    "icon": "fa-dragon",
+    "description": "Параметры для фэнтезийного мира с магией",
+    "worldTraits": [
+      { "id": "wt_magic", "name": "Уровень магии", "value": 70 },
+      { "id": "wt_danger", "name": "Опасность мира", "value": 60 },
+      { "id": "wt_mystery", "name": "Загадочность", "value": 75 },
+      { "id": "wt_romance", "name": "Романтика", "value": 40 },
+      { "id": "wt_dark", "name": "Тёмные темы", "value": 45 }
+    ]
+  },
+  {
+    "id": "romance",
+    "name": "Романтика",
+    "icon": "fa-heart",
+    "description": "Параметры для романтических историй",
+    "worldTraits": [
+      { "id": "wt_romance_r", "name": "Романтика", "value": 85 },
+      { "id": "wt_tension", "name": "Напряжение", "value": 60 },
+      { "id": "wt_intimacy", "name": "Интимность", "value": 55 },
+      { "id": "wt_conflict", "name": "Конфликт", "value": 40 },
+      { "id": "wt_passion", "name": "Страсть", "value": 65 }
+    ]
+  },
+  {
+    "id": "modern",
+    "name": "Современность",
+    "icon": "fa-city",
+    "description": "Параметры для современных историй",
+    "worldTraits": [
+      { "id": "wt_realism", "name": "Реализм", "value": 80 },
+      { "id": "wt_social", "name": "Социальный драматизм", "value": 65 },
+      { "id": "wt_tech", "name": "Технологии", "value": 70 },
+      { "id": "wt_crime", "name": "Криминальный элемент", "value": 30 },
+      { "id": "wt_psych", "name": "Психологизм", "value": 60 }
+    ]
+  },
+  {
+    "id": "dark",
+    "name": "Тёмная история",
+    "icon": "fa-moon",
+    "description": "Параметры для мрачных и напряжённых историй",
+    "worldTraits": [
+      { "id": "wt_dark_d", "name": "Тёмные темы", "value": 80 },
+      { "id": "wt_danger_d", "name": "Опасность", "value": 75 },
+      { "id": "wt_hope", "name": "Надежда", "value": 30 },
+      { "id": "wt_horror", "name": "Элемент ужаса", "value": 50 },
+      { "id": "wt_moral", "name": "Моральная неоднозначность", "value": 70 }
+    ]
+  }
+]

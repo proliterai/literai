@@ -1,0 +1,274 @@
+/* ============================================
+   FOOTER — Нижняя панель с иконками
+   ИСПРАВЛЕНИЯ:
+   1. Корректный расчёт высоты футера
+   2. Правильные отступы для контента
+   3. Учёт safe-area на мобильных
+   ============================================ */
+
+/* CSS-переменные для высоты футера */
+:root {
+  --footer-height: 64px;
+  --footer-height-mobile: 56px;
+  --sub-footer-height: 80px;
+  --sub-footer-height-mobile: 180px;
+}
+
+/* Обёртка для футера и подфутера */
+.footer-wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-sticky);
+  display: flex;
+  flex-direction: column;
+}
+
+.app-footer {
+  position: relative;
+  z-index: 2;
+  background: var(--glass-bg-heavy);
+  backdrop-filter: blur(var(--fx-glass-blur-heavy));
+  -webkit-backdrop-filter: blur(var(--fx-glass-blur-heavy));
+  border-top: 1px solid var(--glass-border);
+  box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.25);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  flex-shrink: 0;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-2) var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--footer-height);
+}
+
+.footer-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  color: var(--txt-muted);
+  transition: all var(--transition-fast);
+  min-width: var(--size-16);
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.footer-btn:hover {
+  color: var(--txt-gold);
+  background: var(--glass-bg);
+}
+
+.footer-btn:active {
+  transform: scale(0.95);
+}
+
+.footer-btn i {
+  font-size: 1.15rem;
+  transition: transform var(--transition-fast);
+}
+
+.footer-btn:hover i {
+  transform: translateY(-1px);
+}
+
+.footer-btn-label {
+  font-size: var(--font-size-xs);
+  white-space: nowrap;
+  font-weight: var(--font-medium);
+}
+
+.footer-btn.active {
+  color: var(--txt-gold);
+  background: var(--glass-bg);
+}
+
+.footer-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--size-5);
+  height: 2px;
+  background: var(--txt-gold);
+  border-radius: var(--radius-full);
+}
+
+.footer-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* Функции button */
+.footer-btn-functions {
+  position: relative;
+}
+
+.footer-btn-functions .footer-btn-arrow {
+  font-size: 0.6rem;
+  transition: transform var(--transition-fast);
+  margin-top: -2px;
+  opacity: 0.6;
+}
+
+.footer-btn-functions.active .footer-btn-arrow {
+  transform: rotate(180deg);
+}
+
+/* ============================================
+   SUB-FOOTER
+   ============================================ */
+.sub-footer {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background: var(--bg-surface-2);
+  border-top: 1px solid var(--glass-border);
+  max-height: 0;
+  opacity: 0;
+  transition: 
+    max-height 0.3s var(--ease-out),
+    opacity 0.25s var(--ease-out);
+}
+
+.sub-footer.visible {
+  max-height: var(--sub-footer-height);
+  opacity: 1;
+}
+
+.sub-footer-inner {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  min-height: var(--sub-footer-height);
+}
+
+.sub-footer-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2-5) var(--space-5);
+  border-radius: var(--radius-full);
+  background: var(--bg-surface-3);
+  border: 1px solid var(--glass-border);
+  color: var(--txt-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-medium);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.sub-footer-btn:hover {
+  background: var(--bg-surface-4);
+  color: var(--txt-primary);
+  border-color: var(--glass-border-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.sub-footer-btn:active {
+  transform: translateY(0);
+}
+
+.sub-footer-btn i {
+  color: var(--txt-gold);
+}
+
+/* ============================================
+   ОТСТУПЫ ДЛЯ ОСНОВНОГО КОНТЕНТА
+   Расчёт: высота футера + safe-area + запас
+   ============================================ */
+.app-main {
+  /* Базовый отступ для каталога и других страниц */
+  padding-bottom: calc(var(--footer-height) + var(--space-6) + env(safe-area-inset-bottom, 0));
+}
+
+/* Для чата — увеличенный отступ, чтобы input не перекрывался */
+.app-main:has(.chat-container) {
+  padding-bottom: calc(var(--footer-height) + var(--space-4) + env(safe-area-inset-bottom, 0));
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  :root {
+    --footer-height: 56px;
+  }
+  
+  .footer-inner {
+    min-height: var(--footer-height-mobile);
+    padding: var(--space-1-5) var(--space-3);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --footer-height: 52px;
+    --sub-footer-height: 100px;
+  }
+  
+  .footer-btn {
+    padding: var(--space-2) var(--space-3);
+    min-width: var(--size-12);
+  }
+  
+  .footer-btn-label {
+    display: none;
+  }
+  
+  .footer-inner {
+    gap: var(--space-1);
+    min-height: var(--footer-height);
+  }
+  
+  .footer-btn i {
+    font-size: 1.25rem;
+  }
+  
+  .sub-footer.visible {
+    max-height: var(--sub-footer-height-mobile);
+  }
+  
+  .sub-footer-inner {
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    min-height: auto;
+  }
+  
+  .sub-footer-btn {
+    flex: 1 1 calc(50% - var(--space-1));
+    justify-content: center;
+    font-size: var(--font-size-xs);
+    min-width: 0;
+    padding: var(--space-2) var(--space-3);
+  }
+  
+  /* Увеличенные отступы на мобильных */
+  .app-main {
+    padding-bottom: calc(var(--footer-height) + var(--space-8) + env(safe-area-inset-bottom, 0));
+  }
+  
+  .app-main:has(.chat-container) {
+    padding-bottom: calc(var(--footer-height) + var(--space-6) + env(safe-area-inset-bottom, 0));
+  }
+}

@@ -1,0 +1,72 @@
+/* ============================================
+   ALPHABET — Алфавитная панель
+   ============================================ */
+
+.alphabet-bar {
+  margin-bottom: var(--space-4);
+}
+
+.alphabet-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  padding: var(--space-2-5);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--fx-glass-blur));
+  -webkit-backdrop-filter: blur(var(--fx-glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+}
+
+.alpha-btn {
+  min-width: var(--size-9);
+  height: var(--size-9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-surface-3);
+  color: var(--txt-secondary);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-semibold);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.alpha-btn:hover {
+  background: var(--bg-surface-4);
+  color: var(--txt-gold-light);
+  border-color: var(--glass-border-hover);
+  transform: translateY(-1px);
+}
+
+.alpha-btn:active {
+  transform: translateY(0);
+}
+
+.alpha-btn.active {
+  background: var(--grad-burgundy);
+  color: var(--txt-gold-light);
+  border-color: transparent;
+  box-shadow: 0 0 10px var(--alpha-active-glow);
+}
+
+.alpha-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+@media (max-width: 480px) {
+  .alpha-btn {
+    min-width: var(--size-8);
+    height: var(--size-8);
+    font-size: var(--font-size-xs);
+  }
+
+  .alphabet-inner {
+    padding: var(--space-2);
+  }
+}

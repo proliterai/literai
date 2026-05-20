@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>LiterAI — Ролевые истории с ИИ</title>
+<link rel="icon" href="%sveltekit.assets%/favicon.ico" />
+    <!-- Скрипт темы — синхронный, предотвращает FOUC -->
+    <script src="/theme-critical.js"></script>
+    <!-- Основные стили -->
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/css/all.min.css" />
+    <!-- PWA Мета-теги -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#0a0a0f" />
+<meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="LiterAI" />
+    <link rel="apple-touch-icon" href="/icon-192x192.png" />
+    %sveltekit.head%
+
+    <!-- Стили стартового экрана (Boot Screen) -->
+    <style>
+      #boot-screen {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #0a0a0f;
+        color: #e8d8c4;
+        transition: opacity .35s ease;
+        font-family: 'Inter', 'Segoe UI', sans-serif;
+      }
+      #boot-screen.hide {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .boot-box {
+        width: min(420px, 90vw);
+        text-align: center;
+      }
+      .boot-logo {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #d4b96a;
+        letter-spacing: 0.02em;
+      }
+      .boot-spinner {
+        width: 42px;
+        height: 42px;
+        margin: 0 auto 16px;
+        border: 3px solid rgba(212,185,106,.18);
+        border-top-color: #d4b96a;
+        border-radius: 50%;
+        animation: boot-spin .8s linear infinite;
+      }
+      .boot-bar {
+        margin-top: 14px;
+        height: 8px;
+        background: rgba(255,255,255,.08);
+        border-radius: 999px;
+        overflow: hidden;
+      }
+      #boot-progress {
+        width: 0%;
+        height: 100%;
+        background: linear-gradient(90deg, #a6894d, #d4b96a);
+        transition: width .2s ease;
+      }
+      #boot-text {
+        font-size: 15px;
+        font-weight: 500;
+      }
+      #boot-subtext {
+        margin-top: 10px;
+        font-size: 12px;
+        color: #a09080;
+      }
+      @keyframes boot-spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
+
+  </head>
+  <body data-sveltekit-preload-data="hover">
+    
+    <!-- Стартовый экран (показывается до загрузки приложения) -->
+    <div id="boot-screen">
+      <div class="boot-box">
+        <div class="boot-logo">LiterAI</div>
+        <div class="boot-spinner"></div>
+        <div id="boot-text">Инициализация...</div>
+        <div class="boot-bar">
+          <div id="boot-progress"></div>
+        </div>
+        <div id="boot-subtext">Первый запуск может занять немного времени</div>
+      </div>
+    </div>
+
+    <!-- Глобальный скрипт для управления прогрессом загрузки -->
+    <script>
+      window.__boot = {
+        setProgress(percent, text, subtext) {
+          const p = document.getElementById('boot-progress');
+          const t = document.getElementById('boot-text');
+          const s = document.getElementById('boot-subtext');
+          if (p) p.style.width = `${percent}%`;
+          if (t && text) t.textContent = text;
+          if (s && subtext) s.textContent = subtext;
+        },
+        done() {
+          const el = document.getElementById('boot-screen');
+          if (!el) return;
+          el.classList.add('hide');
+          // Удаляем из DOM после завершения анимации затухания
+          setTimeout(() => el.remove(), 350);
+        }
+      };
+    </script>
+
+    <div style="display: contents">%sveltekit.body%</div>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(reg => console.log('Service Worker зарегистрирован!', reg))
+        .catch(err => console.error('Ошибка регистрации Service Worker:', err));
+    });
+  }
+</script>
+  </body>
+</html>

@@ -1,0 +1,324 @@
+/* ============================================
+   SEARCH PAGE — Страница поиска по вселенной
+   ============================================ */
+
+:root {
+  /* Специфичные цвета для поиска */
+  --search-link-color: #5a8ec4; /* Мягкий синий, подходящий под темную тему */
+  --search-link-hover: var(--p-gold-400); /* Золотой при наведении */
+}
+
+/* --- Главная (Стартовая) страница --- */
+.search-landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: var(--space-5);
+  text-align: center;
+}
+
+.search-landing-icon {
+  font-size: 4rem;
+  color: var(--txt-gold);
+  margin-bottom: var(--space-4);
+  opacity: 0.8;
+}
+
+.search-landing h1 {
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--space-2);
+}
+
+.search-landing p {
+  color: var(--txt-secondary);
+  margin-bottom: var(--space-6);
+}
+
+.search-big-input-wrapper {
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-big-input {
+  width: 100%;
+  padding: var(--space-4) var(--space-12) var(--space-4) var(--space-5);
+  font-size: var(--font-size-lg);
+  background: var(--bg-surface-2);
+  border: 2px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  color: var(--txt-primary);
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-md);
+}
+
+.search-big-input:focus {
+  outline: none;
+  border-color: var(--txt-gold);
+  box-shadow: var(--focus-ring), var(--fx-shadow-gold);
+  background: var(--bg-surface-3);
+}
+
+.search-big-btn {
+  position: absolute;
+  right: var(--space-2);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--grad-burgundy);
+  color: var(--txt-gold-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.search-big-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: var(--fx-shadow-gold);
+}
+
+.search-big-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --- Сетка сниппетов (Результаты) --- */
+.search-layout {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--space-4);
+}
+
+.search-header-query {
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.search-header-query h2 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-2);
+}
+
+.search-snippets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-4);
+}
+
+.snippet-card {
+  background: var(--bg-surface-2);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.snippet-card:hover {
+  background: var(--bg-surface-3);
+  border-color: var(--glass-border-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.snippet-tag {
+  align-self: flex-start;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  background: var(--bg-surface-4);
+  color: var(--txt-muted);
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.snippet-title {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-semibold);
+  color: var(--search-link-color);
+  line-height: 1.3;
+  transition: color var(--transition-fast);
+}
+
+.snippet-card:hover .snippet-title {
+  color: var(--search-link-hover);
+  text-decoration: underline;
+}
+
+.snippet-desc {
+  font-size: var(--font-size-sm);
+  color: var(--txt-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+/* --- Статья и Уточнения --- */
+.article-view {
+  animation: modalFadeIn 0.3s var(--ease-out);
+}
+
+.article-top-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.article-content-box {
+  background: var(--bg-surface-2);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-5);
+  font-size: var(--font-size-base);
+  line-height: var(--leading-loose);
+  color: var(--txt-primary);
+}
+
+/* Стилизация Markdown внутри статьи */
+.article-content-box h1, .article-content-box h2, .article-content-box h3 {
+  color: var(--txt-gold);
+  margin-top: var(--space-5);
+  margin-bottom: var(--space-3);
+}
+
+.article-content-box p {
+  margin-bottom: var(--space-3);
+}
+
+.article-content-box ul, .article-content-box ol {
+  margin-bottom: var(--space-3);
+  padding-left: var(--space-5);
+}
+
+.clarification-section {
+  background: var(--bg-surface-1);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+}
+
+.clarification-section h3 {
+  font-size: var(--font-size-md);
+  color: var(--txt-muted);
+  margin-bottom: var(--space-4);
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: var(--space-2);
+}
+
+.clarification-history {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.clarify-msg {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  max-width: 85%;
+  font-size: var(--font-size-sm);
+  line-height: var(--leading-relaxed);
+}
+
+.clarify-msg.user {
+  align-self: flex-end;
+  background: var(--bg-surface-3);
+  border-left: 3px solid var(--p-gold-500);
+}
+
+.clarify-msg.assistant {
+  align-self: flex-start;
+  background: var(--bg-surface-2);
+  border-left: 3px solid var(--accent-info);
+}
+
+/* Статусы загрузки */
+.search-loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-12) 0;
+  color: var(--txt-muted);
+  text-align: center;
+}
+
+.search-loading-state i {
+  font-size: 3rem;
+  color: var(--txt-gold);
+  margin-bottom: var(--space-3);
+}
+
+/* Фикс таблиц на мобильных устройствах */
+.article-content-box :global(table),
+.clarify-msg :global(table) {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--space-3);
+}
+.article-content-box :global(th), .article-content-box :global(td),
+.clarify-msg :global(th), .clarify-msg :global(td) {
+  border: 1px solid var(--glass-border);
+  padding: var(--space-2);
+}
+
+/* Кнопки под сниппетами */
+.snippets-actions-row {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px dashed var(--glass-border);
+}
+
+/* Кнопки реролла и навигации версий в уточнениях */
+.clarify-msg-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+  font-size: var(--font-size-xs);
+  opacity: 0.8;
+}
+
+.clarify-action-btn {
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  color: var(--txt-muted);
+  padding: 2px 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.clarify-action-btn:hover:not(:disabled) {
+  background: var(--bg-surface-4);
+  color: var(--txt-gold);
+  border-color: var(--txt-gold);
+}
+.clarify-action-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Версии текста */
+.version-counter {
+  font-variant-numeric: tabular-nums;
+  color: var(--txt-muted);
+}

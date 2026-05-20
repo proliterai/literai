@@ -1,0 +1,568 @@
+/* ============================================
+   GOLDEN HOUR — Sunset Theme
+   ─────────────────────────────────────────
+   Солнце только коснулось горизонта. Небо
+   ещё помнит синеву, но облака уже порозовели.
+   Терраса ресторана на набережной — час, когда
+   всё становится золотым. Бокалы, лица, белые
+   скатерти — всё ловит этот невозможный свет.
+   Вверху — ещё глубокий синий. Внизу — первый
+   румянец заката. Между ними — магия.
+
+   Архитектура дизайна:
+   • Глубокий тёмно-синий (#0E1724) — верхнее
+     небо, ещё дневное, но уже густеющее.
+     Не чёрный, не фиолетовый — настоящий
+     цвет неба за час до темноты
+   • Тёплый розово-коралловый (#D4747C) —
+     первые розовые облака. Не неоновый,
+     не кислотный — цвет лепестка пиона
+     в закатном луче
+   • Жемчужный текст (#E8DDD2) — всё
+     становится золотисто-тёплым в этом свете
+   • Голубые отголоски — небо ещё здесь,
+     синева ещё дышит в верхней части
+   • Тени с синим подтоном — вечерние,
+     но не ночные. Длинные, как в golden hour
+   ============================================ */
+
+[data-theme="sunset"] {
+
+  /* ═══════════════════════════════════════════
+     BACKGROUNDS
+     Слои неба от зенита к горизонту. Самый
+     глубокий — зенит: тёмный синий, ещё
+     почти дневной. С каждым уровнем ближе
+     к горизонту — теплее, розовее, как небо
+     перед тобой, когда ты сидишь на террасе
+     и смотришь на закат. Синева плавно
+     перетекает в сумеречный сине-серый.
+     ═══════════════════════════════════════════ */
+  --bg-app: #0E1724;
+  --bg-surface-1: #141E2E;
+  --bg-surface-2: #1C2838;
+  --bg-surface-3: #243244;
+  --bg-surface-4: #2E3C50;
+  --bg-surface-5: #38465C;
+  --bg-input: #141E2E;
+  --bg-elevated: #1C2838;
+  --bg-sunken: #0A1018;
+  --bg-primary: var(--bg-surface-1);
+
+  /* ═══════════════════════════════════════════
+     GLASSMORPHISM
+     Стекло панорамного окна ресторана. Закатный
+     свет проходит сквозь него и ложится розовыми
+     полосками на накрытые столы. Тёплое, чуть
+     влажное от морского воздуха, с розовым
+     отблеском по кромке.
+     ═══════════════════════════════════════════ */
+  --glass-bg: rgba(20, 30, 46, 0.78);
+  --glass-bg-heavy: rgba(20, 30, 46, 0.94);
+  --glass-bg-light: rgba(20, 30, 46, 0.52);
+  --glass-border: rgba(212, 116, 124, 0.08);
+  --glass-border-hover: rgba(212, 116, 124, 0.18);
+  --glass-border-active: rgba(212, 116, 124, 0.34);
+
+  /* ═══════════════════════════════════════════
+     TEXT COLORS
+     Тёплый жемчуг в закатном свете. Основной
+     текст — не белый, а цвет льняной скатерти,
+     пойманной golden hour. Вторичный — как
+     серебро приборов, порозовевшее от заката.
+     Приглушённый — тень от бокала на столе.
+
+     Контраст на #141E2E:
+     • primary   #E8DDD2 → 12.4:1 (AAA) ✓
+     • secondary #94899A →  5.0:1 (AA)  ✓
+     • muted     #606878 →  2.8:1 (декор) ✓
+
+     Контраст на акцентном градиенте:
+     • on-accent #FFF3EE → 4.5–5.8:1 (AA) ✓
+     ═══════════════════════════════════════════ */
+  --txt-primary: #E8DDD2;
+  --txt-secondary: #94899A;
+  --txt-muted: #606878;
+  --txt-disabled: rgba(96, 104, 120, 0.45);
+
+  /* Акцентный текст НА ТЁМНЫХ поверхностях —
+     цвет облака, впервые поймавшего закат */
+  --txt-gold: #D4747C;
+
+  /* Светлее — как подсвеченный край облака */
+  --txt-gold-light: #E89298;
+
+  /* Темнее — как тень внутри розового облака */
+  --txt-gold-dark: #B85860;
+
+  --txt-accent: #D4747C;
+  --txt-inverse: #FFF3EE;
+  --txt-on-accent: #FFF3EE;
+  --txt-link: #D4747C;
+  --txt-link-hover: #E89298;
+
+  /* ═══════════════════════════════════════════
+     BORDERS
+     Розовая нить заката, вплетённая в синий
+     бархат неба. Как первая розовая полоска
+     на горизонте — почти невидимая, но
+     обещающая. При касании — разгорается,
+     как облако, повернувшееся к солнцу.
+     ═══════════════════════════════════════════ */
+  --border-color: rgba(212, 116, 124, 0.09);
+  --border-subtle: rgba(212, 116, 124, 0.04);
+  --border-hover: rgba(212, 116, 124, 0.20);
+  --border-active: rgba(212, 116, 124, 0.38);
+  --border-accent: #C06068;
+  --border-focus: #D4747C;
+  --border-divider: rgba(212, 116, 124, 0.06);
+
+  /* ═══════════════════════════════════════════
+     ACCENTS
+     Палитра раннего заката. Основной —
+     розово-коралловый: не малиновый крик,
+     а цвет пиона в тёплом свете. Вторичный —
+     нежный лососевый, как облака чуть выше
+     горизонта. Третичный — глубокий розовый,
+     как вино в бокале, поднятом к небу.
+     ═══════════════════════════════════════════ */
+  --accent-primary: #D4747C;
+  --accent-secondary: #E89298;
+  --accent-tertiary: #B85860;
+  --accent-success: #5EAA7C;
+  --accent-error: #D05050;
+  --accent-info: #5A94C4;
+  --accent-warning: #DCA044;
+
+  /* ═══════════════════════════════════════════
+     STATES
+     Вечерний спектр. Успех — мята в мохито
+     на закатной террасе. Ошибка — капля
+     гранатового соуса на скатерти. Инфо —
+     цвет моря, ещё синего, ещё дневного.
+     Предупреждение — золотой час, солнце,
+     которое торопит. Всё тёплое, живое,
+     закатное.
+     ═══════════════════════════════════════════ */
+  --state-success: #5EAA7C;
+  --state-success-bg: rgba(94, 170, 124, 0.08);
+  --state-success-border: rgba(94, 170, 124, 0.22);
+  --state-error: #D05050;
+  --state-error-bg: rgba(208, 80, 80, 0.08);
+  --state-error-border: rgba(208, 80, 80, 0.22);
+  --state-info: #5A94C4;
+  --state-info-bg: rgba(90, 148, 196, 0.08);
+  --state-info-border: rgba(90, 148, 196, 0.22);
+  --state-warning: #DCA044;
+  --state-warning-bg: rgba(220, 160, 68, 0.08);
+  --state-warning-border: rgba(220, 160, 68, 0.22);
+  --state-disabled: rgba(96, 104, 120, 0.20);
+  --state-hover: rgba(212, 116, 124, 0.05);
+  --state-active: rgba(212, 116, 124, 0.12);
+  --state-selected: rgba(212, 116, 124, 0.07);
+
+  /* ═══════════════════════════════════════════
+     SHADOWS
+     Тени golden hour — самые длинные, самые
+     тёплые, самые кинематографичные. Низкое
+     солнце отбрасывает синевато-тёмные тени
+     с тёплым краем. Как тень от бокала на
+     белой скатерти — длинная, мягкая, синяя.
+     ═══════════════════════════════════════════ */
+  --shadow-xs:
+    0 1px 3px rgba(6, 10, 20, 0.45),
+    0 1px 2px rgba(6, 10, 20, 0.30);
+  --shadow-sm:
+    0 2px 6px rgba(6, 10, 20, 0.40),
+    0 4px 12px rgba(6, 10, 20, 0.28);
+  --shadow-md:
+    0 4px 10px rgba(6, 10, 20, 0.38),
+    0 8px 24px rgba(6, 10, 20, 0.28);
+  --shadow-lg:
+    0 8px 18px rgba(6, 10, 20, 0.38),
+    0 16px 40px rgba(6, 10, 20, 0.32);
+  --shadow-xl:
+    0 12px 24px rgba(6, 10, 20, 0.38),
+    0 24px 56px rgba(6, 10, 20, 0.36);
+  --shadow-inner: inset 0 2px 5px rgba(6, 10, 20, 0.28);
+  --shadow-outline: 0 0 0 3px rgba(212, 116, 124, 0.09);
+
+  /* ═══════════════════════════════════════════
+     EFFECTS
+     Розовое свечение заката. Как отблеск
+     на стекле, на серьге, на мокром причале —
+     мягкий, трепещущий, живой. При наведении
+     загорается, как облако, повернувшееся
+     к солнцу. В покое — спит, как море
+     в штиль перед закатом.
+     ═══════════════════════════════════════════ */
+  --fx-glass-blur: 18px;
+  --fx-glass-blur-heavy: 26px;
+  --fx-glass-blur-light: 10px;
+  --fx-shadow-sm: var(--shadow-sm);
+  --fx-shadow-md: var(--shadow-md);
+  --fx-shadow-lg: var(--shadow-lg);
+  --fx-shadow-xl: var(--shadow-xl);
+  --fx-shadow-gold:
+    0 0 16px rgba(212, 116, 124, 0.09),
+    0 0 38px rgba(212, 116, 124, 0.03);
+  --fx-shadow-gold-strong:
+    0 0 20px rgba(212, 116, 124, 0.18),
+    0 0 48px rgba(212, 116, 124, 0.06);
+  --fx-glow-gold:
+    0 0 12px rgba(212, 116, 124, 0.14);
+  --fx-glow-gold-subtle:
+    0 0 8px rgba(212, 116, 124, 0.06);
+
+  /* ═══════════════════════════════════════════
+     FOCUS
+     Розовое кольцо. Как отражение заката
+     в ободке фарфоровой чашки — точное,
+     тёплое, женственное и при этом
+     безошибочное на фоне синего неба.
+     ═══════════════════════════════════════════ */
+  --focus-ring:
+    0 0 0 2px rgba(212, 116, 124, 0.32),
+    0 0 10px rgba(212, 116, 124, 0.07);
+  --focus-ring-error: 0 0 0 2px rgba(208, 80, 80, 0.34);
+  --focus-ring-success: 0 0 0 2px rgba(94, 170, 124, 0.34);
+  --focus-ring-offset:
+    0 0 0 3px var(--bg-app),
+    0 0 0 5px rgba(212, 116, 124, 0.32);
+  --input-focus-shadow:
+    0 0 0 2px rgba(212, 116, 124, 0.18),
+    0 0 14px rgba(212, 116, 124, 0.05);
+
+  /* ═══════════════════════════════════════════
+     INTERACTIVE STATES
+     ═══════════════════════════════════════════ */
+  --interactive-hover-opacity: 0.85;
+  --interactive-active-opacity: 0.75;
+  --interactive-disabled-opacity: 0.32;
+
+  /* ═══════════════════════════════════════════
+     CARDS
+     Меню на закатной террасе. Каждая карточка —
+     как открытка из путешествия: тёмно-синяя
+     с розовым обрезом. При выборе — солнце
+     скользнуло по ней, и она порозовела,
+     как облако, пойманное golden hour.
+     ═══════════════════════════════════════════ */
+  --card-bg: var(--glass-bg);
+  --card-hover-bg: var(--bg-surface-3);
+  --card-hover-glow: rgba(212, 116, 124, 0.03);
+  --card-selected-bg-from: rgba(212, 116, 124, 0.07);
+  --card-selected-bg-to: var(--bg-surface-2);
+  --card-selected-glow: rgba(212, 116, 124, 0.09);
+  --card-selected-inner: rgba(212, 116, 124, 0.025);
+  --card-check-bg: #D4747C;
+  --card-check-color: #0E1724;
+  --card-avatar-glow: rgba(212, 116, 124, 0.16);
+  --card-tag-bg: var(--bg-input);
+  --card-tag-border: var(--border-color);
+  --card-info-bg: rgba(0, 0, 0, 0.48);
+  --card-info-blur: 10px;
+  --card-delete-bg: rgba(80, 16, 16, 0.48);
+  --card-delete-border: rgba(208, 80, 80, 0.16);
+  --card-delete-color: rgba(235, 130, 130, 0.65);
+  --card-delete-bg-hover: rgba(130, 24, 24, 0.60);
+  --card-delete-color-hover: #F0ACA8;
+  --create-card-hover-bg: var(--bg-surface-3);
+
+  /* ═══════════════════════════════════════════
+     BUTTONS
+     Кнопки — закатные облака в миниатюре.
+     Primary: градиент от розового коралла
+     к глубокому розе — как полоса неба прямо
+     над горизонтом. Жемчужный текст —
+     как чайка, белая на фоне розового неба.
+
+     Контраст: #FFF3EE на градиенте → 4.5–5.8:1
+     ═══════════════════════════════════════════ */
+  --btn-primary-bg: var(--grad-burgundy);
+  --btn-primary-color: #FFF3EE;
+  --btn-secondary-bg: var(--bg-surface-3);
+  --btn-secondary-color: var(--txt-secondary);
+  --btn-ghost-bg: transparent;
+  --btn-ghost-color: var(--txt-secondary);
+
+  --info-btn-hover-border: var(--glass-border-hover);
+
+  /* ═══════════════════════════════════════════
+     TAGS
+     Винные этикетки на террасе. Активный тег —
+     залит закатным градиентом. «New» — золотой
+     час, последний солнечный луч. «Custom» —
+     лазурный, как море внизу, ещё дневное,
+     ещё синее — прохладный контрапункт,
+     который делает розовый закат ещё теплее.
+     ═══════════════════════════════════════════ */
+  --tag-bg: var(--bg-surface-3);
+  --tag-color: var(--txt-secondary);
+  --tag-active-bg: var(--grad-burgundy);
+  --tag-active-color: #FFF3EE;
+  --tag-active-glow: rgba(212, 116, 124, 0.16);
+
+  /* New — золотой час */
+  --tag-new-border: rgba(220, 160, 68, 0.20);
+  --tag-new-bg-from: #1C1808;
+  --tag-new-bg-to: #2A2210;
+  --tag-new-text: #F0CA70;
+  --tag-new-border-active: rgba(220, 160, 68, 0.36);
+
+  /* Custom — дневное море */
+  --tag-custom-border: rgba(80, 150, 200, 0.20);
+  --tag-custom-bg-from: rgba(80, 150, 200, 0.06);
+  --tag-custom-bg-to: rgba(80, 150, 200, 0.12);
+  --tag-custom-text: rgba(110, 180, 220, 0.88);
+  --tag-custom-border-active: rgba(80, 150, 200, 0.36);
+
+  /* ═══════════════════════════════════════════
+     PROGRESS / STEPS
+     Путь солнца к горизонту. Активный шаг —
+     солнце в текущей точке, горит розовым.
+     Пройденный — облако, которое уже поймало
+     свет и отпустило. Линия — как горизонт,
+     по которому солнце скользит.
+     ═══════════════════════════════════════════ */
+  --step-bg: var(--bg-surface-3);
+  --step-color: var(--txt-muted);
+  --step-active-bg: var(--grad-burgundy);
+  --step-active-color: #FFF3EE;
+  --step-active-border: #D4747C;
+  --step-active-glow: rgba(212, 116, 124, 0.28);
+  --step-completed-bg: var(--bg-surface-3);
+  --step-completed-border: #B85860;
+  --step-completed-line: #B85860;
+
+  /* ═══════════════════════════════════════════
+     INFO PANELS
+     ═══════════════════════════════════════════ */
+  --info-tag-bg: var(--bg-input);
+  --info-tag-border: var(--border-color);
+  --info-desc-bg: rgba(0, 0, 0, 0.22);
+
+  /* ═══════════════════════════════════════════
+     DANGER ZONE
+     Бокал красного, опрокинутый на скатерть.
+     Глубокий бордовый — как каберне в синем
+     вечернем свете. Серьёзный, но тёплый.
+     ═══════════════════════════════════════════ */
+  --danger-bg-from: #2E0E10;
+  --danger-bg-to: #4C181C;
+  --danger-bg-hover-from: #4C181C;
+  --danger-bg-hover-to: #682428;
+  --danger-text: #F0ACA8;
+  --danger-border: rgba(208, 80, 80, 0.22);
+  --danger-glow: rgba(208, 80, 80, 0.10);
+
+  /* ═══════════════════════════════════════════
+     SEARCH
+     Строка как линия горизонта — тёмная,
+     чёткая, с розовым отблеском. При фокусе
+     горизонт загорается: солнце коснулось
+     воды.
+     ═══════════════════════════════════════════ */
+  --search-bg: var(--glass-bg);
+  --search-border: var(--glass-border);
+  --search-focus-border: #D4747C;
+  --search-focus-shadow: rgba(212, 116, 124, 0.09);
+
+  /* ═══════════════════════════════════════════
+     MISC
+     ═══════════════════════════════════════════ */
+  --alpha-active-glow: rgba(212, 116, 124, 0.14);
+
+  --scrollbar-track: transparent;
+  --scrollbar-thumb: #243244;
+  --scrollbar-thumb-hover: #B85860;
+
+  --overlay-bg: rgba(8, 12, 22, 0.88);
+  --overlay-blur: 12px;
+
+  /* ═══════════════════════════════════════════
+     BACKGROUND RADIALS
+     Три источника закатного света. Первый —
+     солнце у горизонта слева: тёплый розово-
+     коралловый, щедрый, широкий. Второй —
+     розовое свечение наверху справа: облако,
+     подсвеченное снизу. Третий — синяя
+     глубина ночного неба, наступающего
+     по углам, как прилив.
+     ═══════════════════════════════════════════ */
+  --bg-radial-1: rgba(212, 116, 124, 0.020);
+  --bg-radial-2: rgba(200, 130, 160, 0.014);
+  --bg-radial-3: rgba(6, 10, 20, 0.48);
+
+  /* ═══════════════════════════════════════════
+     GRADIENTS
+     Небо раннего заката. От живого розового
+     коралла к глубокому розе-бордо — как
+     полоса горизонта, где солнце только начало
+     тонуть: верх ещё горит, низ уже
+     погружается в вечерний цвет.
+     ═══════════════════════════════════════════ */
+  --grad-burgundy: linear-gradient(135deg, #C4646C, #883C4C);
+  --grad-rich: linear-gradient(135deg, var(--bg-surface-3), var(--bg-surface-2));
+  --grad-gold-subtle: linear-gradient(
+    135deg,
+    rgba(212, 116, 124, 0.035),
+    rgba(212, 116, 124, 0.008)
+  );
+  --grad-surface: linear-gradient(180deg, var(--bg-surface-2), var(--bg-surface-1));
+  --grad-overlay: linear-gradient(180deg, transparent, var(--bg-app));
+}
+
+
+/* ╔════════════════════════════════════════════╗
+   ║  GOLDEN HOUR — Visual Enhancements         ║
+   ║  Розовая пыль. Синий бархат неба.           ║
+   ║  Первый румянец заката на облаках.          ║
+   ╚════════════════════════════════════════════╝ */
+
+
+/* ─── Закатное выделение текста ─── */
+[data-theme="sunset"] ::selection {
+  background: rgba(212, 116, 124, 0.26);
+  color: #FFF3EE;
+}
+
+[data-theme="sunset"] ::-moz-selection {
+  background: rgba(212, 116, 124, 0.26);
+  color: #FFF3EE;
+}
+
+
+/* ─── Закатный свет + виньетка ───
+   Солнце низко слева — широкий розово-
+   коралловый свет заливает нижнюю часть.
+   Вверху справа — облако, подсвеченное
+   розовым снизу, ещё голубоватое сверху.
+   Виньетка — синяя ночь, мягко наступающая
+   по краям, как прилив по песку. */
+
+[data-theme="sunset"] body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(
+      ellipse 70% 50% at 18% 72%,
+      rgba(212, 116, 124, 0.024),
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 82% 22%,
+      rgba(100, 140, 200, 0.014),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at center,
+      transparent 42%,
+      rgba(0, 0, 0, 0.16) 100%
+    );
+}
+
+
+/* ─── Текстура морского воздуха ───
+   Мельчайшая солёная взвесь в вечернем
+   воздухе террасы. Видна только когда свеча
+   трепещет — микроскопическая зернистость,
+   дающая глубину синему бархату неба. */
+
+[data-theme="sunset"] body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2147483646;
+  opacity: 0.009;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23s)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+
+
+/* ─── Утончённый скроллбар ─── */
+
+[data-theme="sunset"] ::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+[data-theme="sunset"] ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+[data-theme="sunset"] ::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 100px;
+  transition: background 0.2s ease;
+}
+
+[data-theme="sunset"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+  box-shadow: 0 0 6px rgba(212, 116, 124, 0.20);
+}
+
+
+/* ─── Утилитарные анимации ───
+   Ритмы golden hour. Медленные, как тень
+   от мачты, ползущая по причалу. Каждое
+   движение — как солнце, опускающееся
+   к горизонту: неспешно, неотвратимо,
+   прекрасно. */
+
+@keyframes sunset-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 4px rgba(212, 116, 124, 0.09),
+      0 0 14px rgba(212, 116, 124, 0.03);
+  }
+  50% {
+    box-shadow:
+      0 0 8px rgba(212, 116, 124, 0.20),
+      0 0 28px rgba(212, 116, 124, 0.07);
+  }
+}
+
+@keyframes sunset-text-glow {
+  0%, 100% {
+    text-shadow: 0 0 4px rgba(212, 116, 124, 0.14);
+  }
+  50% {
+    text-shadow:
+      0 0 8px rgba(212, 116, 124, 0.26),
+      0 0 18px rgba(212, 116, 124, 0.09);
+  }
+}
+
+@keyframes sunset-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sunset-breathe {
+  0%, 100% {
+    border-color: rgba(212, 116, 124, 0.06);
+  }
+  50% {
+    border-color: rgba(212, 116, 124, 0.16);
+  }
+}
+
+@keyframes sunset-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "default",
+    "name": "По умолчанию",
+    "theme": "default",
+    "font": "Segoe UI",
+    "fontSize": 16
+  },
+  {
+    "id": "ocean",
+    "name": "Океан",
+    "theme": "ocean",
+    "font": "Segoe UI",
+    "fontSize": 16
+  },
+  {
+    "id": "matrix",
+    "name": "Лес",
+    "theme": "matrix",
+    "font": "Georgia",
+    "fontSize": 16
+  },
+  {
+    "id": "sunset",
+    "name": "Закат",
+    "theme": "sunset",
+    "font": "Segoe UI",
+    "fontSize": 16
+  },
+  {
+    "id": "reading",
+    "name": "Чтение",
+    "theme": "light",
+    "font": "Georgia",
+    "fontSize": 16
+  }
+]

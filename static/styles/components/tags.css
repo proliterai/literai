@@ -1,0 +1,103 @@
+/* ============================================
+   TAGS — Панель тегов
+   ============================================ */
+
+.tags-panel {
+  margin-bottom: var(--space-4);
+}
+
+.tags-scroll {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  max-height: 158px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--space-3);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--fx-glass-blur));
+  -webkit-backdrop-filter: blur(var(--fx-glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
+}
+
+.tag-btn {
+  padding: var(--space-1) var(--space-4);
+  background: var(--bg-surface-3);
+  color: var(--txt-secondary);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-medium);
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  user-select: none;
+  line-height: 1.5;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tag-btn:hover {
+  background: var(--bg-surface-4);
+  border-color: var(--glass-border-hover);
+  color: var(--txt-primary);
+  transform: translateY(-1px);
+}
+
+.tag-btn:active {
+  transform: translateY(0);
+}
+
+.tag-btn.active {
+  background: var(--grad-burgundy);
+  color: var(--txt-gold-light);
+  border-color: transparent;
+  box-shadow: 0 0 8px var(--tag-active-glow);
+}
+
+.tag-btn.tag-all.active {
+  background: var(--bg-surface-4);
+  border-color: var(--glass-border-hover);
+  color: var(--txt-primary);
+  box-shadow: none;
+}
+
+.tag-btn.tag-new {
+  border-color: var(--tag-new-border);
+}
+
+.tag-btn.tag-new.active {
+  background: linear-gradient(135deg, var(--tag-new-bg-from), var(--tag-new-bg-to));
+  color: var(--tag-new-text);
+  border-color: var(--tag-new-border-active);
+}
+
+.tag-btn.tag-custom {
+  border-color: var(--tag-custom-border);
+}
+
+.tag-btn.tag-custom.active {
+  background: linear-gradient(135deg, var(--tag-custom-bg-from), var(--tag-custom-bg-to));
+  color: var(--tag-custom-text);
+  border-color: var(--tag-custom-border-active);
+}
+
+.tag-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+@media (max-width: 480px) {
+  .tag-btn {
+    padding: var(--space-1) var(--space-3);
+    font-size: 0.7rem;
+  }
+
+  .tags-scroll {
+    max-height: 150px;
+    padding: var(--space-2);
+    gap: var(--space-1-5);
+  }
+}

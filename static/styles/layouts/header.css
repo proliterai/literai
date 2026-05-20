@@ -1,0 +1,147 @@
+/* ============================================
+HEADER — Шапка приложения
+============================================ */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  background: var(--glass-bg-heavy);
+  backdrop-filter: blur(var(--fx-glass-blur-heavy));
+  -webkit-backdrop-filter: blur(var(--fx-glass-blur-heavy));
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-xs);
+  height: var(--size-15);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-bold);
+  color: var(--txt-primary);
+  letter-spacing: 0.02em;
+}
+
+.logo-accent {
+  color: var(--txt-gold);
+  font-style: italic;
+}
+
+/* ✅ НОВЫЙ КОНТЕЙНЕР ДЛЯ КНОПОК */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* ============================================
+BOOSTY BUTTON — Кнопка бонусов
+============================================ */
+.header-boosty-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--txt-secondary);
+  transition: all var(--transition-fast);
+  background: transparent;
+  border: 1px solid transparent;
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-medium);
+}
+
+.header-boosty-btn:hover {
+  color: var(--p-orange);
+  background: var(--glass-bg);
+  border-color: var(--glass-border);
+}
+
+.header-boosty-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.header-boosty-btn i {
+  font-size: 1.1rem;
+  color: var(--txt-secondary);
+  transition: transform var(--transition-fast);
+}
+
+.header-boosty-btn:hover i {
+  transform: scale(1.1);
+}
+
+.header-boosty-btn .btn-label {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Скрываем текст на маленьких экранах, оставляем иконку */
+@media (max-width: 480px) {
+  .header-boosty-btn .btn-label {
+    display: none;
+  }
+  .header-boosty-btn {
+    padding: var(--space-2);
+  }
+}
+
+/* ============================================
+SETTINGS BUTTON
+============================================ */
+.header-settings-btn {
+  width: var(--size-10);
+  height: var(--size-10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  color: var(--txt-secondary);
+  transition: all var(--transition-fast);
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.header-settings-btn:hover {
+  color: var(--txt-gold);
+  background: var(--glass-bg);
+  border-color: var(--glass-border);
+}
+
+.header-settings-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.header-settings-btn i {
+  font-size: 1.2rem;
+  transition: transform var(--transition-slow);
+}
+
+.header-settings-btn:hover i {
+  transform: rotate(90deg);
+}
+
+@media (max-width: 768px) {
+  .header-inner {
+    padding: 0 var(--space-3);
+  }
+  .logo-text {
+    font-size: var(--font-size-lg);
+  }
+}

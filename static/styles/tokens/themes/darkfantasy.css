@@ -1,0 +1,525 @@
+/* ============================================
+   DARK FANTASY THEME — Кровь и Тьма
+   Вайб: Тёмное фэнтези, готика, Берсерк, Dark Souls
+   Тип: Ультра-тёмная, Полное переопределение
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
+
+[data-theme="dark-fantasy"] {
+
+  /* ------------------------------------------
+     1. БАЗОВЫЕ ФОНЫ И ПОВЕРХНОСТИ
+     Абсолютная тьма с едва различимыми слоями
+     ------------------------------------------ */
+  --bg-app: #000000;
+  --bg-surface-1: #0a0a0a;
+  --bg-surface-2: #060606;
+  --bg-surface-3: #111111;
+  --bg-surface-4: #181818;
+  --bg-surface-5: #1e1e1e;
+  --bg-input: #060606;
+  --bg-elevated: #111111;
+  --bg-sunken: #000000;
+  --bg-primary: var(--bg-surface-1);
+
+  /* ------------------------------------------
+     2. СТЕКЛО (Плотное, непроглядное)
+     ------------------------------------------ */
+  --glass-bg: rgba(8, 8, 8, 0.96);
+  --glass-bg-heavy: rgba(5, 5, 5, 0.98);
+  --glass-bg-light: rgba(10, 10, 10, 0.92);
+  --glass-border: rgba(139, 26, 26, 0.18);
+  --glass-border-hover: rgba(139, 26, 26, 0.35);
+  --glass-border-active: rgba(139, 26, 26, 0.55);
+
+  /* ------------------------------------------
+     3. ТЕКСТЫ И ТИПОГРАФИКА
+     Тёплый пергаментный оттенок для читаемости
+     ------------------------------------------ */
+  --txt-primary: #c8beb0;
+  --txt-secondary: #847a6e;
+  --txt-muted: #574f46;
+  --txt-disabled: rgba(87, 79, 70, 0.40);
+  --txt-inverted: #000000;
+  --txt-inverse: #000000;
+  --txt-gold: #8b1a1a;
+  --txt-gold-light: #c43030;
+  --txt-gold-dark: #5a1010;
+  --txt-accent: #a52222;
+  --txt-on-accent: #e8e0d6;
+  --txt-link: #a52222;
+  --txt-link-hover: #c43030;
+
+  --font-family-base: 'Cinzel', 'Georgia', 'Times New Roman', serif;
+  --line-height: 1.7;
+
+  /* ------------------------------------------
+     4. АКЦЕНТНЫЕ ЦВЕТА
+     Багровый, кровавый спектр
+     ------------------------------------------ */
+  --accent-primary: #8b1a1a;
+  --accent-primary-hover: #a52222;
+  --accent-secondary: #5a1010;
+  --accent-tertiary: #c43030;
+  --accent-success: #2a6e3f;
+  --accent-error: #a52222;
+  --accent-info: #3a4a6e;
+  --accent-warning: #8a5a1a;
+
+  /* ------------------------------------------
+     5. ГРАДИЕНТЫ
+     ------------------------------------------ */
+  --grad-primary: linear-gradient(180deg, #8b1a1a, #5a1010);
+  --grad-burgundy: linear-gradient(180deg, #8b1a1a, #5a1010);
+  --grad-rich: linear-gradient(180deg, #111111, #060606);
+  --grad-gold-subtle: linear-gradient(180deg, rgba(139, 26, 26, 0.06), rgba(139, 26, 26, 0.01));
+  --grad-surface: linear-gradient(180deg, var(--bg-surface-1), var(--bg-surface-2));
+  --grad-overlay: linear-gradient(180deg, transparent, #000000);
+
+  /* ------------------------------------------
+     6. РАМКИ И РАЗДЕЛИТЕЛИ
+     Тонкие, едва видимые красные линии
+     ------------------------------------------ */
+  --border-light: rgba(139, 26, 26, 0.10);
+  --border-base: rgba(139, 26, 26, 0.20);
+  --border-heavy: rgba(139, 26, 26, 0.45);
+  --border-color: rgba(139, 26, 26, 0.15);
+  --border-subtle: rgba(139, 26, 26, 0.07);
+  --border-hover: rgba(139, 26, 26, 0.35);
+  --border-active: rgba(139, 26, 26, 0.55);
+  --border-accent: #8b1a1a;
+  --border-focus: #8b1a1a;
+  --border-divider: rgba(139, 26, 26, 0.10);
+
+  /* ------------------------------------------
+     7. СТАТУСНЫЕ ЦВЕТА
+     Приглушённые, вписанные в мрак
+     ------------------------------------------ */
+  --color-success: #2a6e3f;
+  --color-error: #a52222;
+  --color-warning: #8a5a1a;
+  --color-info: #3a4a6e;
+
+  --state-success: #2a6e3f;
+  --state-success-bg: rgba(42, 110, 63, 0.10);
+  --state-success-border: rgba(42, 110, 63, 0.25);
+  --state-error: #a52222;
+  --state-error-bg: rgba(165, 34, 34, 0.10);
+  --state-error-border: rgba(165, 34, 34, 0.25);
+  --state-info: #3a4a6e;
+  --state-info-bg: rgba(58, 74, 110, 0.10);
+  --state-info-border: rgba(58, 74, 110, 0.25);
+  --state-warning: #8a5a1a;
+  --state-warning-bg: rgba(138, 90, 26, 0.10);
+  --state-warning-border: rgba(138, 90, 26, 0.25);
+  --state-disabled: rgba(87, 79, 70, 0.15);
+  --state-hover: rgba(139, 26, 26, 0.06);
+  --state-active: rgba(139, 26, 26, 0.12);
+  --state-selected: rgba(139, 26, 26, 0.08);
+
+  /* ------------------------------------------
+     8. СКРУГЛЕНИЯ
+     Минимальные, строгие формы
+     ------------------------------------------ */
+  --radius-xs: 2px;
+  --radius-sm: 3px;
+  --radius-md: 4px;
+  --radius-lg: 5px;
+  --radius-xl: 6px;
+  --radius-2xl: 8px;
+  --radius-full: 50%;
+
+  /* ------------------------------------------
+     9. ТЕНИ
+     Глубокие, плотные, поглощающие свет
+     ------------------------------------------ */
+  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.70);
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.80);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.85);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.90);
+  --shadow-xl: 0 16px 50px rgba(0, 0, 0, 0.95);
+  --shadow-glow: 0 0 20px rgba(139, 26, 26, 0.12);
+  --shadow-inset: inset 0 1px 4px rgba(0, 0, 0, 0.60);
+  --shadow-inner: inset 0 2px 8px rgba(0, 0, 0, 0.50);
+  --shadow-outline: 0 0 0 1px rgba(139, 26, 26, 0.20);
+
+  /* ------------------------------------------
+     10. ЭФФЕКТЫ
+     Минимальное размытие, акцент на тенях
+     ------------------------------------------ */
+  --fx-glass-blur: blur(12px);
+  --fx-glass-blur-heavy: blur(20px);
+  --fx-glass-blur-light: blur(6px);
+  --fx-shadow-sm: var(--shadow-sm);
+  --fx-shadow-md: var(--shadow-md);
+  --fx-shadow-lg: var(--shadow-lg);
+  --fx-shadow-xl: var(--shadow-xl);
+  --fx-shadow-gold: 0 0 20px rgba(139, 26, 26, 0.08);
+  --fx-shadow-gold-strong: 0 0 35px rgba(139, 26, 26, 0.15);
+  --fx-glow-gold: 0 0 15px rgba(139, 26, 26, 0.08);
+  --fx-glow-gold-subtle: 0 0 8px rgba(139, 26, 26, 0.04);
+
+  /* ------------------------------------------
+     11. ФОКУС
+     ------------------------------------------ */
+  --focus-ring: 0 0 0 1px #8b1a1a;
+  --focus-ring-error: 0 0 0 1px #a52222;
+  --focus-ring-success: 0 0 0 1px #2a6e3f;
+  --focus-ring-offset: 0 0 0 2px #000000, 0 0 0 3px #8b1a1a;
+  --input-focus-shadow: 0 0 0 1px rgba(139, 26, 26, 0.30), 0 4px 16px rgba(0, 0, 0, 0.60);
+
+  /* ------------------------------------------
+     12. ИНТЕРАКТИВНЫЕ СОСТОЯНИЯ
+     ------------------------------------------ */
+  --interactive-hover-opacity: 0.88;
+  --interactive-active-opacity: 0.75;
+  --interactive-disabled-opacity: 0.30;
+
+  /* ------------------------------------------
+     13. КАРТОЧКИ
+     ------------------------------------------ */
+  --card-bg: var(--bg-surface-1);
+  --card-hover-bg: var(--bg-surface-3);
+  --card-hover-glow: rgba(139, 26, 26, 0.04);
+  --card-selected-bg-from: rgba(139, 26, 26, 0.08);
+  --card-selected-bg-to: var(--bg-surface-1);
+  --card-selected-glow: rgba(139, 26, 26, 0.08);
+  --card-selected-inner: rgba(139, 26, 26, 0.04);
+  --card-check-bg: #8b1a1a;
+  --card-check-color: #e8e0d6;
+  --card-avatar-glow: rgba(139, 26, 26, 0.10);
+  --card-tag-bg: var(--bg-surface-3);
+  --card-tag-border: var(--border-color);
+  --card-info-bg: rgba(6, 6, 6, 0.95);
+  --card-info-blur: 8px;
+  --card-delete-bg: rgba(165, 34, 34, 0.08);
+  --card-delete-border: rgba(165, 34, 34, 0.20);
+  --card-delete-color: rgba(165, 34, 34, 0.60);
+  --card-delete-bg-hover: rgba(165, 34, 34, 0.15);
+  --card-delete-color-hover: #c43030;
+  --create-card-hover-bg: var(--bg-surface-3);
+
+  /* ------------------------------------------
+     14. КНОПКИ
+     ------------------------------------------ */
+  --btn-primary-bg: var(--grad-primary);
+  --btn-primary-color: #e8e0d6;
+  --btn-secondary-bg: var(--bg-surface-3);
+  --btn-secondary-color: var(--txt-primary);
+  --btn-ghost-bg: transparent;
+  --btn-ghost-color: var(--txt-secondary);
+  --info-btn-hover-border: var(--glass-border-hover);
+
+  /* ------------------------------------------
+     15. ТЕГИ
+     ------------------------------------------ */
+  --tag-bg: var(--bg-surface-3);
+  --tag-color: var(--txt-secondary);
+  --tag-active-bg: var(--grad-burgundy);
+  --tag-active-color: #e8e0d6;
+  --tag-active-glow: rgba(139, 26, 26, 0.10);
+
+  --tag-new-border: rgba(42, 110, 63, 0.25);
+  --tag-new-bg-from: rgba(42, 110, 63, 0.10);
+  --tag-new-bg-to: rgba(42, 110, 63, 0.05);
+  --tag-new-text: #2a6e3f;
+  --tag-new-border-active: rgba(42, 110, 63, 0.40);
+
+  --tag-custom-border: rgba(138, 90, 26, 0.25);
+  --tag-custom-bg-from: rgba(138, 90, 26, 0.10);
+  --tag-custom-bg-to: rgba(138, 90, 26, 0.05);
+  --tag-custom-text: #8a5a1a;
+  --tag-custom-border-active: rgba(138, 90, 26, 0.40);
+
+  /* ------------------------------------------
+     16. ПРОГРЕСС / ШАГИ
+     ------------------------------------------ */
+  --step-bg: var(--bg-surface-3);
+  --step-color: var(--txt-muted);
+  --step-active-bg: var(--grad-primary);
+  --step-active-color: #e8e0d6;
+  --step-active-border: #8b1a1a;
+  --step-active-glow: rgba(139, 26, 26, 0.10);
+  --step-completed-bg: var(--bg-surface-3);
+  --step-completed-border: #5a1010;
+  --step-completed-line: #5a1010;
+
+  /* ------------------------------------------
+     17. ИНФО-ПАНЕЛИ
+     ------------------------------------------ */
+  --info-tag-bg: var(--bg-surface-3);
+  --info-tag-border: var(--border-color);
+  --info-desc-bg: rgba(139, 26, 26, 0.03);
+
+  /* ------------------------------------------
+     18. ЗОНА УДАЛЕНИЯ (Danger)
+     ------------------------------------------ */
+  --danger-bg-from: rgba(165, 34, 34, 0.12);
+  --danger-bg-to: rgba(165, 34, 34, 0.06);
+  --danger-bg-hover-from: rgba(165, 34, 34, 0.22);
+  --danger-bg-hover-to: rgba(165, 34, 34, 0.12);
+  --danger-text: #c43030;
+  --danger-border: rgba(165, 34, 34, 0.30);
+  --danger-glow: rgba(165, 34, 34, 0.06);
+
+  /* ------------------------------------------
+     19. ПОИСК
+     ------------------------------------------ */
+  --search-bg: #060606;
+  --search-border: var(--border-color);
+  --search-focus-border: #8b1a1a;
+  --search-focus-shadow: rgba(139, 26, 26, 0.10);
+
+  /* ------------------------------------------
+     20. РАЗНОЕ (Misc)
+     ------------------------------------------ */
+  --alpha-active-glow: rgba(139, 26, 26, 0.10);
+  --scrollbar-track: #000000;
+  --scrollbar-thumb: #1a1a1a;
+  --scrollbar-thumb-hover: #8b1a1a;
+  --overlay-bg: rgba(0, 0, 0, 0.88);
+  --overlay-blur: 4px;
+
+  /* ------------------------------------------
+     21. ФОНОВЫЕ РАДИАЛЫ
+     ------------------------------------------ */
+  --bg-radial-1: rgba(139, 26, 26, 0.02);
+  --bg-radial-2: rgba(90, 16, 16, 0.015);
+  --bg-radial-3: rgba(0, 0, 0, 0.15);
+}
+
+
+/* ============================================
+   КАСТОМНЫЕ ПЕРЕОПРЕДЕЛЕНИЯ КОМПОНЕНТОВ
+   ============================================ */
+
+/* 1. ФОН: Тонкая текстура шума / тьмы */
+[data-theme="dark-fantasy"] body {
+  background-color: #000000;
+  background-image:
+    radial-gradient(
+      ellipse 80% 60% at 20% 80%,
+      rgba(139, 26, 26, 0.04),
+      transparent
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 85% 20%,
+      rgba(90, 16, 16, 0.03),
+      transparent
+    );
+  background-attachment: fixed;
+}
+
+/* 2. КНОПКИ: Элегантные, с тонким ободком */
+[data-theme="dark-fantasy"] .btn-primary {
+  background: var(--grad-primary);
+  color: #e8e0d6;
+  border: 1px solid rgba(196, 48, 48, 0.40);
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.70),
+    inset 0 1px 0 rgba(196, 48, 48, 0.15);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark-fantasy"] .btn-primary:hover {
+  background: linear-gradient(180deg, #a52222, #6a1414);
+  border-color: rgba(196, 48, 48, 0.55);
+  box-shadow:
+    0 6px 24px rgba(0, 0, 0, 0.80),
+    0 0 20px rgba(139, 26, 26, 0.12);
+}
+
+[data-theme="dark-fantasy"] .btn-primary:active {
+  background: linear-gradient(180deg, #5a1010, #3a0808);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.70),
+    inset 0 2px 4px rgba(0, 0, 0, 0.40);
+}
+
+[data-theme="dark-fantasy"] .btn-secondary {
+  background: var(--bg-surface-3);
+  color: var(--txt-primary);
+  border: 1px solid rgba(139, 26, 26, 0.15);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.60);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark-fantasy"] .btn-secondary:hover {
+  border-color: rgba(139, 26, 26, 0.30);
+  background: var(--bg-surface-4);
+}
+
+/* 3. КАРТОЧКИ: Утопающие во тьме, тонкая кровавая кромка */
+[data-theme="dark-fantasy"] .catalog-card {
+  background: var(--bg-surface-1);
+  border: 1px solid rgba(139, 26, 26, 0.12);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.70),
+    inset 0 1px 0 rgba(200, 190, 176, 0.03);
+  transition: all 0.35s ease;
+}
+
+[data-theme="dark-fantasy"] .catalog-card:hover {
+  border-color: rgba(139, 26, 26, 0.30);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.85),
+    0 0 30px rgba(139, 26, 26, 0.06);
+  transform: translateY(-2px);
+}
+
+/* 4. ЧАТ: Тёмные пузыри с едва заметными рамками */
+[data-theme="dark-fantasy"] .message-bubble {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.60);
+}
+
+[data-theme="dark-fantasy"] .ai-message .message-bubble {
+  background: var(--bg-surface-1);
+  border: 1px solid rgba(139, 26, 26, 0.10);
+}
+
+[data-theme="dark-fantasy"] .user-message .message-bubble {
+  background: #0f0808;
+  border: 1px solid rgba(139, 26, 26, 0.20);
+}
+
+/* 5. ИНПУТЫ: Строгие, тёмные */
+[data-theme="dark-fantasy"] .chat-input,
+[data-theme="dark-fantasy"] .search-input,
+[data-theme="dark-fantasy"] .panel-textarea {
+  background: #030303;
+  border: 1px solid rgba(139, 26, 26, 0.15);
+  color: var(--txt-primary);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.50);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-theme="dark-fantasy"] .chat-input::placeholder,
+[data-theme="dark-fantasy"] .search-input::placeholder {
+  color: var(--txt-muted);
+  font-style: italic;
+}
+
+[data-theme="dark-fantasy"] .chat-input:focus,
+[data-theme="dark-fantasy"] .search-input:focus,
+[data-theme="dark-fantasy"] .panel-textarea:focus {
+  border-color: rgba(139, 26, 26, 0.40);
+  box-shadow:
+    inset 0 2px 8px rgba(0, 0, 0, 0.50),
+    0 0 12px rgba(139, 26, 26, 0.06);
+  outline: none;
+}
+
+/* 6. ПАНЕЛИ И DRAWER */
+[data-theme="dark-fantasy"] .settings-panel,
+[data-theme="dark-fantasy"] .app-drawer {
+  background: #060606;
+  border: 1px solid rgba(139, 26, 26, 0.10);
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.90);
+}
+
+/* 7. РАЗДЕЛИТЕЛИ: Кровавая нить */
+[data-theme="dark-fantasy"] hr,
+[data-theme="dark-fantasy"] .divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(139, 26, 26, 0.25) 20%,
+    rgba(139, 26, 26, 0.40) 50%,
+    rgba(139, 26, 26, 0.25) 80%,
+    transparent
+  );
+}
+
+/* 8. СКРОЛЛБАРЫ: Тонкие, тёмные */
+[data-theme="dark-fantasy"] ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+[data-theme="dark-fantasy"] ::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+[data-theme="dark-fantasy"] ::-webkit-scrollbar-thumb {
+  background: #1a1a1a;
+  border: 1px solid rgba(139, 26, 26, 0.10);
+}
+
+[data-theme="dark-fantasy"] ::-webkit-scrollbar-thumb:hover {
+  background: #8b1a1a;
+}
+
+/* 9. ВЫДЕЛЕНИЕ ТЕКСТА */
+[data-theme="dark-fantasy"] ::selection {
+  background: rgba(139, 26, 26, 0.50);
+  color: #e8e0d6;
+}
+
+[data-theme="dark-fantasy"] ::-moz-selection {
+  background: rgba(139, 26, 26, 0.50);
+  color: #e8e0d6;
+}
+
+/* 10. АВАТАРКИ: Мрачные, с красной тенью */
+[data-theme="dark-fantasy"] .avatar {
+  border: 1px solid rgba(139, 26, 26, 0.25);
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.70),
+    0 0 15px rgba(139, 26, 26, 0.06);
+}
+
+/* 11. ССЫЛКИ: Кровавые, без подчёркивания */
+[data-theme="dark-fantasy"] a {
+  color: #a52222;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+[data-theme="dark-fantasy"] a:hover {
+  color: #c43030;
+}
+
+
+/* ============================================
+   АНИМАЦИИ
+   ============================================ */
+
+/* Мерцание как затухающая свеча */
+@keyframes df-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.92; }
+  75% { opacity: 0.97; }
+}
+
+/* Проявление из тьмы */
+@keyframes df-emerge {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+    filter: brightness(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: brightness(1);
+  }
+}
+
+/* Пульс кровавого света */
+@keyframes df-blood-pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(139, 26, 26, 0.05);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(139, 26, 26, 0.12);
+  }
+}

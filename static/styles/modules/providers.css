@@ -1,0 +1,306 @@
+/* ============================================
+   PROVIDERS MODULE — Панель управления провайдерами ИИ
+   ============================================ */
+
+.providers-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.panel-header h4 {
+  font-size: var(--font-size-md);
+  color: var(--txt-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.panel-header h4 i {
+  color: var(--txt-gold);
+}
+
+/* Empty state */
+.providers-empty {
+  text-align: center;
+  padding: var(--space-12) var(--space-5);
+  color: var(--txt-muted);
+}
+
+.providers-empty i {
+  font-size: 3rem;
+  margin-bottom: var(--space-4);
+  opacity: 0.35;
+  display: block;
+}
+
+.providers-empty p {
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-2);
+}
+
+.providers-empty span {
+  font-size: var(--font-size-xs);
+  opacity: 0.7;
+}
+
+/* Providers list */
+.providers-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* Provider card */
+.provider-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-fast);
+}
+
+.provider-card:hover {
+  border-color: var(--glass-border-hover);
+}
+
+.provider-card.active {
+  border-color: var(--p-gold-700);
+  box-shadow: 0 0 12px var(--card-selected-glow);
+}
+
+.provider-card.dragging {
+  opacity: 0.5;
+  transform: scale(0.98);
+}
+
+.provider-card.drag-over {
+  border-color: var(--txt-gold);
+  box-shadow: 0 0 20px var(--fx-glow-gold);
+}
+
+/* Card header */
+.provider-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  cursor: pointer;
+  user-select: none;
+  transition: background var(--transition-fast);
+}
+
+.provider-card-header:hover {
+  background: var(--bg-surface-3);
+}
+
+.provider-order-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+}
+.order-btn {
+  width: 24px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--txt-muted);
+  cursor: pointer;
+  border-radius: var(--radius-xs);
+  transition: all var(--transition-fast);
+  font-size: 0.85rem;
+}
+.order-btn:hover:not(:disabled) {
+  color: var(--txt-gold);
+  background: var(--bg-surface-4);
+}
+.order-btn:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+.provider-drag-handle {
+  color: var(--txt-muted);
+  font-size: 1rem;
+  line-height: 0.8;
+  cursor: grab;
+  padding: 2px;
+  transition: color var(--transition-fast);
+}
+
+.provider-drag-handle:hover {
+  color: var(--txt-secondary);
+}
+
+.provider-drag-handle:active {
+  cursor: grabbing;
+}
+
+.provider-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.provider-name {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-semibold);
+  color: var(--txt-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.provider-model {
+  font-size: var(--font-size-xs);
+  color: var(--txt-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.provider-status {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-semibold);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.provider-status.active {
+  color: var(--state-success);
+  background: var(--state-success-bg);
+}
+
+.provider-status.inactive {
+  color: var(--txt-muted);
+  background: var(--bg-surface-3);
+}
+
+.provider-header-controls {
+  display: flex;
+  gap: var(--space-1);
+  flex-shrink: 0;
+}
+
+/* Card body (expanded) */
+.provider-card-body {
+  padding: var(--space-4) var(--space-4) var(--space-5);
+  border-top: 1px solid var(--glass-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  animation: providerSlideDown 0.2s var(--ease-out);
+  background: var(--bg-surface-2);
+}
+
+@keyframes providerSlideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.provider-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.provider-field-group label {
+  font-size: var(--font-size-xs);
+  color: var(--txt-muted);
+  font-weight: var(--font-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.provider-input {
+  padding: var(--space-2-5) var(--space-3);
+  background: var(--bg-input);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  color: var(--txt-primary);
+  font-size: var(--font-size-sm);
+  transition: all var(--transition-fast);
+}
+
+.provider-input:hover:not(:focus) {
+  border-color: var(--glass-border-hover);
+}
+
+.provider-input:focus {
+  outline: none;
+  border-color: var(--border-accent);
+  box-shadow: var(--focus-ring);
+}
+
+.provider-key-wrapper {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.provider-key-wrapper .provider-input {
+  flex: 1;
+}
+
+/* Test button */
+.btn-test {
+  margin-top: var(--space-2);
+  justify-content: center;
+  width: 100%;
+}
+
+.test-result {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2-5) var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
+  margin-top: var(--space-2);
+  font-weight: var(--font-medium);
+}
+
+.test-result.success {
+  background: var(--state-success-bg);
+  color: var(--state-success);
+  border: 1px solid var(--state-success);
+}
+
+.test-result.error {
+  background: var(--state-error-bg);
+  color: var(--state-error);
+  border: 1px solid var(--state-error);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .provider-card-header {
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .provider-info {
+    order: -1;
+    width: 100%;
+  }
+
+  .provider-status {
+    margin-left: auto;
+  }
+}

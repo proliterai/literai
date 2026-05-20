@@ -1,0 +1,165 @@
+/* ============================================
+   CATALOG PAGE — Главная страница с выбором персонажей/ролей/сцен
+   ============================================ */
+
+.catalog-root {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-4) var(--space-20);
+  min-height: 0;
+  background: color-mix(in srgb, var(--bg-primary), transparent 8%);
+}
+
+.catalog-title {
+  font-size: var(--font-size-2xl);
+  color: var(--txt-gold);
+  font-weight: var(--font-bold);
+  text-align: center;
+  margin-bottom: var(--space-7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  letter-spacing: -0.01em;
+}
+
+.catalog-title i {
+  color: var(--txt-gold);
+  font-size: 0.85em;
+}
+
+/* Step container */
+.catalog-step {
+  animation: catalogFadeIn 0.3s var(--ease-out);
+}
+
+@keyframes catalogFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.step-title {
+  font-size: var(--font-size-lg);
+  color: var(--txt-primary);
+  font-weight: var(--font-semibold);
+  margin-bottom: var(--space-5);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.step-title i {
+  color: var(--txt-gold);
+  font-size: 0.9em;
+}
+
+/* Scroll container */
+.catalog-scroll {
+  max-height: 60vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+/* Results grid */
+.catalog-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: var(--space-4);
+  padding: var(--space-2) 0;
+}
+
+/* Import/Export bar */
+.import-export-bar {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+  padding: var(--space-3) var(--space-4);
+  background: var(--glass-bg);
+  border: 1px dashed var(--glass-border);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-3);
+}
+
+.ie-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2-5) var(--space-4);
+  background: var(--bg-surface-3);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  color: var(--txt-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.ie-btn:hover {
+  background: var(--bg-surface-4);
+  border-color: var(--glass-border-hover);
+  color: var(--txt-primary);
+  transform: translateY(-1px);
+}
+
+.ie-btn:active {
+  transform: translateY(0);
+}
+
+.ie-btn i {
+  color: var(--txt-gold);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .catalog-root {
+    padding: var(--space-3) var(--space-3) var(--space-16);
+  }
+
+  .catalog-title {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-5);
+  }
+
+  .catalog-scroll {
+    max-height: 60vh;
+  }
+
+  .catalog-results {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: var(--space-3);
+  }
+}
+
+@media (max-width: 480px) {
+  .catalog-title {
+    font-size: var(--font-size-lg);
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .step-title {
+    font-size: var(--font-size-md);
+  }
+
+  .catalog-results {
+    grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));
+    gap: var(--space-2);
+  }
+
+  .catalog-scroll {
+    max-height: 60vh;
+  }
+
+  .import-export-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ie-btn {
+    justify-content: center;
+  }
+}

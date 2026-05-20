@@ -1,0 +1,200 @@
+/* ============================================
+     MONOCHROME THEME
+     ============================================ */
+  [data-theme="monochrome"] {
+    /* === BACKGROUNDS === */
+    --bg-app: #0e0e0e;
+    --bg-surface-1: #161616;
+    --bg-surface-2: #1c1c1c;
+    --bg-surface-3: #222222;
+    --bg-surface-4: #2a2a2a;
+    --bg-surface-5: #323232;
+    --bg-input: #1e1e1e;
+    --bg-elevated: #222222;
+    --bg-sunken: #0a0a0a;
+
+    /* === GLASSMORPHISM === */
+    --glass-bg: rgba(22, 22, 22, 0.78);
+    --glass-bg-heavy: rgba(18, 18, 18, 0.95);
+    --glass-bg-light: rgba(26, 26, 26, 0.55);
+    --glass-border: rgba(180, 180, 180, 0.09);
+    --glass-border-hover: rgba(180, 180, 180, 0.18);
+    --glass-border-active: rgba(180, 180, 180, 0.28);
+
+    /* === TEXT === */
+    --txt-primary: #d4d4d4;
+    --txt-secondary: #848484;
+    --txt-muted: #505050;
+    --txt-disabled: rgba(80, 80, 80, 0.45);
+    --txt-gold: #9a9a9a;
+    --txt-gold-light: #b8b8b8;
+    --txt-gold-dark: #686868;
+    --txt-accent: #c0c0c0;
+    --txt-inverse: #0e0e0e;
+    --txt-on-accent: #0e0e0e;
+    --txt-link: #aaaaaa;
+    --txt-link-hover: #cccccc;
+
+    /* === BORDERS === */
+    --border-color: rgba(180, 180, 180, 0.1);
+    --border-subtle: rgba(180, 180, 180, 0.055);
+    --border-hover: rgba(180, 180, 180, 0.2);
+    --border-active: rgba(180, 180, 180, 0.32);
+    --border-accent: #585858;
+    --border-focus: #888888;
+    --border-divider: rgba(180, 180, 180, 0.07);
+
+    /* === ACCENTS — mostly grey, tiny crimson hints === */
+    --accent-primary: #787878;
+    --accent-secondary: #989898;
+    --accent-tertiary: #585858;
+    /* keep semantic states recognisable but desaturated */
+    --accent-success: #4e7a5e;
+    --accent-error: #8a3030;
+    --accent-info: #3a5a78;
+    --accent-warning: #786030;
+
+    /* === STATES === */
+    --state-success: #4e7a5e;
+    --state-success-bg: rgba(78, 122, 94, 0.12);
+    --state-success-border: rgba(78, 122, 94, 0.22);
+    --state-error: #9a4040;
+    --state-error-bg: rgba(110, 40, 40, 0.14);
+    --state-error-border: rgba(110, 40, 40, 0.24);
+    --state-info: #3a5a78;
+    --state-info-bg: rgba(58, 90, 120, 0.12);
+    --state-info-border: rgba(58, 90, 120, 0.22);
+    --state-warning: #786030;
+    --state-warning-bg: rgba(120, 96, 48, 0.12);
+    --state-warning-border: rgba(120, 96, 48, 0.22);
+    --state-disabled: rgba(100, 100, 100, 0.28);
+    --state-hover: rgba(180, 180, 180, 0.055);
+    --state-active: rgba(180, 180, 180, 0.1);
+    --state-selected: rgba(180, 180, 180, 0.08);
+
+    /* === SHADOWS === */
+    --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.35);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.45);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.55);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.65);
+    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.75);
+    --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.35);
+    --shadow-outline: 0 0 0 3px rgba(180, 180, 180, 0.12);
+
+    /* === EFFECTS === */
+    --fx-shadow-sm: var(--shadow-sm);
+    --fx-shadow-md: var(--shadow-md);
+    --fx-shadow-lg: var(--shadow-lg);
+    --fx-shadow-xl: var(--shadow-xl);
+    --fx-shadow-gold: 0 0 20px rgba(140, 140, 140, 0.09);
+    --fx-shadow-gold-strong: 0 0 30px rgba(140, 140, 140, 0.16);
+    --fx-glow-gold: 0 0 15px rgba(140, 140, 140, 0.09);
+    --fx-glow-gold-subtle: 0 0 10px rgba(140, 140, 140, 0.06);
+
+    /* === FOCUS (tiny crimson ring to hint life) === */
+    --focus-ring: 0 0 0 2px rgba(160, 50, 50, 0.3);
+    --focus-ring-error: 0 0 0 2px rgba(160, 60, 60, 0.4);
+    --focus-ring-success: 0 0 0 2px rgba(78, 122, 94, 0.28);
+    --focus-ring-offset: 0 0 0 3px var(--bg-app), 0 0 0 5px rgba(150, 48, 48, 0.28);
+    --input-focus-shadow: 0 0 0 2px rgba(150, 40, 40, 0.15);
+
+    /* === GRADIENTS — monochrome, accent btn gets a whisper of crimson === */
+    --grad-burgundy: linear-gradient(135deg, #4a4a4a, #2e2e2e);
+    --grad-rich: linear-gradient(135deg, #222222, #1a1a1a);
+    --grad-gold-subtle: linear-gradient(135deg, rgba(180, 180, 180, 0.06), rgba(180, 180, 180, 0.02));
+    --grad-surface: linear-gradient(180deg, #1c1c1c, #161616);
+    --grad-overlay: linear-gradient(180deg, transparent, #0e0e0e);
+
+    /* === CARDS === */
+    --card-bg: rgba(20, 20, 20, 0.78);
+    --card-hover-bg: #242424;
+    --card-hover-glow: rgba(180, 180, 180, 0.03);
+    --card-selected-bg-from: rgba(180, 180, 180, 0.06);
+    --card-selected-bg-to: #1a1a1a;
+    --card-selected-glow: rgba(180, 180, 180, 0.07);
+    --card-selected-inner: rgba(180, 180, 180, 0.025);
+    --card-check-bg: #888888;
+    --card-check-color: #0e0e0e;
+    --card-avatar-glow: rgba(180, 180, 180, 0.08);
+    --card-tag-bg: #1e1e1e;
+    --card-tag-border: rgba(180, 180, 180, 0.1);
+    --card-info-bg: rgba(0, 0, 0, 0.5);
+    --card-info-blur: 8px;
+    /* delete still has a hint of crimson for danger affordance */
+    --card-delete-bg: rgba(80, 20, 20, 0.55);
+    --card-delete-border: rgba(140, 50, 50, 0.2);
+    --card-delete-color: rgba(200, 140, 140, 0.65);
+    --card-delete-bg-hover: rgba(120, 30, 30, 0.72);
+    --card-delete-color-hover: #d8a8a8;
+    --create-card-hover-bg: #242424;
+
+    /* === BUTTONS === */
+    --btn-primary-bg: var(--grad-burgundy);
+    --btn-primary-color: #c8c8c8;
+    --btn-secondary-bg: #222222;
+    --btn-secondary-color: #848484;
+    --btn-ghost-bg: transparent;
+    --btn-ghost-color: #848484;
+
+    /* === TAGS === */
+    --tag-bg: #222222;
+    --tag-color: #848484;
+    --tag-active-bg: linear-gradient(135deg, #3e3e3e, #2a2a2a);
+    --tag-active-color: #c8c8c8;
+    --tag-active-glow: rgba(180, 180, 180, 0.08);
+    --tag-new-border: rgba(160, 48, 48, 0.22);
+    --tag-new-bg-from: #1e1212;
+    --tag-new-bg-to: #261818;
+    --tag-new-text: #c89090;
+    --tag-new-border-active: rgba(160, 60, 60, 0.28);
+    --tag-custom-border: rgba(80, 80, 80, 0.22);
+    --tag-custom-bg-from: rgba(80, 80, 80, 0.15);
+    --tag-custom-bg-to: rgba(80, 80, 80, 0.22);
+    --tag-custom-text: rgba(140, 140, 140, 0.75);
+    --tag-custom-border-active: rgba(100, 100, 100, 0.28);
+
+    /* === STEPS / PROGRESS === */
+    --step-bg: #222222;
+    --step-color: #505050;
+    --step-active-bg: linear-gradient(135deg, #3e3e3e, #2a2a2a);
+    --step-active-color: #c8c8c8;
+    --step-active-border: #787878;
+    --step-active-glow: rgba(180, 180, 180, 0.16);
+    --step-completed-bg: #222222;
+    --step-completed-border: #686868;
+    --step-completed-line: #585858;
+
+    /* === INFO === */
+    --info-tag-bg: #1e1e1e;
+    --info-tag-border: rgba(180, 180, 180, 0.1);
+    --info-desc-bg: rgba(0, 0, 0, 0.25);
+    --info-btn-hover-border: rgba(180, 180, 180, 0.18);
+
+    /* === DANGER — whisper of crimson-bordeaux === */
+    --danger-bg-from: #2e1010;
+    --danger-bg-to: #3a1414;
+    --danger-bg-hover-from: #3a1414;
+    --danger-bg-hover-to: #481818;
+    --danger-text: #c89090;
+    --danger-border: rgba(140, 50, 50, 0.28);
+    --danger-glow: rgba(130, 40, 40, 0.18);
+
+    /* === SEARCH === */
+    --search-bg: rgba(20, 20, 20, 0.78);
+    --search-border: rgba(180, 180, 180, 0.09);
+    --search-focus-border: #686868;
+    --search-focus-shadow: rgba(140, 40, 40, 0.1);
+
+    /* === MISC === */
+    --alpha-active-glow: rgba(180, 180, 180, 0.08);
+    --scrollbar-track: transparent;
+    --scrollbar-thumb: #2e2e2e;
+    --scrollbar-thumb-hover: #444444;
+    --overlay-bg: rgba(10, 10, 10, 0.9);
+    --overlay-blur: 8px;
+
+    /* === RADIALS — almost invisible, cold grey === */
+    --bg-radial-1: rgba(80, 80, 80, 0.07);
+    --bg-radial-2: rgba(60, 60, 60, 0.05);
+    --bg-radial-3: rgba(14, 14, 14, 0.55);
+  }

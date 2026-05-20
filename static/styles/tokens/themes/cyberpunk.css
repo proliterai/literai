@@ -1,0 +1,790 @@
+/* ============================================
+   NIGHT CITY PROTOCOL — Cyberpunk 2077 Theme
+   ─────────────────────────────────────────
+   2077 год. Найт-Сити не спит. Неоновые
+   вывески отражаются в мокром асфальте.
+   Интерфейс вшит в сетчатку — голографические
+   панели с глитчами на краях. Жёлтый —
+   цвет системных предупреждений, цвет
+   корпоративной угрозы, цвет опасности,
+   от которой не спрячешься.
+
+   Вдохновение:
+   • Cyberpunk 2077 UI — резкий жёлтый (#F5E14D)
+     на почти-чёрном, сканлайны, глитчи
+   • Corpo/Militech интерфейсы — холодный,
+     функциональный, без сантиментов
+   • Нейроинтерфейс V — полупрозрачные панели
+     с кислотными акцентами и noise-текстурой
+   • Rache Bartmoss — зелёный терминал,
+     хакерские строки кода
+
+   Архитектура:
+   • Мокрый асфальт (#0C0C0F) — не тёплый, не
+     уютный. Холодный чёрный мегаполиса с
+     синим отливом от неоновых реклам
+   • Кибер-жёлтый (#E8D44A) — фирменный цвет.
+     Предупреждение, вызов, корпо-желчь.
+     Не золотой — кислотнее, опаснее
+   • Ледяной текст (#D2D4D8) — холодный,
+     дисплейный, без тёплых полутонов.
+     Информация, не эмоция
+   • Красный опасности (#E83C50) — RED alert,
+     Arasaka red, кровь на хроме
+   • Бирюзовый маны (#00D4AA) — нетраннер,
+     breach protocol, матрица
+   ============================================ */
+
+[data-theme="cyberpunk"] {
+
+  /* ═══════════════════════════════════════════
+     BACKGROUNDS
+     Слои Найт-Сити ночью. Самый глубокий —
+     мокрый асфальт переулка, куда не достаёт
+     неон. Каждая поверхность выше — ближе к
+     свету вывесок: чуть светлее, чуть синее,
+     но никогда не тёплая. Холод хрома и бетона.
+     ═══════════════════════════════════════════ */
+  --bg-app: #0C0C0F;
+  --bg-surface-1: #111116;
+  --bg-surface-2: #18181E;
+  --bg-surface-3: #1F1F28;
+  --bg-surface-4: #282832;
+  --bg-surface-5: #30303C;
+  --bg-input: #0E0E12;
+  --bg-elevated: #18181E;
+  --bg-sunken: #08080A;
+  --bg-primary: var(--bg-surface-1);
+
+  /* ═══════════════════════════════════════════
+     GLASSMORPHISM
+     Голографические HUD-панели. Полупрозрачные,
+     с едва заметным жёлтым свечением по краям —
+     как интерфейс, вшитый в сетчатку V.
+     Blur включён — это 2077, не 1990.
+     ═══════════════════════════════════════════ */
+  --glass-bg: rgba(17, 17, 22, 0.82);
+  --glass-bg-heavy: rgba(17, 17, 22, 0.95);
+  --glass-bg-light: rgba(17, 17, 22, 0.58);
+  --glass-border: rgba(232, 212, 74, 0.10);
+  --glass-border-hover: rgba(232, 212, 74, 0.25);
+  --glass-border-active: rgba(232, 212, 74, 0.48);
+
+  /* ═══════════════════════════════════════════
+     TEXT COLORS
+     Дисплейный шрифт на HUD-панели. Основной —
+     холодный серо-белый, как текст на
+     кибердеке. Вторичный — приглушённый,
+     как неактивная строка в терминале.
+     Приглушённый — как полустёртая надпись
+     на стене переулка.
+
+     Контраст на #111116:
+     • primary   #D2D4D8 → 12.6:1 (AAA) ✓
+     • secondary #808490 →  4.6:1 (AA)  ✓
+     • muted     #50545E →  2.5:1 (декор) ✓
+     ═══════════════════════════════════════════ */
+  --txt-primary: #D2D4D8;
+  --txt-secondary: #808490;
+  --txt-muted: #50545E;
+  --txt-disabled: rgba(80, 84, 94, 0.45);
+
+  --txt-gold: #E8D44A;
+  --txt-gold-light: #F0E06A;
+  --txt-gold-dark: #C4B030;
+  --txt-accent: #E8D44A;
+  --txt-inverse: #0C0C0F;
+  --txt-on-accent: #0C0C0F;
+  --txt-link: #00D4AA;
+  --txt-link-hover: #30E8C0;
+
+  /* ═══════════════════════════════════════════
+     BORDERS
+     Жёлтые линии разметки — как HUD-рамки
+     нейроинтерфейса. В покое — едва видимые
+     контуры. При интеракции — вспыхивают
+     кибер-жёлтым, как предупреждение системы.
+     Тонкие, точные, функциональные.
+     ═══════════════════════════════════════════ */
+  --border-color: rgba(232, 212, 74, 0.10);
+  --border-subtle: rgba(232, 212, 74, 0.05);
+  --border-hover: rgba(232, 212, 74, 0.28);
+  --border-active: rgba(232, 212, 74, 0.50);
+  --border-accent: #C4B030;
+  --border-focus: #E8D44A;
+  --border-divider: rgba(232, 212, 74, 0.06);
+
+  /* ═══════════════════════════════════════════
+     ACCENTS
+     Палитра Найт-Сити. Primary — кибер-жёлтый:
+     цвет системных алертов, корпо-контрактов,
+     последнего предупреждения перед тем, как
+     всё пойдёт по наклонной. Бирюзовый —
+     нетраннинг, матрица, breach protocol.
+     Красный — Arasaka, кровь, FLATLINE.
+     ═══════════════════════════════════════════ */
+  --accent-primary: #E8D44A;
+  --accent-secondary: #00D4AA;
+  --accent-tertiary: #C4B030;
+  --accent-success: #00D4AA;
+  --accent-error: #E83C50;
+  --accent-info: #3A9EF0;
+  --accent-warning: #F0982A;
+
+  /* ═══════════════════════════════════════════
+     STATES
+     Диагностика импланта. Успех — бирюзовый
+     «BREACH COMPLETE». Ошибка — красный
+     «FLATLINE» на чёрном экране. Инфо —
+     холодный синий корпо-дисплея.
+     Предупреждение — оранжевый «MALFUNCTION».
+     Всё резкое, функциональное, без нежностей.
+     ═══════════════════════════════════════════ */
+  --state-success: #00D4AA;
+  --state-success-bg: rgba(0, 212, 170, 0.07);
+  --state-success-border: rgba(0, 212, 170, 0.22);
+  --state-error: #E83C50;
+  --state-error-bg: rgba(232, 60, 80, 0.07);
+  --state-error-border: rgba(232, 60, 80, 0.22);
+  --state-info: #3A9EF0;
+  --state-info-bg: rgba(58, 158, 240, 0.07);
+  --state-info-border: rgba(58, 158, 240, 0.22);
+  --state-warning: #F0982A;
+  --state-warning-bg: rgba(240, 152, 42, 0.07);
+  --state-warning-border: rgba(240, 152, 42, 0.22);
+  --state-disabled: rgba(80, 84, 94, 0.22);
+  --state-hover: rgba(232, 212, 74, 0.04);
+  --state-active: rgba(232, 212, 74, 0.10);
+  --state-selected: rgba(232, 212, 74, 0.06);
+
+  /* ═══════════════════════════════════════════
+     СКРУГЛЕНИЯ
+     Минимальные — интерфейс 2077 года не
+     круглый и не мягкий. Скошенные углы,
+     но не нулевые — это технология, не
+     пиксель-арт. 2px — как фаска на
+     карбоновом импланте.
+     ═══════════════════════════════════════════ */
+  --radius-xs: 1px;
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 3px;
+  --radius-xl: 4px;
+  --radius-2xl: 4px;
+  --radius-full: 4px;
+
+  /* ═══════════════════════════════════════════
+     SHADOWS
+     Неоновые отсветы на мокром асфальте.
+     Основные тени — жёсткие, тёмные, как
+     тень от парящего AV на улице. Glow-тени
+     цветные — отражение неоновых вывесок.
+     ═══════════════════════════════════════════ */
+  --shadow-xs:
+    0 1px 3px rgba(0, 0, 0, 0.50),
+    0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-sm:
+    0 2px 6px rgba(0, 0, 0, 0.50),
+    0 4px 12px rgba(0, 0, 0, 0.35);
+  --shadow-md:
+    0 4px 10px rgba(0, 0, 0, 0.45),
+    0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-lg:
+    0 8px 18px rgba(0, 0, 0, 0.45),
+    0 16px 40px rgba(0, 0, 0, 0.40);
+  --shadow-xl:
+    0 12px 24px rgba(0, 0, 0, 0.45),
+    0 24px 56px rgba(0, 0, 0, 0.45);
+  --shadow-inner: inset 0 2px 5px rgba(0, 0, 0, 0.35);
+  --shadow-outline: 0 0 0 3px rgba(232, 212, 74, 0.10);
+
+  /* ═══════════════════════════════════════════
+     EFFECTS
+     Неон-глоу. Жёлтое свечение кибер-имплантов,
+     бирюзовое мерцание нетраннерского
+     интерфейса. При наведении — как наведение
+     прицела: резкая подсветка, scan-эффект.
+     ═══════════════════════════════════════════ */
+  --fx-glass-blur: 16px;
+  --fx-glass-blur-heavy: 24px;
+  --fx-glass-blur-light: 8px;
+  --fx-shadow-sm: var(--shadow-sm);
+  --fx-shadow-md: var(--shadow-md);
+  --fx-shadow-lg: var(--shadow-lg);
+  --fx-shadow-xl: var(--shadow-xl);
+  --fx-shadow-gold:
+    0 0 14px rgba(232, 212, 74, 0.10),
+    0 0 36px rgba(232, 212, 74, 0.03);
+  --fx-shadow-gold-strong:
+    0 0 20px rgba(232, 212, 74, 0.22),
+    0 0 48px rgba(232, 212, 74, 0.06);
+  --fx-glow-gold:
+    0 0 10px rgba(232, 212, 74, 0.16);
+  --fx-glow-gold-subtle:
+    0 0 6px rgba(232, 212, 74, 0.06);
+
+  /* ═══════════════════════════════════════════
+     FOCUS
+     Системный фокус — жёлтый контур. Как
+     HUD-маркер на объекте: точный, яркий,
+     невозможно не заметить. С лёгким glow —
+     голограмма мерцает.
+     ═══════════════════════════════════════════ */
+  --focus-ring:
+    0 0 0 2px rgba(232, 212, 74, 0.40),
+    0 0 8px rgba(232, 212, 74, 0.10);
+  --focus-ring-error: 0 0 0 2px rgba(232, 60, 80, 0.40);
+  --focus-ring-success: 0 0 0 2px rgba(0, 212, 170, 0.40);
+  --focus-ring-offset:
+    0 0 0 3px var(--bg-app),
+    0 0 0 5px rgba(232, 212, 74, 0.40);
+  --input-focus-shadow:
+    0 0 0 2px rgba(232, 212, 74, 0.22),
+    0 0 12px rgba(232, 212, 74, 0.06);
+
+  /* ═══════════════════════════════════════════
+     INTERACTIVE STATES
+     ═══════════════════════════════════════════ */
+  --interactive-hover-opacity: 0.88;
+  --interactive-active-opacity: 0.78;
+  --interactive-disabled-opacity: 0.30;
+
+  /* ═══════════════════════════════════════════
+     CARDS
+     Голо-панели данных. Каждая карточка —
+     как окно в нейроинтерфейсе: полупрозрачная,
+     с жёлтым контуром, данные бегут строками.
+     При выборе — сканирование: жёлтый свет
+     проходит сверху вниз.
+     ═══════════════════════════════════════════ */
+  --card-bg: var(--glass-bg);
+  --card-hover-bg: var(--bg-surface-3);
+  --card-hover-glow: rgba(232, 212, 74, 0.03);
+  --card-selected-bg-from: rgba(232, 212, 74, 0.07);
+  --card-selected-bg-to: var(--bg-surface-2);
+  --card-selected-glow: rgba(232, 212, 74, 0.09);
+  --card-selected-inner: rgba(232, 212, 74, 0.02);
+  --card-check-bg: #E8D44A;
+  --card-check-color: #0C0C0F;
+  --card-avatar-glow: rgba(232, 212, 74, 0.14);
+  --card-tag-bg: var(--bg-surface-3);
+  --card-tag-border: var(--border-color);
+  --card-info-bg: rgba(0, 0, 0, 0.55);
+  --card-info-blur: 8px;
+  --card-delete-bg: rgba(232, 60, 80, 0.10);
+  --card-delete-border: rgba(232, 60, 80, 0.22);
+  --card-delete-color: rgba(232, 60, 80, 0.72);
+  --card-delete-bg-hover: rgba(232, 60, 80, 0.20);
+  --card-delete-color-hover: #F06070;
+  --create-card-hover-bg: var(--bg-surface-3);
+
+  /* ═══════════════════════════════════════════
+     BUTTONS
+     Кибер-кнопки. Primary — жёлтый на чёрном:
+     «JACK IN», «EXECUTE», «CONFIRM HIT».
+     Не просьба — приказ. Тёмный текст на
+     кислотном жёлтом: максимальный контраст,
+     ноль сомнений.
+
+     Контраст: #0C0C0F на #E8D44A → 12.8:1 (AAA)
+     ═══════════════════════════════════════════ */
+  --btn-primary-bg: var(--grad-burgundy);
+  --btn-primary-color: #0C0C0F;
+  --btn-secondary-bg: var(--bg-surface-3);
+  --btn-secondary-color: var(--txt-primary);
+  --btn-ghost-bg: transparent;
+  --btn-ghost-color: var(--txt-secondary);
+  --info-btn-hover-border: var(--glass-border-hover);
+
+  /* ═══════════════════════════════════════════
+     TAGS
+     Маркеры на HUD. Активный — жёлтый алерт.
+     «New» — бирюзовый, как новый апгрейд
+     кибердеки: «NEW DAEMON ACQUIRED».
+     «Custom» — красный, как маркер опасности:
+     «CUSTOM IMPLANT — WARRANTY VOID».
+     ═══════════════════════════════════════════ */
+  --tag-bg: var(--bg-surface-3);
+  --tag-color: var(--txt-secondary);
+  --tag-active-bg: var(--grad-burgundy);
+  --tag-active-color: #0C0C0F;
+  --tag-active-glow: rgba(232, 212, 74, 0.16);
+
+  /* New — апгрейд кибердеки */
+  --tag-new-border: rgba(0, 212, 170, 0.25);
+  --tag-new-bg-from: rgba(0, 212, 170, 0.08);
+  --tag-new-bg-to: rgba(0, 212, 170, 0.03);
+  --tag-new-text: #00D4AA;
+  --tag-new-border-active: rgba(0, 212, 170, 0.45);
+
+  /* Custom — нелегальный имплант */
+  --tag-custom-border: rgba(232, 60, 80, 0.25);
+  --tag-custom-bg-from: rgba(232, 60, 80, 0.08);
+  --tag-custom-bg-to: rgba(232, 60, 80, 0.03);
+  --tag-custom-text: #E86070;
+  --tag-custom-border-active: rgba(232, 60, 80, 0.45);
+
+  /* ═══════════════════════════════════════════
+     PROGRESS / STEPS
+     Загрузка импланта. Активный шаг —
+     «INSTALLING...», жёлтый пульс. Пройденный —
+     «COMPLETE», приглушённый маркер. Линия —
+     канал данных между узлами.
+     ═══════════════════════════════════════════ */
+  --step-bg: var(--bg-surface-3);
+  --step-color: var(--txt-muted);
+  --step-active-bg: var(--grad-burgundy);
+  --step-active-color: #0C0C0F;
+  --step-active-border: #E8D44A;
+  --step-active-glow: rgba(232, 212, 74, 0.22);
+  --step-completed-bg: var(--bg-surface-3);
+  --step-completed-border: #C4B030;
+  --step-completed-line: #C4B030;
+
+  /* ═══════════════════════════════════════════
+     INFO PANELS
+     ═══════════════════════════════════════════ */
+  --info-tag-bg: var(--bg-surface-3);
+  --info-tag-border: var(--border-color);
+  --info-desc-bg: rgba(0, 0, 0, 0.28);
+
+  /* ═══════════════════════════════════════════
+     DANGER ZONE
+     FLATLINE. Красный экран смерти. Arasaka
+     security breach. Глубокий тёмный красный —
+     как кровь на чёрном хроме.
+     ═══════════════════════════════════════════ */
+  --danger-bg-from: #2A0A10;
+  --danger-bg-to: #40141C;
+  --danger-bg-hover-from: #40141C;
+  --danger-bg-hover-to: #5A1E28;
+  --danger-text: #F07080;
+  --danger-border: rgba(232, 60, 80, 0.28);
+  --danger-glow: rgba(232, 60, 80, 0.12);
+
+  /* ═══════════════════════════════════════════
+     SEARCH
+     Строка поиска — как командная строка
+     кибердеки. Тёмная, функциональная.
+     При фокусе — жёлтый контур: «SCANNING...»
+     ═══════════════════════════════════════════ */
+  --search-bg: var(--glass-bg);
+  --search-border: var(--glass-border);
+  --search-focus-border: #E8D44A;
+  --search-focus-shadow: rgba(232, 212, 74, 0.10);
+
+  /* ═══════════════════════════════════════════
+     MISC
+     ═══════════════════════════════════════════ */
+  --alpha-active-glow: rgba(232, 212, 74, 0.14);
+
+  --scrollbar-track: transparent;
+  --scrollbar-thumb: #1F1F28;
+  --scrollbar-thumb-hover: #E8D44A;
+
+  --overlay-bg: rgba(6, 6, 8, 0.90);
+  --overlay-blur: 10px;
+
+  /* ═══════════════════════════════════════════
+     BACKGROUND RADIALS
+     Неон Найт-Сити. Первый — жёлтая вывеска
+     слева: JINGUJI, AFTERLIFE, NO-TELL MOTEL.
+     Второй — бирюзовое свечение справа:
+     нетраннерская антенна на крыше.
+     Третий — тьма переулка по углам.
+     ═══════════════════════════════════════════ */
+  --bg-radial-1: rgba(232, 212, 74, 0.014);
+  --bg-radial-2: rgba(0, 212, 170, 0.008);
+  --bg-radial-3: rgba(0, 0, 0, 0.50);
+
+  /* ═══════════════════════════════════════════
+     GRADIENTS
+     Жёлтый алерт. Вертикальный градиент —
+     как полоса предупреждения на HUD: яркий
+     жёлтый вверху, тёмный горчичный внизу.
+     Направление 135deg — скос, как скошенные
+     углы корпо-интерфейсов.
+     ═══════════════════════════════════════════ */
+  --grad-burgundy: linear-gradient(135deg, #E8D44A, #B8A430);
+  --grad-rich: linear-gradient(135deg, var(--bg-surface-3), var(--bg-surface-2));
+  --grad-gold-subtle: linear-gradient(
+    135deg,
+    rgba(232, 212, 74, 0.04),
+    rgba(232, 212, 74, 0.008)
+  );
+  --grad-surface: linear-gradient(180deg, var(--bg-surface-2), var(--bg-surface-1));
+  --grad-overlay: linear-gradient(180deg, transparent, var(--bg-app));
+}
+
+
+/* ╔════════════════════════════════════════════╗
+   ║  NIGHT CITY PROTOCOL — Visual Layer        ║
+   ║  Сканлайны. Глитчи. Неон на мокром         ║
+   ║  асфальте. Добро пожаловать в 2077.         ║
+   ╚════════════════════════════════════════════╝ */
+
+
+/* ─── Выделение текста ─── */
+[data-theme="cyberpunk"] ::selection {
+  background: rgba(232, 212, 74, 0.30);
+  color: #0C0C0F;
+}
+
+[data-theme="cyberpunk"] ::-moz-selection {
+  background: rgba(232, 212, 74, 0.30);
+  color: #0C0C0F;
+}
+
+
+/* ─── Сканлайны на экране ───
+   Горизонтальные полосы — как на дешёвом
+   мониторе в баре Afterlife. Едва видимые,
+   но создают ощущение «экрана в экране» —
+   ты смотришь на мир через HUD V. */
+
+[data-theme="cyberpunk"] body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2147483646;
+  opacity: 0.020;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 2px,
+    rgba(0, 0, 0, 0.15) 4px
+  );
+}
+
+
+/* ─── Неоновое свечение города ───
+   Жёлтый неон слева — вывеска AFTERLIFE.
+   Бирюзовый справа — нетраннерская точка.
+   Красноватый снизу — отражение рекламы
+   Arasaka. Виньетка — тьма переулка. */
+
+[data-theme="cyberpunk"] body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(
+      ellipse 50% 40% at 10% 30%,
+      rgba(232, 212, 74, 0.018),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 45% 35% at 90% 20%,
+      rgba(0, 212, 170, 0.012),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 60% 30% at 50% 95%,
+      rgba(232, 60, 80, 0.008),
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at center,
+      transparent 40%,
+      rgba(0, 0, 0, 0.22) 100%
+    );
+}
+
+
+/* ─── Скроллбар ─── */
+
+[data-theme="cyberpunk"] ::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+[data-theme="cyberpunk"] ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+[data-theme="cyberpunk"] ::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 2px;
+  transition: background 0.15s ease;
+}
+
+[data-theme="cyberpunk"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+  box-shadow: 0 0 6px rgba(232, 212, 74, 0.25);
+}
+
+
+/* ─── Скошенные углы — clip-path для ключевых элементов ───
+   Фирменная фишка Cyberpunk UI: срезанные
+   углы на кнопках и карточках. Реализовано
+   через clip-path, чтобы не ломать layout. */
+
+[data-theme="cyberpunk"] .btn-primary,
+[data-theme="cyberpunk"] button[class*="primary"] {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 8px) 0,
+    100% 8px,
+    100% 100%,
+    8px 100%,
+    0 calc(100% - 8px)
+  );
+  padding: 10px 20px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 11px;
+  line-height: 1.4;
+  position: relative;
+  border: none;
+  transition: filter 0.15s ease, transform 0.1s ease;
+}
+
+[data-theme="cyberpunk"] .btn-primary:hover,
+[data-theme="cyberpunk"] button[class*="primary"]:hover {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+}
+
+[data-theme="cyberpunk"] .btn-primary:active,
+[data-theme="cyberpunk"] button[class*="primary"]:active {
+  filter: brightness(0.92);
+  transform: translateY(0);
+}
+
+/* Secondary кнопки — с жёлтым бордером */
+[data-theme="cyberpunk"] .btn-secondary,
+[data-theme="cyberpunk"] button[class*="secondary"] {
+  border: 1px solid rgba(232, 212, 74, 0.25);
+  padding: 10px 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 11px;
+  line-height: 1.4;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+[data-theme="cyberpunk"] .btn-secondary:hover,
+[data-theme="cyberpunk"] button[class*="secondary"]:hover {
+  border-color: rgba(232, 212, 74, 0.50);
+  background: rgba(232, 212, 74, 0.05);
+}
+
+
+/* ─── Карточки: HUD-панели ───
+   Тонкий жёлтый бордер слева — как индикатор
+   на голо-панели. Скошенные углы через
+   border, не clip-path (чтобы контент
+   не обрезался). */
+
+[data-theme="cyberpunk"] .catalog-card {
+  border-left: 2px solid rgba(232, 212, 74, 0.20);
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+[data-theme="cyberpunk"] .catalog-card:hover {
+  border-left-color: rgba(232, 212, 74, 0.50);
+  box-shadow: 0 0 14px rgba(232, 212, 74, 0.04);
+}
+
+
+/* ─── Инпуты: командная строка кибердеки ─── */
+
+[data-theme="cyberpunk"] input,
+[data-theme="cyberpunk"] textarea {
+  border: 1px solid rgba(232, 212, 74, 0.12);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+[data-theme="cyberpunk"] input:focus,
+[data-theme="cyberpunk"] textarea:focus {
+  border-color: rgba(232, 212, 74, 0.50);
+  box-shadow: 0 0 10px rgba(232, 212, 74, 0.06);
+  outline: none;
+}
+
+
+/* ─── Модальные окна: в рамках экрана ─── */
+
+[data-theme="cyberpunk"] .modal,
+[data-theme="cyberpunk"] [class*="modal"],
+[data-theme="cyberpunk"] .app-drawer {
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-left: 2px solid rgba(232, 212, 74, 0.15);
+}
+
+
+/* ═══════════════════════════════════════════
+   МОБИЛЬНАЯ АДАПТАЦИЯ
+   HUD масштабируется под любой имплант —
+   от оптики Kiroshi до дешёвого монокля
+   из Джиг-Джиг Стрит.
+   ═══════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+  [data-theme="cyberpunk"] .btn-primary,
+  [data-theme="cyberpunk"] button[class*="primary"] {
+    font-size: 10px;
+    padding: 8px 16px;
+    letter-spacing: 1px;
+    clip-path: polygon(
+      0 0,
+      calc(100% - 6px) 0,
+      100% 6px,
+      100% 100%,
+      6px 100%,
+      0 calc(100% - 6px)
+    );
+  }
+
+  [data-theme="cyberpunk"] .btn-secondary,
+  [data-theme="cyberpunk"] button[class*="secondary"] {
+    font-size: 10px;
+    padding: 8px 14px;
+    letter-spacing: 0.8px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  [data-theme="cyberpunk"] .btn-primary,
+  [data-theme="cyberpunk"] button[class*="primary"] {
+    font-size: 9px;
+    padding: 7px 12px;
+    letter-spacing: 0.8px;
+    clip-path: polygon(
+      0 0,
+      calc(100% - 5px) 0,
+      100% 5px,
+      100% 100%,
+      5px 100%,
+      0 calc(100% - 5px)
+    );
+  }
+
+  [data-theme="cyberpunk"] .btn-secondary,
+  [data-theme="cyberpunk"] button[class*="secondary"] {
+    font-size: 9px;
+    padding: 7px 12px;
+  }
+
+  [data-theme="cyberpunk"] .modal,
+  [data-theme="cyberpunk"] [class*="modal"] {
+    max-width: calc(100vw - 12px);
+    max-height: calc(100vh - 12px);
+  }
+}
+
+
+/* ═══════════════════════════════════════════
+   АНИМАЦИИ
+   Глитчи, сканы, мерцание — технология 2077
+   года не идеальна. Импланты сбоят,
+   голограммы дрожат, нейросвязь рвётся.
+   ═══════════════════════════════════════════ */
+
+@keyframes cyber-glitch {
+  0%, 100% {
+    transform: translate(0);
+    filter: none;
+  }
+  20% {
+    transform: translate(-2px, 1px);
+    filter: hue-rotate(30deg);
+  }
+  40% {
+    transform: translate(1px, -1px);
+    filter: hue-rotate(-20deg);
+  }
+  60% {
+    transform: translate(-1px, 0);
+    filter: saturate(1.4);
+  }
+  80% {
+    transform: translate(2px, 1px);
+    filter: hue-rotate(15deg);
+  }
+}
+
+@keyframes cyber-scan {
+  0% {
+    background-position: 0 -100%;
+  }
+  100% {
+    background-position: 0 200%;
+  }
+}
+
+@keyframes cyber-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 4px rgba(232, 212, 74, 0.08),
+      0 0 14px rgba(232, 212, 74, 0.03);
+  }
+  50% {
+    box-shadow:
+      0 0 8px rgba(232, 212, 74, 0.20),
+      0 0 28px rgba(232, 212, 74, 0.06);
+  }
+}
+
+@keyframes cyber-text-flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.7; }
+  94% { opacity: 1; }
+  96% { opacity: 0.85; }
+  97% { opacity: 1; }
+}
+
+@keyframes cyber-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cyber-border-scan {
+  0% {
+    border-image-source: linear-gradient(
+      0deg,
+      rgba(232, 212, 74, 0.5),
+      transparent 30%,
+      transparent 70%,
+      rgba(232, 212, 74, 0.5)
+    );
+  }
+  100% {
+    border-image-source: linear-gradient(
+      360deg,
+      rgba(232, 212, 74, 0.5),
+      transparent 30%,
+      transparent 70%,
+      rgba(232, 212, 74, 0.5)
+    );
+  }
+}
+
+@keyframes cyber-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}

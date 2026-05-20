@@ -1,0 +1,150 @@
+/* ============================================
+   DRAWER — Боковая выдвижная панель
+   ============================================ */
+
+.app-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 480px;
+  height: 100vh;
+  height: 100dvh;
+  z-index: var(--z-drawer);
+  background: var(--bg-surface-1);
+  border-left: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-xl);
+  transform: translateX(100%);
+  transition: transform var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
+
+.app-drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--glass-border);
+  flex-shrink: 0;
+  background: var(--bg-surface-2);
+}
+
+.drawer-title {
+  font-size: var(--font-size-md);
+  color: var(--txt-primary);
+  font-weight: var(--font-semibold);
+}
+
+.drawer-close-btn {
+  width: var(--size-9);
+  height: var(--size-9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  color: var(--txt-muted);
+  background: var(--bg-surface-3);
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.drawer-close-btn:hover {
+  color: var(--txt-primary);
+  background: var(--bg-surface-4);
+  border-color: var(--glass-border);
+}
+
+.drawer-close-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* Navigation */
+.drawer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--glass-border);
+  flex-shrink: 0;
+}
+
+.drawer-nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  color: var(--txt-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-medium);
+  transition: all var(--transition-fast);
+  text-align: left;
+  width: 100%;
+  border: 1px solid transparent;
+  cursor: pointer;
+  background: none;
+}
+
+.drawer-nav-item:hover {
+  background: var(--glass-bg);
+  color: var(--txt-primary);
+}
+
+.drawer-nav-item.active {
+  background: var(--glass-bg);
+  color: var(--txt-gold);
+  border-color: var(--glass-border);
+}
+
+.drawer-nav-item:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.drawer-nav-item i {
+  width: var(--size-5);
+  text-align: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+/* Content */
+.drawer-content {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--space-5);
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Range sliders in drawer — fix alignment */
+.drawer-content .range-wrapper {
+  padding: 0;
+}
+
+.drawer-content .panel-range {
+  display: block;
+  width: 100%;
+}
+
+.drawer-content .setting-group {
+  overflow: visible;
+}
+
+@media (max-width: 480px) {
+  .app-drawer {
+    width: 100%;
+  }
+
+  .drawer-content {
+    padding: var(--space-4);
+  }
+}

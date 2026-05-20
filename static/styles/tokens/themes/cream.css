@@ -1,0 +1,549 @@
+/* ============================================
+   CAFÉ CRÈME — Кремовая тема
+   ─────────────────────────────────────────
+   Утро в кофейне старого города. Бариста
+   вливает бархатистый стим-молоко в двойной
+   эспрессо — и на поверхности расцветает
+   розетта. Вот этот момент: когда тёмный
+   кофе встречает тёплые сливки. Палитра
+   живёт между этими двумя полюсами.
+
+   Архитектура дизайна:
+   • Кремово-молочный фон (#F7F1EA) — цвет
+     стим-молока, не стерильный, а живой
+   • Глубокий эспрессо (#2A1F17) — текст
+     как кофейная гуща на фарфоре
+   • Акцент тоффи-карамель (#A0714E) —
+     обжаренный сахар, не кричащий, но тёплый
+   • Переходы от латте к мокко — каждый слой
+     как новый глоток: сливки → капучино →
+     карамель → шоколад → эспрессо
+   • Тени с коричневым подтоном — свет настольной
+     лампы в кофейне, не офисный люминесцент
+   ============================================ */
+
+[data-theme="cream"] {
+
+  /* ═══════════════════════════════════════════
+     BACKGROUNDS
+     Слои кофейного напитка в стеклянном стакане.
+     Снизу вверх: эспрессо → мокко → латте →
+     молочная пенка. Каждая поверхность — как
+     следующий слой в градиенте кофе со сливками.
+     bg-app — самый светлый, почти молоко.
+     surface-5 — уже капучино.
+     ═══════════════════════════════════════════ */
+  --bg-app: #F7F1EA;
+  --bg-surface-1: #F0E8DF;
+  --bg-surface-2: #E8DED3;
+  --bg-surface-3: #DFD3C5;
+  --bg-surface-4: #D5C7B8;
+  --bg-surface-5: #CBBDAB;
+  --bg-input: #FFFDF9;
+  --bg-elevated: #FDFAF5;
+  --bg-sunken: #EBE2D7;
+  --bg-primary: var(--bg-surface-1);
+
+  /* ═══════════════════════════════════════════
+     GLASSMORPHISM
+     Матовое стекло витрины кофейни. Утренний
+     свет сквозь стекло с каплями конденсата
+     от кофемашины — тёплый, влажный, живой.
+     ═══════════════════════════════════════════ */
+  --glass-bg: rgba(253, 250, 245, 0.72);
+  --glass-bg-heavy: rgba(253, 250, 245, 0.92);
+  --glass-bg-light: rgba(253, 250, 245, 0.48);
+  --glass-border: rgba(120, 80, 45, 0.10);
+  --glass-border-hover: rgba(120, 80, 45, 0.22);
+  --glass-border-active: rgba(120, 80, 45, 0.38);
+
+  /* ═══════════════════════════════════════════
+     TEXT COLORS
+     Эспрессо на фарфоре. Основной текст —
+     цвет свежесмолотого кофе. Вторичный —
+     как разбавленный латте. Приглушённый —
+     след от кофейного кольца на салфетке.
+
+     Контраст на #F0E8DF:
+     • primary   #2A1F17 → 12.8:1 (AAA) ✓
+     • secondary #6B5546 →  4.6:1 (AA)  ✓
+     • muted     #9C8874 →  2.7:1 (декор) ✓
+
+     Контраст на акцентном градиенте:
+     • on-accent #FFF6EE → 4.6–6.2:1 (AA) ✓
+     ═══════════════════════════════════════════ */
+  --txt-primary: #2A1F17;
+  --txt-secondary: #6B5546;
+  --txt-muted: #9C8874;
+  --txt-disabled: rgba(156, 136, 116, 0.50);
+
+  /* Акцентный текст НА СВЕТЛЫХ поверхностях */
+  --txt-gold: #7D5535;
+  --txt-gold-light: #A0714E;
+  --txt-gold-dark: #5C3C22;
+
+  --txt-accent: #7D5535;
+  --txt-inverse: #F7F1EA;
+  --txt-on-accent: #FFF6EE;
+  --txt-link: #7D5535;
+  --txt-link-hover: #5C3C22;
+
+  /* ═══════════════════════════════════════════
+     BORDERS
+     Тонкая линия, как след от кофейной чашки —
+     кольцо на мраморной столешнице. В покое
+     едва заметна, при касании проступает
+     теплом, как отпечаток пальцев на горячей
+     керамике.
+     ═══════════════════════════════════════════ */
+  --border-color: rgba(120, 80, 45, 0.14);
+  --border-subtle: rgba(120, 80, 45, 0.07);
+  --border-hover: rgba(120, 80, 45, 0.26);
+  --border-active: rgba(120, 80, 45, 0.42);
+  --border-accent: #A0714E;
+  --border-focus: #7D5535;
+  --border-divider: rgba(120, 80, 45, 0.09);
+
+  /* ═══════════════════════════════════════════
+     ACCENTS
+     Палитра обжарки. Primary — не рыжий
+     и не оранжевый, а цвет карамелизированного
+     сахара на крем-брюле. Цвет тоффи,
+     обжаренного миндаля, коры корицы.
+     Достаточно тёплый, чтобы жить, достаточно
+     сдержанный, чтобы оставаться кофейней,
+     а не цирком.
+     ═══════════════════════════════════════════ */
+  --accent-primary: #A0714E;
+  --accent-secondary: #B8896A;
+  --accent-tertiary: #7D5535;
+  --accent-success: #5E8C5A;
+  --accent-error: #B8504A;
+  --accent-info: #527C9E;
+  --accent-warning: #C49A38;
+
+  /* ═══════════════════════════════════════════
+     STATES
+     Тёплый спектр. Success — зелёный чай
+     в кофейне. Error — разлитый гибискусовый
+     чай. Info — серо-голубая керамика. Warning —
+     мёд в стеклянной банке на стойке.
+     Всё пропущено через кофейный фильтр,
+     ничего неонового и клинического.
+     ═══════════════════════════════════════════ */
+  --state-success: #5E8C5A;
+  --state-success-bg: rgba(94, 140, 90, 0.09);
+  --state-success-border: rgba(94, 140, 90, 0.22);
+  --state-error: #B8504A;
+  --state-error-bg: rgba(184, 80, 74, 0.07);
+  --state-error-border: rgba(184, 80, 74, 0.20);
+  --state-info: #527C9E;
+  --state-info-bg: rgba(82, 124, 158, 0.07);
+  --state-info-border: rgba(82, 124, 158, 0.20);
+  --state-warning: #C49A38;
+  --state-warning-bg: rgba(196, 154, 56, 0.09);
+  --state-warning-border: rgba(196, 154, 56, 0.22);
+  --state-disabled: rgba(156, 136, 116, 0.25);
+  --state-hover: rgba(120, 80, 45, 0.06);
+  --state-active: rgba(120, 80, 45, 0.12);
+  --state-selected: rgba(120, 80, 45, 0.08);
+
+  /* ═══════════════════════════════════════════
+     SHADOWS
+     Тень от керамической чашки на дубовом
+     столе. Свет — тёплая настольная лампа
+     с тканевым абажуром. Коричневые полутона,
+     мягкие переходы, никакого холодного серого.
+     ═══════════════════════════════════════════ */
+  --shadow-xs:
+    0 1px 3px rgba(80, 50, 25, 0.06),
+    0 1px 2px rgba(80, 50, 25, 0.04);
+  --shadow-sm:
+    0 2px 6px rgba(80, 50, 25, 0.06),
+    0 4px 12px rgba(80, 50, 25, 0.04);
+  --shadow-md:
+    0 4px 10px rgba(80, 50, 25, 0.07),
+    0 8px 24px rgba(80, 50, 25, 0.05);
+  --shadow-lg:
+    0 8px 18px rgba(80, 50, 25, 0.08),
+    0 16px 40px rgba(80, 50, 25, 0.05);
+  --shadow-xl:
+    0 12px 24px rgba(80, 50, 25, 0.09),
+    0 24px 56px rgba(80, 50, 25, 0.06);
+  --shadow-inner: inset 0 2px 5px rgba(80, 50, 25, 0.05);
+  --shadow-outline: 0 0 0 3px rgba(160, 113, 78, 0.12);
+
+  /* ═══════════════════════════════════════════
+     EFFECTS
+     Тоффи-свечение. Мягкий тёплый свет, как
+     от свечи в стеклянном подсвечнике рядом
+     с чашкой капучино. Появляется при наведении,
+     спит в покое — как аромат кофе, который
+     накатывает волнами.
+     ═══════════════════════════════════════════ */
+  --fx-glass-blur: 18px;
+  --fx-glass-blur-heavy: 26px;
+  --fx-glass-blur-light: 10px;
+  --fx-shadow-sm: var(--shadow-sm);
+  --fx-shadow-md: var(--shadow-md);
+  --fx-shadow-lg: var(--shadow-lg);
+  --fx-shadow-xl: var(--shadow-xl);
+  --fx-shadow-gold:
+    0 0 16px rgba(160, 113, 78, 0.09),
+    0 0 38px rgba(160, 113, 78, 0.03);
+  --fx-shadow-gold-strong:
+    0 0 20px rgba(160, 113, 78, 0.18),
+    0 0 48px rgba(160, 113, 78, 0.06);
+  --fx-glow-gold:
+    0 0 12px rgba(160, 113, 78, 0.14);
+  --fx-glow-gold-subtle:
+    0 0 8px rgba(160, 113, 78, 0.06);
+
+  /* ═══════════════════════════════════════════
+     FOCUS
+     Кольцо эспрессо. Точное, тёплое,
+     как отпечаток чашки — безошибочное
+     на кремовом фоне.
+     ═══════════════════════════════════════════ */
+  --focus-ring:
+    0 0 0 2px rgba(125, 85, 53, 0.28),
+    0 0 10px rgba(125, 85, 53, 0.07);
+  --focus-ring-error: 0 0 0 2px rgba(184, 80, 74, 0.28);
+  --focus-ring-success: 0 0 0 2px rgba(94, 140, 90, 0.28);
+  --focus-ring-offset:
+    0 0 0 3px var(--bg-app),
+    0 0 0 5px rgba(125, 85, 53, 0.28);
+  --input-focus-shadow:
+    0 0 0 2px rgba(125, 85, 53, 0.16),
+    0 0 14px rgba(125, 85, 53, 0.05);
+
+  /* ═══════════════════════════════════════════
+     INTERACTIVE STATES
+     ═══════════════════════════════════════════ */
+  --interactive-hover-opacity: 0.88;
+  --interactive-active-opacity: 0.78;
+  --interactive-disabled-opacity: 0.35;
+
+  /* ═══════════════════════════════════════════
+     CARDS
+     Фарфоровые блюдца. Каждая карточка — как
+     подставка под чашку: светлая, гладкая,
+     с едва заметным кольцом от горячей
+     керамики. При выборе — как солнечный луч,
+     скользнувший по краю тарелки с тирамису.
+     ═══════════════════════════════════════════ */
+  --card-bg: var(--glass-bg);
+  --card-hover-bg: var(--bg-surface-2);
+  --card-hover-glow: rgba(160, 113, 78, 0.04);
+  --card-selected-bg-from: rgba(160, 113, 78, 0.09);
+  --card-selected-bg-to: var(--bg-surface-1);
+  --card-selected-glow: rgba(160, 113, 78, 0.09);
+  --card-selected-inner: rgba(160, 113, 78, 0.03);
+  --card-check-bg: #A0714E;
+  --card-check-color: #FFFFFF;
+  --card-avatar-glow: rgba(160, 113, 78, 0.16);
+  --card-tag-bg: var(--bg-input);
+  --card-tag-border: var(--border-color);
+  --card-info-bg: rgba(42, 31, 23, 0.58);
+  --card-info-blur: 10px;
+  --card-delete-bg: rgba(184, 80, 74, 0.07);
+  --card-delete-border: rgba(184, 80, 74, 0.16);
+  --card-delete-color: rgba(160, 55, 50, 0.70);
+  --card-delete-bg-hover: rgba(184, 80, 74, 0.14);
+  --card-delete-color-hover: #9C3530;
+  --create-card-hover-bg: var(--bg-surface-2);
+
+  /* ═══════════════════════════════════════════
+     BUTTONS
+     Шоколадная фурнитура на сливочном фарфоре.
+     Primary: градиент от обжаренного тоффи
+     к тёмному шоколаду. Кремовый текст.
+     Кнопка как плитка ремесленного шоколада —
+     заметна, манит, но не кричит.
+
+     Контраст: #FFF6EE на градиенте → 4.6–6.2:1
+     ═══════════════════════════════════════════ */
+  --btn-primary-bg: var(--grad-burgundy);
+  --btn-primary-color: #FFF6EE;
+  --btn-secondary-bg: var(--bg-surface-3);
+  --btn-secondary-color: var(--txt-secondary);
+  --btn-ghost-bg: transparent;
+  --btn-ghost-color: var(--txt-secondary);
+
+  --info-btn-hover-border: var(--glass-border-hover);
+
+  /* ═══════════════════════════════════════════
+     TAGS
+     Крафтовые этикетки. Как на пакетике
+     single-origin — минималистичные, тёплые.
+     Активный тег = залитый шоколадом.
+     «New» = медовый маркер.
+     «Custom» = серо-зеленоватый, как
+     шалфейный латте — прохладный контрапункт.
+     ═══════════════════════════════════════════ */
+  --tag-bg: var(--bg-surface-3);
+  --tag-color: var(--txt-secondary);
+  --tag-active-bg: var(--grad-burgundy);
+  --tag-active-color: #FFF6EE;
+  --tag-active-glow: rgba(160, 113, 78, 0.16);
+
+  /* New — медовая маркировка */
+  --tag-new-border: rgba(196, 154, 56, 0.22);
+  --tag-new-bg-from: #FDF6E6;
+  --tag-new-bg-to: #F8EDD0;
+  --tag-new-text: #7A6020;
+  --tag-new-border-active: rgba(196, 154, 56, 0.40);
+
+  /* Custom — шалфейный контрапункт */
+  --tag-custom-border: rgba(90, 120, 100, 0.20);
+  --tag-custom-bg-from: rgba(90, 130, 105, 0.06);
+  --tag-custom-bg-to: rgba(90, 130, 105, 0.11);
+  --tag-custom-text: rgba(55, 95, 75, 0.85);
+  --tag-custom-border-active: rgba(90, 130, 105, 0.36);
+
+  /* ═══════════════════════════════════════════
+     PROGRESS / STEPS
+     Зёрна на обжарке. Активный шаг —
+     медиум-рост, светится теплом. Пройденный —
+     дарк-рост, с тёмной рамкой. Прогресс
+     как путь зерна: зелёное → обжаренное →
+     эспрессо.
+     ═══════════════════════════════════════════ */
+  --step-bg: var(--bg-surface-3);
+  --step-color: var(--txt-secondary);
+  --step-active-bg: var(--grad-burgundy);
+  --step-active-color: #FFF6EE;
+  --step-active-border: #A0714E;
+  --step-active-glow: rgba(160, 113, 78, 0.28);
+  --step-completed-bg: var(--bg-surface-3);
+  --step-completed-border: #7D5535;
+  --step-completed-line: #7D5535;
+
+  /* ═══════════════════════════════════════════
+     INFO PANELS
+     ═══════════════════════════════════════════ */
+  --info-tag-bg: var(--bg-input);
+  --info-tag-border: var(--border-color);
+  --info-desc-bg: rgba(42, 31, 23, 0.03);
+
+  /* ═══════════════════════════════════════════
+     DANGER ZONE
+     Клюквенный морс, случайно пролитый на
+     крафтовую салфетку. Тёплый розовый крем
+     с серьёзным намёком. Не клинически красный,
+     а живой, терракотовый.
+     ═══════════════════════════════════════════ */
+  --danger-bg-from: #FDF0EE;
+  --danger-bg-to: #F9DDD8;
+  --danger-bg-hover-from: #F9DDD8;
+  --danger-bg-hover-to: #F5CCC5;
+  --danger-text: #7E2E28;
+  --danger-border: rgba(184, 80, 74, 0.20);
+  --danger-glow: rgba(184, 80, 74, 0.07);
+
+  /* ═══════════════════════════════════════════
+     SEARCH
+     Строка поиска — как блюдце для эспрессо:
+     светлое, простое, с тонким краем. При
+     фокусе появляется тёплое кольцо — чашка
+     поставлена, кофе налит.
+     ═══════════════════════════════════════════ */
+  --search-bg: var(--glass-bg);
+  --search-border: var(--glass-border);
+  --search-focus-border: #7D5535;
+  --search-focus-shadow: rgba(125, 85, 53, 0.10);
+
+  /* ═══════════════════════════════════════════
+     MISC
+     ═══════════════════════════════════════════ */
+  --alpha-active-glow: rgba(160, 113, 78, 0.14);
+
+  --scrollbar-track: transparent;
+  --scrollbar-thumb: #D5C7B8;
+  --scrollbar-thumb-hover: #A0714E;
+
+  --overlay-bg: rgba(42, 31, 23, 0.52);
+  --overlay-blur: 12px;
+
+  /* ═══════════════════════════════════════════
+     BACKGROUND RADIALS
+     Солнце сквозь жалюзи кофейни. Два тёплых
+     пятна — одно золотистое (утренний свет
+     на стойке), другое кофейное (тень от
+     кофемашины). Ощущаются как атмосфера,
+     не видны как фигуры.
+     ═══════════════════════════════════════════ */
+  --bg-radial-1: rgba(160, 113, 78, 0.04);
+  --bg-radial-2: rgba(180, 140, 100, 0.03);
+  --bg-radial-3: rgba(235, 226, 215, 0.35);
+
+  /* ═══════════════════════════════════════════
+     GRADIENTS
+     От карамельного тоффи к горькому шоколаду.
+     Градиент обжарки — от медиум-рост к дарк.
+     Светлая грань ловит свет настольной лампы,
+     тёмный край растворяется в аромате кофе.
+     ═══════════════════════════════════════════ */
+  --grad-burgundy: linear-gradient(135deg, #8C6344, #5C3D28);
+  --grad-rich: linear-gradient(135deg, var(--bg-surface-3), var(--bg-surface-2));
+  --grad-gold-subtle: linear-gradient(
+    135deg,
+    rgba(160, 113, 78, 0.05),
+    rgba(160, 113, 78, 0.012)
+  );
+  --grad-surface: linear-gradient(180deg, var(--bg-surface-2), var(--bg-surface-1));
+  --grad-overlay: linear-gradient(180deg, transparent, var(--bg-app));
+}
+
+
+/* ╔════════════════════════════════════════════╗
+   ║  CAFÉ CRÈME — Visual Enhancements          ║
+   ║  Кофейная пыль. Сливочный лён.             ║
+   ║  Тепло в каждой складке.                    ║
+   ╚════════════════════════════════════════════╝ */
+
+
+/* ─── Кофейное выделение текста ─── */
+[data-theme="cream"] ::selection {
+  background: rgba(160, 113, 78, 0.20);
+  color: #2A1F17;
+}
+
+[data-theme="cream"] ::-moz-selection {
+  background: rgba(160, 113, 78, 0.20);
+  color: #2A1F17;
+}
+
+
+/* ─── Утренний свет кофейни + виньетка ───
+   Рассеянный свет сквозь витрину. Два тёплых
+   пятна — солнце на деревянной стойке слева,
+   отражение от латунной кофемолки справа.
+   Виньетка по краям — тень от высокого потолка,
+   фокусирует взгляд на чашке в центре. */
+
+[data-theme="cream"] body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(
+      ellipse 65% 50% at 20% 15%,
+      rgba(180, 140, 100, 0.04),
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 55% 45% at 80% 80%,
+      rgba(160, 113, 78, 0.025),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at center,
+      transparent 50%,
+      rgba(215, 200, 185, 0.18) 100%
+    );
+}
+
+
+/* ─── Текстура крафт-бумаги ───
+   Тончайшая зернистость — как поверхность
+   качественной крафтовой бумаги или грубого
+   льна, из которого сшит фартук бариста.
+   Видна только вблизи, придаёт тактильное
+   ощущение настоящего, рукотворного. */
+
+[data-theme="cream"] body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2147483646;
+  opacity: 0.014;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.70' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23s)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+
+
+/* ─── Утончённый скроллбар ─── */
+
+[data-theme="cream"] ::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+[data-theme="cream"] ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+[data-theme="cream"] ::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 100px;
+  transition: background 0.2s ease;
+}
+
+[data-theme="cream"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+  box-shadow: 0 0 6px rgba(160, 113, 78, 0.18);
+}
+
+
+/* ─── Утилитарные анимации ───
+   Ритм утренней кофейни. Неспешный, как
+   пар над чашкой. Ничего резкого — каждое
+   движение, как помешивание молочной
+   пенки ложечкой. */
+
+@keyframes cream-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 4px rgba(160, 113, 78, 0.09),
+      0 0 14px rgba(160, 113, 78, 0.03);
+  }
+  50% {
+    box-shadow:
+      0 0 8px rgba(160, 113, 78, 0.18),
+      0 0 28px rgba(160, 113, 78, 0.07);
+  }
+}
+
+@keyframes cream-text-glow {
+  0%, 100% {
+    text-shadow: 0 0 4px rgba(160, 113, 78, 0.12);
+  }
+  50% {
+    text-shadow:
+      0 0 8px rgba(160, 113, 78, 0.22),
+      0 0 18px rgba(160, 113, 78, 0.08);
+  }
+}
+
+@keyframes cream-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cream-breathe {
+  0%, 100% {
+    border-color: rgba(160, 113, 78, 0.07);
+  }
+  50% {
+    border-color: rgba(160, 113, 78, 0.16);
+  }
+}
+
+@keyframes cream-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}

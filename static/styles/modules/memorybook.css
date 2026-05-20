@@ -1,0 +1,570 @@
+/* ============================================
+   MEMORY BOOK MODULE — База знаний и ИИ-память
+   ============================================ */
+
+/* ============================================
+   1. КОНТЕЙНЕР МОДАЛЬНОГО ОКНА
+   ============================================ */
+.memory-modal {
+  max-width: 900px !important;
+  width: 95vw;
+  height: 85vh;
+  height: 85dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-surface-1);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+}
+
+/* ============================================
+   2. ШАПКА (HEADER) И ТАБЫ
+   ============================================ */
+.mb-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-5);
+  background: var(--bg-surface-2);
+  border-bottom: 1px solid var(--glass-border);
+  flex-shrink: 0;
+}
+
+.mb-header__left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.mb-header__icon {
+  font-size: var(--font-size-xl);
+}
+
+.mb-header__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-semibold);
+  color: var(--txt-gold);
+  margin: 0;
+}
+
+.mb-header__sync {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  color: var(--txt-muted);
+  margin-left: var(--space-2);
+}
+
+/* Переопределение стандартных табов для MemoryBook */
+.memory-modal .mb-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--glass-border);
+  padding: 0 var(--space-5);
+  flex-shrink: 0;
+  overflow-x: auto;
+  background: var(--bg-surface-1);
+  gap: var(--space-2);
+  scrollbar-width: none;
+}
+
+.memory-modal .mb-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.memory-modal .mb-tab {
+  padding: var(--space-3) var(--space-4);
+  color: var(--txt-muted);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-medium);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: -1px;
+}
+
+.memory-modal .mb-tab:hover {
+  color: var(--txt-secondary);
+}
+
+.memory-modal .mb-tab.active {
+  color: var(--txt-gold);
+  border-bottom-color: var(--txt-gold);
+}
+
+/* ============================================
+   3. КАТЕГОРИИ (СЕКЦИИ)
+   ============================================ */
+.mb-section {
+  margin-bottom: var(--space-4);
+}
+
+.mb-section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2-5) var(--space-4);
+  background: var(--bg-surface-3);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  margin-bottom: var(--space-3);
+  transition: background var(--transition-fast);
+  user-select: none;
+}
+
+.mb-section__header:hover {
+  background: var(--bg-surface-4);
+}
+
+.mb-section__title {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-semibold);
+  color: var(--txt-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.mb-section__count {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  color: var(--txt-muted);
+  background: var(--bg-surface-1);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+}
+
+.mb-section__add {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-xs);
+  color: var(--txt-gold-light);
+  background: transparent;
+  border: 1px dashed var(--glass-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-2);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.mb-section__add:hover {
+  color: var(--txt-gold);
+  border-color: var(--txt-gold);
+  background: var(--state-hover);
+}
+
+.mb-section__chevron {
+  color: var(--txt-muted);
+  transition: transform var(--transition-fast);
+}
+
+.mb-section.collapsed .mb-section__chevron {
+  transform: rotate(-90deg);
+}
+
+.mb-section.collapsed .mb-section__body {
+  display: none;
+}
+
+/* Пустое состояние секции */
+.mb-empty {
+  text-align: center;
+  padding: var(--space-6) var(--space-4);
+  color: var(--txt-muted);
+  background: var(--bg-surface-2);
+  border: 1px dashed var(--border-subtle);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-3);
+}
+
+.mb-empty__icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-2);
+  opacity: 0.5;
+}
+
+/* ============================================
+   4. КАРТОЧКА ПАМЯТИ (AI MEMORY / USER NOTE)
+   ============================================ */
+.mb-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: var(--space-3);
+  transition: all var(--transition-fast);
+}
+
+.mb-card:hover {
+  border-color: var(--glass-border-hover);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Состояния карточки */
+.mb-card[data-inactive="true"] {
+  opacity: 0.6;
+}
+
+.mb-card[data-frozen="true"] {
+  border-color: var(--state-info-border);
+  background: var(--state-info-bg);
+}
+
+.mb-card[data-changed="true"] {
+  border-color: var(--state-warning-border);
+}
+
+.mb-card[data-new="true"] {
+  animation: newCardPulse 2s var(--ease-out) forwards;
+}
+
+@keyframes newCardPulse {
+  0%   { box-shadow: var(--fx-glow-success); border-color: var(--state-success); }
+  100% { box-shadow: none; border-color: var(--state-success-border); }
+}
+
+/* Шапка карточки */
+.mb-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-3);
+  background: var(--bg-surface-3);
+  border-bottom: 1px solid var(--border-divider);
+  gap: var(--space-2);
+}
+
+.mb-card__header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  flex: 1;
+  min-width: 0;
+}
+
+.mb-card__emoji {
+  font-size: 1.1rem;
+}
+
+.mb-card__category {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  color: var(--txt-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.mb-card__title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-semibold);
+  color: var(--txt-primary);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.mb-card__title-input {
+  background: var(--bg-input);
+  border: 1px solid var(--border-accent);
+  color: var(--txt-primary);
+  font-size: var(--font-size-sm);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-xs);
+  outline: none;
+  font-weight: var(--font-semibold);
+  width: 150px;
+}
+
+/* Кнопки в шапке карточки */
+.mb-card__header-right {
+  display: flex;
+  gap: 2px;
+}
+
+.mb-card__btn {
+  width: var(--size-7);
+  height: var(--size-7);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: none;
+  color: var(--txt-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.mb-card__btn:hover {
+  background: var(--bg-surface-4);
+  color: var(--txt-gold);
+}
+
+.mb-card__btn--danger:hover {
+  background: var(--state-error-bg);
+  color: var(--state-error);
+}
+
+/* Тело карточки */
+.mb-card__body {
+  padding: var(--space-3);
+}
+
+.mb-card__body.editing {
+  background: var(--bg-surface-2);
+}
+
+.mb-card__textarea {
+  width: 100%;
+  min-height: 60px;
+  background: transparent;
+  border: none;
+  color: var(--txt-secondary);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-sm);
+  line-height: var(--leading-relaxed);
+  resize: none;
+  outline: none;
+  padding: 0;
+}
+
+.mb-card__body.editing .mb-card__textarea {
+  color: var(--txt-primary);
+  background: var(--bg-input);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2);
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Подвал карточки (Настройки) */
+.mb-card__footer {
+  padding: var(--space-2) var(--space-3);
+  border-top: 1px solid var(--border-divider);
+  background: var(--bg-surface-2);
+}
+
+.mb-card__params {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.mb-param {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.mb-param__label {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  color: var(--txt-muted);
+}
+
+/* Звездочки важности */
+.mb-param__stars {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  font-size: 1rem;
+  color: var(--bg-surface-4);
+  cursor: pointer;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.star.active {
+  color: var(--txt-gold);
+}
+
+.star:hover {
+  transform: scale(1.2);
+  color: var(--txt-gold-light);
+}
+
+/* Тоггл переключатель (стилизован под дизайн систему) */
+.mb-toggle {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+  background-color: var(--bg-surface-4);
+  border: 1px solid var(--glass-border);
+  transition: 0.3s;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.mb-toggle::before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 2px;
+  bottom: 2px;
+  background-color: var(--txt-muted);
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+.mb-toggle.active {
+  background-color: var(--state-success);
+  border-color: var(--state-success);
+}
+
+.mb-toggle.active::before {
+  transform: translateX(16px);
+  background-color: white;
+}
+
+/* ============================================
+   5. БЕЙДЖИ (BADGES)
+   ============================================ */
+.mb-badge {
+  font-family: var(--font-family-mono);
+  font-size: 0.65rem;
+  font-weight: var(--font-medium);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.mb-badge--new {
+  background: var(--state-success-bg);
+  color: var(--state-success);
+  border: 1px solid var(--state-success-border);
+}
+
+.mb-badge--changed {
+  background: var(--state-warning-bg);
+  color: var(--state-warning);
+  border: 1px solid var(--state-warning-border);
+}
+
+.mb-badge--frozen {
+  background: var(--state-info-bg);
+  color: var(--state-info);
+  border: 1px solid var(--state-info-border);
+}
+
+/* ============================================
+   6. ПОДВАЛ МОДАЛКИ (FOOTER)
+   ============================================ */
+.mb-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-5);
+  background: var(--bg-surface-2);
+  border-top: 1px solid var(--glass-border);
+  flex-shrink: 0;
+  gap: var(--space-3);
+  padding-bottom: calc(var(--space-3) + env(safe-area-inset-bottom, 0));
+}
+
+.btn-update {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2-5) var(--space-5);
+  background: var(--grad-burgundy);
+  color: var(--txt-gold-light);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-semibold);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-update:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md), var(--fx-shadow-gold);
+}
+
+.btn-update:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* ============================================
+   7. АДАПТИВНОСТЬ (МОБИЛЬНЫЕ)
+   ============================================ */
+@media (max-width: 768px) {
+  .memory-modal {
+    width: 100vw;
+    height: 100dvh;
+    max-height: 100dvh;
+    border-radius: 0;
+    border: none;
+  }
+
+  .mb-header {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .mb-header__sync {
+    display: none; /* Скрываем время обновления на мобильных */
+  }
+
+  .memory-modal .mb-tabs {
+    padding: 0 var(--space-3);
+  }
+
+  .memory-modal .mb-tab {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--font-size-xs);
+  }
+
+  .mb-card__header {
+    flex-wrap: wrap;
+  }
+  
+  .mb-card__title {
+    max-width: 120px;
+  }
+
+  .mb-card__params {
+    gap: var(--space-2);
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .mb-footer {
+    flex-direction: column-reverse;
+    padding: var(--space-3);
+  }
+
+  .btn-update {
+    width: 100%;
+    justify-content: center;
+    padding: var(--space-3);
+  }
+}

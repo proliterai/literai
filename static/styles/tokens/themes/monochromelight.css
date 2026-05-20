@@ -1,0 +1,543 @@
+/* ============================================
+   SILVER INK — Monochrome Light Theme
+   ─────────────────────────────────────────
+   Утренняя газета на мраморном столе. Чёрные
+   чернила на белой бумаге. Серебряная ручка.
+   Архитектурное бюро, где каждая линия имеет
+   значение. Ни одного лишнего цвета — только
+   градации серого, от молочного тумана до
+   графитовой тени.
+
+   Философия:
+   • Цвет — это шум. Убери шум — останется
+     форма. Форма — это всё.
+   • Монохром не значит скучно. Монохром
+     значит: каждый оттенок на вес золота.
+   • Контраст — единственный инструмент.
+     Используй его как скальпель.
+
+   Архитектура:
+   • Молочно-белый (#F6F6F8) — не стерильный
+     госпитальный, а мягкий, как рисовая бумага
+   • Графитовый текст (#1A1A1E) — густые
+     типографские чернила
+   • Акцент — средне-серый (#6E6E76) — серебро,
+     не золото. Элегантность сдержанности
+   • Тени нейтральные — чистый серый, без
+     тёплых и холодных подтонов
+   • Каждый элемент читается за счёт
+     контраста, не за счёт цвета
+   ============================================ */
+
+[data-theme="monochromelight"] {
+
+  /* ═══════════════════════════════════════════
+     BACKGROUNDS
+     Слои бумаги. Самый верхний — почти белый,
+     как первая страница. Каждый следующий — чуть
+     темнее, как тень от стопки листов. Без
+     синевы, без желтизны — чистый, нейтральный,
+     невозможно точный серый.
+     ═══════════════════════════════════════════ */
+  --bg-app: #F6F6F8;
+  --bg-surface-1: #EFEFF1;
+  --bg-surface-2: #E6E6EA;
+  --bg-surface-3: #DDDDE2;
+  --bg-surface-4: #D3D3D9;
+  --bg-surface-5: #C8C8CF;
+  --bg-input: #FFFFFF;
+  --bg-elevated: #FFFFFF;
+  --bg-sunken: #E8E8EC;
+  --bg-primary: var(--bg-surface-1);
+
+  /* ═══════════════════════════════════════════
+     GLASSMORPHISM
+     Матовое стекло архитектурного макета.
+     Белое, чистое, без цветных примесей.
+     Как вощёная калька над чертежом.
+     ═══════════════════════════════════════════ */
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-bg-heavy: rgba(255, 255, 255, 0.92);
+  --glass-bg-light: rgba(255, 255, 255, 0.48);
+  --glass-border: rgba(26, 26, 30, 0.08);
+  --glass-border-hover: rgba(26, 26, 30, 0.18);
+  --glass-border-active: rgba(26, 26, 30, 0.32);
+
+  /* ═══════════════════════════════════════════
+     TEXT COLORS
+     Типографские чернила на бумаге ручной
+     работы. Основной — почти чёрный, но с
+     микроскопическим смягчением, чтобы не
+     резать глаза. Вторичный — грифель мягкого
+     карандаша. Приглушённый — карандашный
+     набросок, который почти стёрли.
+
+     Контраст на #EFEFF1:
+     • primary   #1A1A1E → 14.8:1 (AAA) ✓
+     • secondary #5C5C64 →  5.2:1 (AA)  ✓
+     • muted     #93939C →  2.8:1 (декор) ✓
+
+     Контраст на акценте #6E6E76:
+     • on-accent #FFFFFF → 4.6:1 (AA) ✓
+     ═══════════════════════════════════════════ */
+  --txt-primary: #1A1A1E;
+  --txt-secondary: #5C5C64;
+  --txt-muted: #93939C;
+  --txt-disabled: rgba(147, 147, 156, 0.50);
+
+  --txt-gold: #4A4A52;
+  --txt-gold-light: #6E6E76;
+  --txt-gold-dark: #2E2E34;
+  --txt-accent: #4A4A52;
+  --txt-inverse: #F6F6F8;
+  --txt-on-accent: #FFFFFF;
+  --txt-link: #4A4A52;
+  --txt-link-hover: #1A1A1E;
+
+  /* ═══════════════════════════════════════════
+     BORDERS
+     Линии чертежа. Тонкие, точные, серые.
+     В покое — как разметка на миллиметровке.
+     При касании — как линия, прочерченная
+     рейсфедером: чёткая, уверенная.
+     ═══════════════════════════════════════════ */
+  --border-color: rgba(26, 26, 30, 0.10);
+  --border-subtle: rgba(26, 26, 30, 0.05);
+  --border-hover: rgba(26, 26, 30, 0.22);
+  --border-active: rgba(26, 26, 30, 0.38);
+  --border-accent: #6E6E76;
+  --border-focus: #4A4A52;
+  --border-divider: rgba(26, 26, 30, 0.07);
+
+  /* ═══════════════════════════════════════════
+     ACCENTS
+     Серебро. Единственный «цвет» — это
+     градация серого. Primary — средний графит:
+     достаточно тёмный для контраста на белом,
+     достаточно светлый, чтобы не быть текстом.
+     Семантические цвета — приглушённые,
+     десатурированные, как цветная фотография,
+     напечатанная на газетной бумаге.
+     ═══════════════════════════════════════════ */
+  --accent-primary: #6E6E76;
+  --accent-secondary: #8A8A92;
+  --accent-tertiary: #4A4A52;
+  --accent-success: #5A8A64;
+  --accent-error: #A05252;
+  --accent-info: #52728A;
+  --accent-warning: #96843E;
+
+  /* ═══════════════════════════════════════════
+     STATES
+     Семантика без крика. Успех — приглушённый
+     серо-зелёный, как мох на камне. Ошибка —
+     тёмный терракотовый, как сургуч. Инфо —
+     серо-стальной. Предупреждение — тёмное
+     золото, почти хаки. Всё десатурировано —
+     цвет здесь гость, не хозяин.
+     ═══════════════════════════════════════════ */
+  --state-success: #5A8A64;
+  --state-success-bg: rgba(90, 138, 100, 0.07);
+  --state-success-border: rgba(90, 138, 100, 0.20);
+  --state-error: #A05252;
+  --state-error-bg: rgba(160, 82, 82, 0.06);
+  --state-error-border: rgba(160, 82, 82, 0.18);
+  --state-info: #52728A;
+  --state-info-bg: rgba(82, 114, 138, 0.06);
+  --state-info-border: rgba(82, 114, 138, 0.18);
+  --state-warning: #96843E;
+  --state-warning-bg: rgba(150, 132, 62, 0.07);
+  --state-warning-border: rgba(150, 132, 62, 0.20);
+  --state-disabled: rgba(147, 147, 156, 0.22);
+  --state-hover: rgba(26, 26, 30, 0.04);
+  --state-active: rgba(26, 26, 30, 0.08);
+  --state-selected: rgba(26, 26, 30, 0.06);
+
+  /* ═══════════════════════════════════════════
+     SHADOWS
+     Тени бумаги. Чистый нейтральный серый —
+     никаких тёплых или холодных подтонов.
+     Мягкие, рассеянные, как от дневного
+     света из большого окна архитектурной
+     студии.
+     ═══════════════════════════════════════════ */
+  --shadow-xs:
+    0 1px 3px rgba(26, 26, 30, 0.05),
+    0 1px 2px rgba(26, 26, 30, 0.03);
+  --shadow-sm:
+    0 2px 6px rgba(26, 26, 30, 0.05),
+    0 4px 12px rgba(26, 26, 30, 0.03);
+  --shadow-md:
+    0 4px 10px rgba(26, 26, 30, 0.06),
+    0 8px 24px rgba(26, 26, 30, 0.04);
+  --shadow-lg:
+    0 8px 18px rgba(26, 26, 30, 0.07),
+    0 16px 40px rgba(26, 26, 30, 0.04);
+  --shadow-xl:
+    0 12px 24px rgba(26, 26, 30, 0.08),
+    0 24px 56px rgba(26, 26, 30, 0.05);
+  --shadow-inner: inset 0 2px 5px rgba(26, 26, 30, 0.04);
+  --shadow-outline: 0 0 0 3px rgba(26, 26, 30, 0.06);
+
+  /* ═══════════════════════════════════════════
+     EFFECTS
+     Серебряное свечение — как свет,
+     отражённый от полированной стали.
+     Деликатное, холодное, функциональное.
+     ═══════════════════════════════════════════ */
+  --fx-glass-blur: 18px;
+  --fx-glass-blur-heavy: 26px;
+  --fx-glass-blur-light: 10px;
+  --fx-shadow-sm: var(--shadow-sm);
+  --fx-shadow-md: var(--shadow-md);
+  --fx-shadow-lg: var(--shadow-lg);
+  --fx-shadow-xl: var(--shadow-xl);
+  --fx-shadow-gold:
+    0 0 16px rgba(26, 26, 30, 0.05),
+    0 0 38px rgba(26, 26, 30, 0.02);
+  --fx-shadow-gold-strong:
+    0 0 20px rgba(26, 26, 30, 0.10),
+    0 0 48px rgba(26, 26, 30, 0.04);
+  --fx-glow-gold:
+    0 0 12px rgba(26, 26, 30, 0.06);
+  --fx-glow-gold-subtle:
+    0 0 8px rgba(26, 26, 30, 0.03);
+
+  /* ═══════════════════════════════════════════
+     FOCUS
+     Графитовое кольцо. Строгое, точное —
+     как рамка вокруг подписи на контракте.
+     Без свечения — просто линия, но идеальная.
+     ═══════════════════════════════════════════ */
+  --focus-ring:
+    0 0 0 2px rgba(74, 74, 82, 0.32),
+    0 0 8px rgba(74, 74, 82, 0.05);
+  --focus-ring-error: 0 0 0 2px rgba(160, 82, 82, 0.32);
+  --focus-ring-success: 0 0 0 2px rgba(90, 138, 100, 0.32);
+  --focus-ring-offset:
+    0 0 0 3px var(--bg-app),
+    0 0 0 5px rgba(74, 74, 82, 0.32);
+  --input-focus-shadow:
+    0 0 0 2px rgba(74, 74, 82, 0.16),
+    0 0 12px rgba(74, 74, 82, 0.03);
+
+  /* ═══════════════════════════════════════════
+     INTERACTIVE STATES
+     ═══════════════════════════════════════════ */
+  --interactive-hover-opacity: 0.88;
+  --interactive-active-opacity: 0.78;
+  --interactive-disabled-opacity: 0.35;
+
+  /* ═══════════════════════════════════════════
+     CARDS
+     Листы бумаги. Белые, чистые, с едва
+     заметной тенью — как стопка документов
+     на стеклянном столе. При выборе —
+     лёгкое затемнение, как палец, прижавший
+     нужную строку в документе.
+     ═══════════════════════════════════════════ */
+  --card-bg: var(--glass-bg);
+  --card-hover-bg: var(--bg-surface-2);
+  --card-hover-glow: rgba(26, 26, 30, 0.02);
+  --card-selected-bg-from: rgba(26, 26, 30, 0.06);
+  --card-selected-bg-to: var(--bg-surface-1);
+  --card-selected-glow: rgba(26, 26, 30, 0.06);
+  --card-selected-inner: rgba(26, 26, 30, 0.02);
+  --card-check-bg: #4A4A52;
+  --card-check-color: #FFFFFF;
+  --card-avatar-glow: rgba(26, 26, 30, 0.08);
+  --card-tag-bg: var(--bg-surface-2);
+  --card-tag-border: var(--border-color);
+  --card-info-bg: rgba(26, 26, 30, 0.55);
+  --card-info-blur: 10px;
+  --card-delete-bg: rgba(160, 82, 82, 0.06);
+  --card-delete-border: rgba(160, 82, 82, 0.16);
+  --card-delete-color: rgba(160, 82, 82, 0.70);
+  --card-delete-bg-hover: rgba(160, 82, 82, 0.12);
+  --card-delete-color-hover: #8A3838;
+  --create-card-hover-bg: var(--bg-surface-2);
+
+  /* ═══════════════════════════════════════════
+     BUTTONS
+     Графитовые штампы. Primary — тёмный серый
+     с белым текстом: как печать на документе.
+     Строгий, безапелляционный, элегантный.
+     Secondary — прозрачный с бордером: как
+     контурный шрифт.
+
+     Контраст: #FFFFFF на #5C5C64 → 5.0:1 (AA)
+     Контраст: #FFFFFF на #4A4A52 → 6.4:1 (AAA)
+     ═══════════════════════════════════════════ */
+  --btn-primary-bg: var(--grad-burgundy);
+  --btn-primary-color: #FFFFFF;
+  --btn-secondary-bg: var(--bg-surface-3);
+  --btn-secondary-color: var(--txt-secondary);
+  --btn-ghost-bg: transparent;
+  --btn-ghost-color: var(--txt-secondary);
+  --info-btn-hover-border: var(--glass-border-hover);
+
+  /* ═══════════════════════════════════════════
+     TAGS
+     Метки на полях. Активный тег — залит
+     графитом, инвертирован. «New» — единственное
+     послабление монохрома: приглушённый серо-
+     зелёный, как штамп «APPROVED». «Custom» —
+     серо-стальной, как штамп «CLASSIFIED».
+     ═══════════════════════════════════════════ */
+  --tag-bg: var(--bg-surface-3);
+  --tag-color: var(--txt-secondary);
+  --tag-active-bg: var(--grad-burgundy);
+  --tag-active-color: #FFFFFF;
+  --tag-active-glow: rgba(26, 26, 30, 0.08);
+
+  /* New — APPROVED */
+  --tag-new-border: rgba(90, 138, 100, 0.20);
+  --tag-new-bg-from: rgba(90, 138, 100, 0.05);
+  --tag-new-bg-to: rgba(90, 138, 100, 0.02);
+  --tag-new-text: #4A7A54;
+  --tag-new-border-active: rgba(90, 138, 100, 0.38);
+
+  /* Custom — CLASSIFIED */
+  --tag-custom-border: rgba(82, 114, 138, 0.20);
+  --tag-custom-bg-from: rgba(82, 114, 138, 0.05);
+  --tag-custom-bg-to: rgba(82, 114, 138, 0.02);
+  --tag-custom-text: rgba(60, 95, 120, 0.85);
+  --tag-custom-border-active: rgba(82, 114, 138, 0.38);
+
+  /* ═══════════════════════════════════════════
+     PROGRESS / STEPS
+     Страницы документа. Активный шаг —
+     текущая страница: тёмная, инвертированная.
+     Пройденный — страница с галочкой.
+     Линия — скоба степлера, скрепляющая
+     документ.
+     ═══════════════════════════════════════════ */
+  --step-bg: var(--bg-surface-3);
+  --step-color: var(--txt-secondary);
+  --step-active-bg: var(--grad-burgundy);
+  --step-active-color: #FFFFFF;
+  --step-active-border: #4A4A52;
+  --step-active-glow: rgba(26, 26, 30, 0.10);
+  --step-completed-bg: var(--bg-surface-3);
+  --step-completed-border: #6E6E76;
+  --step-completed-line: #6E6E76;
+
+  /* ═══════════════════════════════════════════
+     INFO PANELS
+     ═══════════════════════════════════════════ */
+  --info-tag-bg: var(--bg-surface-2);
+  --info-tag-border: var(--border-color);
+  --info-desc-bg: rgba(26, 26, 30, 0.02);
+
+  /* ═══════════════════════════════════════════
+     DANGER ZONE
+     Красные чернила на белой бумаге.
+     Приглушённый терракот — не паника,
+     а серьёзное предупреждение. Как
+     «REJECTED» на документе.
+     ═══════════════════════════════════════════ */
+  --danger-bg-from: #FBF0F0;
+  --danger-bg-to: #F5E0E0;
+  --danger-bg-hover-from: #F5E0E0;
+  --danger-bg-hover-to: #F0D0D0;
+  --danger-text: #7A3232;
+  --danger-border: rgba(160, 82, 82, 0.18);
+  --danger-glow: rgba(160, 82, 82, 0.05);
+
+  /* ═══════════════════════════════════════════
+     SEARCH
+     Строка поиска — как поле для подписи
+     на бланке. Белое, чистое, с тонкой
+     линией снизу. При фокусе — линия
+     темнеет: ручка коснулась бумаги.
+     ═══════════════════════════════════════════ */
+  --search-bg: var(--glass-bg);
+  --search-border: var(--glass-border);
+  --search-focus-border: #4A4A52;
+  --search-focus-shadow: rgba(74, 74, 82, 0.06);
+
+  /* ═══════════════════════════════════════════
+     MISC
+     ═══════════════════════════════════════════ */
+  --alpha-active-glow: rgba(26, 26, 30, 0.08);
+
+  --scrollbar-track: transparent;
+  --scrollbar-thumb: #D3D3D9;
+  --scrollbar-thumb-hover: #6E6E76;
+
+  --overlay-bg: rgba(26, 26, 30, 0.40);
+  --overlay-blur: 12px;
+
+  /* ═══════════════════════════════════════════
+     BACKGROUND RADIALS
+     Чистый свет. Два едва заметных серых
+     свечения — как тень от окна, падающая
+     на рабочий стол. Третий — лёгкое
+     затемнение по краям, как виньетка
+     на архитектурной фотографии.
+     ═══════════════════════════════════════════ */
+  --bg-radial-1: rgba(26, 26, 30, 0.015);
+  --bg-radial-2: rgba(26, 26, 30, 0.010);
+  --bg-radial-3: rgba(230, 230, 234, 0.30);
+
+  /* ═══════════════════════════════════════════
+     GRADIENTS
+     Графитовый градиент. От среднего серого
+     к тёмному — как тень, ложащаяся на
+     стопку бумаги. Направление 135deg —
+     диагональ, как наклон пера при письме.
+     ═══════════════════════════════════════════ */
+  --grad-burgundy: linear-gradient(135deg, #5C5C64, #3E3E46);
+  --grad-rich: linear-gradient(135deg, var(--bg-surface-3), var(--bg-surface-2));
+  --grad-gold-subtle: linear-gradient(
+    135deg,
+    rgba(26, 26, 30, 0.03),
+    rgba(26, 26, 30, 0.008)
+  );
+  --grad-surface: linear-gradient(180deg, var(--bg-surface-2), var(--bg-surface-1));
+  --grad-overlay: linear-gradient(180deg, transparent, var(--bg-app));
+}
+
+
+/* ╔════════════════════════════════════════════╗
+   ║  SILVER INK — Visual Enhancements          ║
+   ║  Чистые линии. Нейтральный свет.            ║
+   ║  Форма без цвета.                           ║
+   ╚════════════════════════════════════════════╝ */
+
+
+/* ─── Выделение текста ─── */
+[data-theme="monochromelight"] ::selection {
+  background: rgba(26, 26, 30, 0.14);
+  color: #1A1A1E;
+}
+
+[data-theme="monochromelight"] ::-moz-selection {
+  background: rgba(26, 26, 30, 0.14);
+  color: #1A1A1E;
+}
+
+
+/* ─── Мягкий свет + виньетка ───
+   Дневной свет из панорамного окна.
+   Ровный, рассеянный, без направления.
+   Виньетка — едва заметное затемнение
+   по краям, как на чёрно-белой фотографии
+   Анселя Адамса. */
+
+[data-theme="monochromelight"] body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(
+      ellipse 60% 50% at 25% 20%,
+      rgba(255, 255, 255, 0.30),
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse at center,
+      transparent 55%,
+      rgba(200, 200, 207, 0.14) 100%
+    );
+}
+
+
+/* ─── Текстура бумаги ───
+   Микроскопическая зернистость — как фактура
+   качественной дизайнерской бумаги. Не шум —
+   текстура. Ощущается тактильно, не видна
+   визуально. */
+
+[data-theme="monochromelight"] body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2147483646;
+  opacity: 0.018;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.80' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23s)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+
+
+/* ─── Скроллбар ─── */
+
+[data-theme="monochromelight"] ::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+[data-theme="monochromelight"] ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+[data-theme="monochromelight"] ::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 100px;
+  transition: background 0.2s ease;
+}
+
+[data-theme="monochromelight"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+
+/* ─── Анимации ───
+   Минималистичные. Никаких свечений и
+   пульсаций — только появление, смещение,
+   плавный переход. Движение как жест
+   каллиграфа: точное, экономное. */
+
+@keyframes mono-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mono-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes mono-underline {
+  from {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  to {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+@keyframes mono-breathe {
+  0%, 100% {
+    border-color: rgba(26, 26, 30, 0.06);
+  }
+  50% {
+    border-color: rgba(26, 26, 30, 0.14);
+  }
+}
+
+@keyframes mono-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}

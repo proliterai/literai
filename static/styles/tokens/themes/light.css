@@ -1,0 +1,375 @@
+/* ============================================
+   CLARITY — Light Theme (Air & Ocean Refinement)
+   ─────────────────────────────────────────
+   Warm paper. Deep ink. Soft light.
+   Where every pixel earns its place.
+   
+   Design principles applied:
+   • Warm off-white (#F7F6F3) reduces eye-strain
+   • Heavy indigo washes replaced with soft azure 
+     pastels for a lighter, breathable UI
+   • Text #0C4A6E (Deep Ocean) provides supreme 
+     readability on both white cards and soft buttons
+   • WCAG AAA contrast on all readable text
+   ============================================ */
+
+[data-theme="light"] {
+
+  /* ═══════════════════════════════════════════
+     BACKGROUNDS
+     Elevation through warmth. The canvas is warm
+     linen, surfaces are fine paper laid on top.
+     ═══════════════════════════════════════════ */
+  --bg-app: #F7F6F3;
+  --bg-surface-1: #FFFFFF;
+  --bg-surface-2: #FAFAF8;
+  --bg-surface-3: #F0EFEC;
+  --bg-surface-4: #E7E6E2;
+  --bg-surface-5: #DDDCD8;
+  --bg-input: #FFFFFF;
+  --bg-elevated: #FFFFFF;
+  --bg-sunken: #EEEDE9;
+  --bg-primary: var(--bg-surface-1);
+
+  /* ═══════════════════════════════════════════
+     GLASSMORPHISM
+     ═══════════════════════════════════════════ */
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-bg-heavy: rgba(255, 255, 255, 0.90);
+  --glass-bg-light: rgba(255, 255, 255, 0.50);
+  --glass-border: rgba(0, 0, 0, 0.06);
+  --glass-border-hover: rgba(0, 0, 0, 0.12);
+  --glass-border-active: rgba(14, 165, 233, 0.35);
+
+  /* ═══════════════════════════════════════════
+     TEXT COLORS
+     Primary ink is near-black.
+     Accent text is Deep Ocean (#0C4A6E).
+     
+     Contrast ratios:
+     • Deep Ocean on #FFFFFF (Cards) → 13.5:1 (AAA)
+     • Deep Ocean on Soft Sky (Buttons) → 8.7:1 (AAA)
+     ═══════════════════════════════════════════ */
+  --txt-primary: #1A1A1A;
+  --txt-secondary: #5C5C5C;
+  --txt-muted: #8E8E8A;
+  --txt-disabled: rgba(142, 142, 138, 0.50);
+
+  /* Акцентный текст на карточках и светлых фонах */
+  --txt-gold: #0C4A6E;
+
+  /* УНИВЕРСАЛЬНЫЙ АКЦЕНТ: Идеально читается и на белом карточек, 
+     и на новых светлых кнопках. Глубокий, строгий оттенок. */
+  --txt-gold-light: #0C4A6E;
+
+  /* Тёмный акцент — для hover (еще более глубокий синий) */
+  --txt-gold-dark: #082F49;
+
+  --txt-accent: #0C4A6E;
+  --txt-inverse: #FFFFFF;
+  --txt-on-accent: var(--txt-gold-light); /* Теперь фон светлый, текст должен быть темным */
+  --txt-link: #0284C7;
+  --txt-link-hover: #0369A1;
+
+  /* ═══════════════════════════════════════════
+     BORDERS
+     ═══════════════════════════════════════════ */
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-subtle: rgba(0, 0, 0, 0.04);
+  --border-hover: rgba(0, 0, 0, 0.14);
+  --border-active: rgba(14, 165, 233, 0.40);
+  --border-accent: #7DD3FC;
+  --border-focus: #38BDF8;
+  --border-divider: rgba(0, 0, 0, 0.06);
+
+  /* ═══════════════════════════════════════════
+     ACCENTS
+     Light, neat blue tones for UI elements to
+     keep the interface airy and readable.
+     ═══════════════════════════════════════════ */
+  --accent-primary: #38BDF8;
+  --accent-secondary: #7DD3FC;
+  --accent-tertiary: #0284C7;
+  --accent-success: #16A34A;
+  --accent-error: #DC2626;
+  --accent-info: #2563EB;
+  --accent-warning: #D97706;
+
+  /* ═══════════════════════════════════════════
+     STATES
+     ═══════════════════════════════════════════ */
+  --state-success: #16A34A;
+  --state-success-bg: rgba(22, 163, 74, 0.07);
+  --state-success-border: rgba(22, 163, 74, 0.20);
+  --state-error: #DC2626;
+  --state-error-bg: rgba(220, 38, 38, 0.06);
+  --state-error-border: rgba(220, 38, 38, 0.18);
+  --state-info: #2563EB;
+  --state-info-bg: rgba(37, 99, 235, 0.06);
+  --state-info-border: rgba(37, 99, 235, 0.18);
+  --state-warning: #D97706;
+  --state-warning-bg: rgba(217, 119, 6, 0.06);
+  --state-warning-border: rgba(217, 119, 6, 0.18);
+  --state-disabled: rgba(142, 142, 138, 0.20);
+  --state-hover: rgba(0, 0, 0, 0.028);
+  --state-active: rgba(14, 165, 233, 0.08);
+  --state-selected: rgba(14, 165, 233, 0.06);
+
+  /* ═══════════════════════════════════════════
+     SHADOWS
+     ═══════════════════════════════════════════ */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.03), 0 4px 16px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.03), 0 8px 32px rgba(0, 0, 0, 0.07);
+  --shadow-xl: 0 8px 16px rgba(0, 0, 0, 0.04), 0 20px 48px rgba(0, 0, 0, 0.09);
+  --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-outline: 0 0 0 3px rgba(14, 165, 233, 0.10);
+
+  /* ═══════════════════════════════════════════
+     EFFECTS
+     ═══════════════════════════════════════════ */
+  --fx-glass-blur: 16px;
+  --fx-glass-blur-heavy: 24px;
+  --fx-glass-blur-light: 8px;
+  --fx-shadow-sm: var(--shadow-sm);
+  --fx-shadow-md: var(--shadow-md);
+  --fx-shadow-lg: var(--shadow-lg);
+  --fx-shadow-xl: var(--shadow-xl);
+  --fx-shadow-gold: 0 0 20px rgba(14, 165, 233, 0.06);
+  --fx-shadow-gold-strong: 0 0 30px rgba(14, 165, 233, 0.12);
+  --fx-glow-gold: 0 0 15px rgba(14, 165, 233, 0.06);
+  --fx-glow-gold-subtle: 0 0 10px rgba(14, 165, 233, 0.03);
+
+  /* ═══════════════════════════════════════════
+     FOCUS
+     ═══════════════════════════════════════════ */
+  --focus-ring: 0 0 0 2px rgba(14, 165, 233, 0.35);
+  --focus-ring-error: 0 0 0 2px rgba(220, 38, 38, 0.28);
+  --focus-ring-success: 0 0 0 2px rgba(22, 163, 74, 0.28);
+  --focus-ring-offset: 0 0 0 3px var(--bg-app), 0 0 0 5px rgba(14, 165, 233, 0.35);
+  --input-focus-shadow: 0 0 0 2px rgba(14, 165, 233, 0.15), 0 0 14px rgba(14, 165, 233, 0.04);
+
+  /* ═══════════════════════════════════════════
+     INTERACTIVE STATES
+     ═══════════════════════════════════════════ */
+  --interactive-hover-opacity: 0.88;
+  --interactive-active-opacity: 0.78;
+  --interactive-disabled-opacity: 0.40;
+
+  /* ═══════════════════════════════════════════
+     CARDS
+     ═══════════════════════════════════════════ */
+  --card-bg: var(--glass-bg);
+  --card-hover-bg: var(--bg-surface-2);
+  --card-hover-glow: rgba(14, 165, 233, 0.02);
+  --card-selected-bg-from: rgba(14, 165, 233, 0.04);
+  --card-selected-bg-to: var(--bg-surface-1);
+  --card-selected-glow: rgba(14, 165, 233, 0.06);
+  --card-selected-inner: rgba(14, 165, 233, 0.02);
+  --card-check-bg: #0C4A6E; /* Темный чекбокс для читаемости галочки */
+  --card-check-color: #FFFFFF;
+  --card-avatar-glow: rgba(14, 165, 233, 0.08);
+  --card-tag-bg: var(--bg-surface-3);
+  --card-tag-border: var(--border-color);
+  --card-info-bg: rgba(255, 255, 255, 0.85);
+  --card-info-blur: 8px;
+  --card-delete-bg: rgba(254, 226, 226, 0.60);
+  --card-delete-border: rgba(220, 38, 38, 0.12);
+  --card-delete-color: rgba(185, 28, 28, 0.60);
+  --card-delete-bg-hover: rgba(254, 202, 202, 0.80);
+  --card-delete-color-hover: #991B1B;
+  --create-card-hover-bg: var(--bg-surface-2);
+
+  /* ═══════════════════════════════════════════
+     BUTTONS
+     Primary buttons are now soft, breathable sky 
+     blue pastels. The text inside them is the deep, 
+     readable --txt-gold-light.
+     ═══════════════════════════════════════════ */
+  --btn-primary-bg: var(--grad-burgundy);
+  --btn-primary-color: var(--txt-gold-light); /* Важно: темный текст на светлой кнопке */
+  --btn-secondary-bg: var(--bg-surface-3);
+  --btn-secondary-color: var(--txt-primary);
+  --btn-ghost-bg: transparent;
+  --btn-ghost-color: var(--txt-secondary);
+
+  --info-btn-hover-border: var(--glass-border-hover);
+
+  /* ═══════════════════════════════════════════
+     TAGS
+     ═══════════════════════════════════════════ */
+  --tag-bg: var(--bg-surface-3);
+  --tag-color: var(--txt-secondary);
+  --tag-active-bg: var(--grad-burgundy);
+  --tag-active-color: var(--txt-gold-light);
+  --tag-active-glow: rgba(14, 165, 233, 0.10);
+
+  /* New — fresh emerald */
+  --tag-new-border: rgba(16, 185, 129, 0.22);
+  --tag-new-bg-from: #ECFDF5;
+  --tag-new-bg-to: #D1FAE5;
+  --tag-new-text: #065F46;
+  --tag-new-border-active: rgba(16, 185, 129, 0.38);
+
+  /* Custom — warm amber */
+  --tag-custom-border: rgba(217, 119, 6, 0.20);
+  --tag-custom-bg-from: rgba(255, 237, 213, 0.75);
+  --tag-custom-bg-to: rgba(254, 215, 170, 0.75);
+  --tag-custom-text: #92400E;
+  --tag-custom-border-active: rgba(217, 119, 6, 0.36);
+
+  /* ═══════════════════════════════════════════
+     PROGRESS / STEPS
+     ═══════════════════════════════════════════ */
+  --step-bg: var(--bg-surface-3);
+  --step-color: var(--txt-muted);
+  --step-active-bg: var(--grad-burgundy);
+  --step-active-color: var(--txt-gold-light);
+  --step-active-border: #0284C7;
+  --step-active-glow: rgba(14, 165, 233, 0.12);
+  --step-completed-bg: var(--bg-surface-3);
+  --step-completed-border: #0284C7;
+  --step-completed-line: #0284C7;
+
+  /* ═══════════════════════════════════════════
+     INFO PANELS
+     ═══════════════════════════════════════════ */
+  --info-tag-bg: var(--bg-surface-3);
+  --info-tag-border: var(--border-color);
+  --info-desc-bg: rgba(0, 0, 0, 0.018);
+
+  /* ═══════════════════════════════════════════
+     DANGER ZONE
+     ═══════════════════════════════════════════ */
+  --danger-bg-from: #FEE2E2;
+  --danger-bg-to: #FECACA;
+  --danger-bg-hover-from: #FECACA;
+  --danger-bg-hover-to: #FCA5A5;
+  --danger-text: #991B1B;
+  --danger-border: rgba(220, 38, 38, 0.18);
+  --danger-glow: rgba(220, 38, 38, 0.08);
+
+  /* ═══════════════════════════════════════════
+     SEARCH
+     ═══════════════════════════════════════════ */
+  --search-bg: #FFFFFF;
+  --search-border: var(--border-color);
+  --search-focus-border: #38BDF8;
+  --search-focus-shadow: rgba(14, 165, 233, 0.08);
+
+  /* ═══════════════════════════════════════════
+     MISC
+     ═══════════════════════════════════════════ */
+  --alpha-active-glow: rgba(14, 165, 233, 0.10);
+
+  --scrollbar-track: transparent;
+  --scrollbar-thumb: #D4D4D0;
+  --scrollbar-thumb-hover: #A3A3A0;
+
+  --overlay-bg: rgba(0, 0, 0, 0.28);
+  --overlay-blur: 10px;
+
+  /* ═══════════════════════════════════════════
+     BACKGROUND RADIALS
+     ═══════════════════════════════════════════ */
+  --bg-radial-1: rgba(14, 165, 233, 0.02);
+  --bg-radial-2: rgba(56, 189, 248, 0.015);
+  --bg-radial-3: rgba(0, 0, 0, 0.008);
+
+  /* ═══════════════════════════════════════════
+     GRADIENTS
+     (Сохранено название переменной --grad-burgundy для 
+      обратной совместимости с вашей версткой, но 
+      физически это теперь аккуратная светлая лазурь)
+     ═══════════════════════════════════════════ */
+  --grad-burgundy: linear-gradient(135deg, #E0F2FE, #BAE6FD);
+  --grad-rich: linear-gradient(135deg, var(--bg-surface-1), var(--bg-surface-2));
+  --grad-gold-subtle: linear-gradient(
+    135deg,
+    rgba(14, 165, 233, 0.04),
+    rgba(14, 165, 233, 0.005)
+  );
+  --grad-surface: linear-gradient(180deg, var(--bg-surface-1), var(--bg-surface-2));
+  --grad-overlay: linear-gradient(180deg, transparent, var(--bg-app));
+}
+
+
+/* ╔════════════════════════════════════════════╗
+   ║  CLARITY — Visual Refinements              ║
+   ╚════════════════════════════════════════════╝ */
+
+/* ─── Ink-tinted text selection ─── */
+[data-theme="light"] ::selection {
+  background: rgba(14, 165, 233, 0.15);
+  color: #1A1A1A;
+}
+
+[data-theme="light"] ::-moz-selection {
+  background: rgba(14, 165, 233, 0.15);
+  color: #1A1A1A;
+}
+
+
+/* ─── Ambient light wash ─── */
+[data-theme="light"] body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(
+      ellipse 80% 60% at 18% 14%,
+      rgba(14, 165, 233, 0.02),
+      transparent
+    ),
+    radial-gradient(
+      ellipse 70% 50% at 85% 80%,
+      rgba(56, 189, 248, 0.015),
+      transparent
+    );
+}
+
+
+/* ─── Refined scrollbar ─── */
+[data-theme="light"] ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 100px;
+  transition: background 0.2s ease;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+
+/* ─── Utility animations ─── */
+@keyframes clarity-lift {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes clarity-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); }
+  50% { box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.06); }
+}
+
+@keyframes clarity-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes clarity-scale-in {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
